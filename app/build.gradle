@@ -1,16 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt' // Kotlin Annotation Processor
+    id 'androidx.navigation.safeargs' // Jetpack Navigation SafeArgs
+    id 'dagger.hilt.android.plugin' // Dagger Hilt for Dependency Injection
+    id 'kotlinx-serialization' // Kotlin Serialization
 }
 
 android {
     namespace 'com.jxareas.techhub'
-    compileSdk 32
+    compileSdk rootProject.COMPILE_SDK
 
     defaultConfig {
         applicationId "com.jxareas.techhub"
-        minSdk 21
-        targetSdk 32
+        minSdk rootProject.MIN_SDK
+        targetSdk rootProject.TARGET_SDK
         versionCode 1
         versionName "1.0"
 
@@ -30,15 +34,53 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    // Android Dependencies
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
+
+    // Testing Dependencies
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Kotlin Dependencies
+    implementation "androidx.core:core-ktx:$ktx"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+
+    // Kotlin Serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlin_serialization"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$kotlin_serialization_converter"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+
+    // Dagger-Hilt
+    implementation "com.google.dagger:hilt-android:$dagger_hilt"
+    kapt "com.google.dagger:hilt-compiler:$dagger_hilt"
+
+    // ROOM
+    implementation "androidx.room:room-runtime:$room"
+    annotationProcessor "androidx.room:room-compiler:$room"
+
+    // Splash Screen
+    implementation "androidx.core:core-splashscreen:$splash_screen"
+
+
 }

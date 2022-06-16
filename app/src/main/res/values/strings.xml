@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TechHub</string>
+    <string name="search_courses">Search courses</string>
 </resources>

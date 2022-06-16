@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="grid_0_5">4dp</dimen>
+    <dimen name="grid_1">8dp</dimen>
+    <dimen name="grid_1_5">12dp</dimen>
+    <dimen name="grid_2">16dp</dimen>
+    <dimen name="grid_3">24dp</dimen>
+    <dimen name="grid_4">32dp</dimen>
+
+    <dimen name="image_view_instructor_height">50dp</dimen>
+    <dimen name="image_view_instructor_width">50dp</dimen>
+
+    <dimen name="margin_standard">16dp</dimen>
+</resources>

@@ -4,7 +4,7 @@ import com.jxareas.techhub.data.api.service.CourseService
 import com.jxareas.techhub.data.cache.dao.CourseDao
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.data.mappers.toCachedCourse
-import kotlinx.coroutines.Dispatchers
+import com.jxareas.techhub.utils.DispatcherProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -14,6 +14,7 @@ import javax.inject.Inject
 class CourseRepository @Inject constructor(
     private val courseDao: CourseDao,
     private val courseService: CourseService,
+    private val dispatcher : DispatcherProvider,
 ) {
 
     suspend fun loadCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> = flow {
@@ -27,11 +28,11 @@ class CourseRepository @Inject constructor(
             emit(courses)
         } else emit(courses)
 
-    }.onCompletion { onLoadingFinished() }.flowOn(Dispatchers.IO)
+    }.onCompletion { onLoadingFinished() }.flowOn(dispatcher.io)
 
     suspend fun loadCourseById(id : Int) : Flow<CachedCourse> = flow {
         val course = courseDao.getById(id)
         emit(course)
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(dispatcher.io)
 
 }

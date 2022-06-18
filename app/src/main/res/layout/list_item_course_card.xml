@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/featured_item"
-    android:theme="@style/TechHub.Orange"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/grid_0_5"
     android:background="?attr/colorOnSurface"
-    android:foreground="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    android:theme="@style/TechHub.Orange">
 
     <ImageView
         android:id="@+id/image_view_course_photo"
@@ -23,7 +23,7 @@
         tools:src="@tools:sample/backgrounds/scenic" />
 
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_view_instructor_photo"
         android:layout_width="@dimen/image_view_instructor_width"
         android:layout_height="@dimen/image_view_instructor_height"
@@ -33,7 +33,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_view_course_photo"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.TechHub.CornerSize50Percent"
         tools:src="@tools:sample/avatars" />
 
     <TextView

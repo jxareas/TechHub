@@ -11,7 +11,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:transitionName="shared_element">
+        android:transitionName="@string/course_detail_course_image_transition">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/learn_content"
@@ -27,7 +27,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/learn_image_scrim" />
+                tools:src="@tools:sample/backgrounds/scenic" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -42,7 +42,7 @@
                 app:menu="@menu/learn_menu"
                 app:navigationIcon="@drawable/ic_back" />
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_view_instructor_photo"
                 android:layout_width="@dimen/image_view_instructor_width_detail"
                 android:layout_height="@dimen/image_view_instructor_height_detail"
@@ -53,7 +53,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_view_course_photo"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.TechHub.CornerSize50Percent" />
+                tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/text_view_instructor_name"
@@ -149,7 +149,7 @@
                 android:layout_height="0dp"
                 android:background="?attr/colorPrimarySurface"
                 android:foreground="@drawable/learn_image_scrim"
-                android:theme="@style/ThemeOverlay.TechHub.Blue"
+                android:theme="@style/TechHub.Blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
                 android:text="@string/you_ll_also_like"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="?attr/colorOnPrimarySurface"
-                android:theme="@style/ThemeOverlay.TechHub.Blue"
+                android:theme="@style/TechHub.Blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/needs" />
@@ -178,7 +178,7 @@
                 android:clipToPadding="false"
                 android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/grid_2"
-                android:theme="@style/ThemeOverlay.TechHub.Blue"
+                android:theme="@style/TechHub.Blue"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

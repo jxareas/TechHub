@@ -4,6 +4,11 @@
     <string name="add">Add</string>
     <string name="you_ll_also_like">You\'ll Also Like</string>
     <string name="course_steps">%1$s / %2$s</string>
+    <string name="card_item_transition">Card Transition</string>
+    <string name="course_detail_course_image_transition">Course Detail</string>
+    <string name="my_courses">My Courses</string>
+    <string name="featured">Featured</string>
+    <string name="search">Search</string>
 
     <!--sample data-->
     <string name="course_desc">This video course introduces the photography of structures, including urban and rural buildings, monuments, and less traditional structures. Instruction includes the handling of equipment and methods used to capture building interiors and exteriors. The discussion will be about the handling of distortion, varied light sources, and perspective.</string>
@@ -13,5 +18,6 @@
     <string name="step_1">Frame the subject of your landscape by making use of the lines and angles present in your scene. Look out for curves, textures, triangles, thirds, and other shapes that improve your composition.</string>
     <string name="step_2">Find the time of the day with the best light conditions for your scene. Balance the light sources in your composition so that both light and shadows are present, adding depth, texture, and scale to your landscape.</string>
     <string name="add_course">Add course</string>
+    <string name="explore">Explore</string>
 
 </resources>

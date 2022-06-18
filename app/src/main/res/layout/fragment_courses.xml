@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimarySurface"
-    android:theme="@style/TechHub.Orange"
+    android:theme="@style/TechHub.Orange.Alternate"
     tools:context=".ui.courses.CoursesFragment">
 
     <androidx.appcompat.widget.SearchView
@@ -26,6 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_view_explore_courses">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_courses"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"

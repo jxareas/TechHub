@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.TechHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.TechHub"  parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!--Material shape attributes-->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Owl.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Owl.MediumComponent</item>
@@ -25,6 +25,7 @@
         <item name="android:navigationBarColor">@color/nav_bar</item>
         <item name="android:statusBarColor">@color/immersive_sys_ui</item>
 
+
         <!--Default styles-->
         <item name="bottomNavigationStyle">@style/Widget.TechHub.BottomNavigationView</item>
     </style>
@@ -37,6 +38,13 @@
         <item name="colorSecondary">@color/tech_yellow_500</item>
         <item name="colorSecondaryVariant">@color/tech_pink_600</item>
         <item name="colorOnSurface">@color/white</item>
+    </style>
+
+    <style name="TechHub.Orange.Alternate">
+        <item name="colorPrimary">@color/tech_deep_orange</item>
+        <item name="colorPrimaryVariant">@color/tech_blue_800</item>
+        <item name="colorSecondary">@color/tech_yellow_500</item>
+        <item name="colorSecondaryVariant">@color/tech_pink_600</item>
     </style>
 
 

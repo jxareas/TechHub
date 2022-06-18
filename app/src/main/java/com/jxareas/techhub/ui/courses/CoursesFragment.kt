@@ -1,32 +1,51 @@
 package com.jxareas.techhub.ui.courses
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jxareas.techhub.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.jxareas.techhub.adapter.CourseCardAdapter
+import com.jxareas.techhub.databinding.FragmentCoursesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CoursesFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CoursesFragment()
-    }
+    private var _binding: FragmentCoursesBinding? = null
+    private val binding: FragmentCoursesBinding
+        get() = _binding!!
 
-    private lateinit var viewModel: CoursesViewModel
+    private val viewModel : CoursesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_courses, container, false)
+    ): View {
+        _binding = FragmentCoursesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CoursesViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+        viewModel.courses.observe(viewLifecycleOwner) { courses ->
+            (binding.recyclerViewCourses.adapter as CourseCardAdapter).submitList(courses)
+        }
+    }
+
+    private fun setupRecyclerView() = binding.recyclerViewCourses.run {
+        adapter = CourseCardAdapter()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

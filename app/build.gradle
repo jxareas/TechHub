@@ -73,6 +73,7 @@ dependencies {
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$ok_http3_logging"
 
     // Dagger-Hilt
     implementation "com.google.dagger:hilt-android:$dagger_hilt"
@@ -80,7 +81,8 @@ dependencies {
 
     // ROOM
     implementation "androidx.room:room-runtime:$room"
-    annotationProcessor "androidx.room:room-compiler:$room"
+    implementation "androidx.room:room-ktx:$room"
+    kapt "androidx.room:room-compiler:$room"
 
     // Splash Screen
     implementation "androidx.core:core-splashscreen:$splash_screen"

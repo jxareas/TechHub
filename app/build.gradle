@@ -17,6 +17,7 @@ android {
         targetSdk rootProject.TARGET_SDK
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -86,6 +87,12 @@ dependencies {
 
     // Splash Screen
     implementation "androidx.core:core-splashscreen:$splash_screen"
+
+    // Shimmer
+    implementation "com.facebook.shimmer:shimmer:$shimmer"
+
+    // Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary"
 
 
 }

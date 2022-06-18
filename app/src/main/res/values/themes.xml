@@ -47,5 +47,13 @@
         <item name="colorSecondaryVariant">@color/tech_pink_600</item>
     </style>
 
+    <style name="ThemeOverlay.TechHub.Blue" parent="@style/ThemeOverlay.MaterialComponents.Light">
+        <item name="colorPrimary">@color/tech_blue_700</item>
+        <item name="colorPrimaryVariant">@color/tech_blue_800</item>
+        <item name="colorSecondary">@color/tech_yellow_500</item>
+        <item name="colorSecondaryVariant">@color/tech_yellow_400</item>
+        <item name="colorOnPrimary">#fff</item>
+    </style>
+
 
 </resources>

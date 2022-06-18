@@ -1,0 +1,199 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/TechHub.Orange"
+    tools:context=".ui.details.CourseDetailFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="shared_element">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/learn_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="350dp"
+                android:foreground="@drawable/learn_image_scrim"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/learn_image_scrim" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:paddingTop="@dimen/margin_high"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/learn_menu"
+                app:navigationIcon="@drawable/ic_back" />
+
+            <ImageView
+                android:id="@+id/course_instructor_photo"
+                android:layout_width="@dimen/image_view_instructor_width_detail"
+                android:layout_height="@dimen/image_view_instructor_height_detail"
+                android:background="@drawable/ic_avatar_placeholder"
+                android:foreground="@drawable/avatar_outline"
+                android:importantForAccessibility="no"
+                app:layout_constraintBottom_toBottomOf="@id/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image" />
+
+            <TextView
+                android:id="@+id/course_instructor_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/grid_2"
+                android:paddingTop="@dimen/margin_low"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?attr/colorSecondaryVariant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/course_instructor_photo"
+                tools:text="John Doe" />
+
+            <TextView
+                android:id="@+id/course_subject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_high"
+                android:paddingBottom="@dimen/margin_low"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/course_instructor_name"
+                tools:text="Software Development" />
+
+            <TextView
+                android:id="@+id/course_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/grid_2"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/course_subject"
+                tools:text="@sample/courses.json/data/name" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/grid_2"
+                android:gravity="center"
+                android:padding="@dimen/grid_2"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/course_name"
+                tools:text="@string/course_desc" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/inset_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <TextView
+                android:id="@+id/need"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/grid_2"
+                android:text="@string/what_you_ll_need"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/needs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/grid_2"
+                android:text="@string/needs"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/need" />
+
+            <View
+                android:id="@+id/also_like_background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?attr/colorPrimarySurface"
+                android:foreground="@drawable/learn_image_scrim"
+                android:theme="@style/ThemeOverlay.TechHub.Blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/needs" />
+
+            <TextView
+                android:id="@+id/also_like"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/grid_2"
+                android:paddingVertical="@dimen/grid_3"
+                android:text="@string/you_ll_also_like"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="?attr/colorOnPrimarySurface"
+                android:theme="@style/ThemeOverlay.TechHub.Blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/needs" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/also_like_list"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="@dimen/grid_4"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/grid_2"
+                android:theme="@style/ThemeOverlay.TechHub.Blue"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/also_like"
+                tools:listitem="@layout/list_item_course_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!--        <fragment-->
+    <!--            android:id="@+id/lessons_sheet"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:name="com.materialstudies.owl.ui.lessons.LessonsSheetFragment"-->
+    <!--            tools:layout="@layout/fragment_lessons_sheet" />-->
+
+</FrameLayout>

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.data.cache.model.CachedCourse
-import com.jxareas.techhub.databinding.ListItemCourseBinding
+import com.jxareas.techhub.databinding.ListItemCourseCardBinding
 import com.jxareas.techhub.extensions.load
 
 
@@ -22,7 +22,7 @@ class CourseCardAdapter :
 
     }
 
-    inner class CourseCardViewHolder(private val binding: ListItemCourseBinding) :
+    inner class CourseCardViewHolder(private val binding: ListItemCourseCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(course: CachedCourse) = with(binding) {
             textViewCourseName.text = course.name
@@ -35,7 +35,7 @@ class CourseCardAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseCardViewHolder =
         CourseCardViewHolder(
-            ListItemCourseBinding
+            ListItemCourseCardBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
         )
 

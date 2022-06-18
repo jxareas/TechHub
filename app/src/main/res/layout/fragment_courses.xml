@@ -34,7 +34,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:itemCount="10"
-            tools:listitem="@layout/list_item_course" />
+            tools:listitem="@layout/list_item_course_card" />
 
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -12,7 +12,7 @@ data class CachedCourse(
     val name: String,
     val description: String,
     val favorite: Boolean = false,
-    val imageUrl: String,
+    val coursePhoto: String,
     val step: Int,
     val steps: Int,
     val instructorPhoto : String,

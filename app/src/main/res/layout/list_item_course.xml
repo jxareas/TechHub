@@ -21,7 +21,7 @@
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
-        android:id="@+id/course_name"
+        android:id="@+id/text_view_course_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_3"
@@ -32,7 +32,7 @@
         android:paddingBottom="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceBody2"
         app:layout_constrainedWidth="true"
-        app:layout_constraintEnd_toStartOf="@+id/course_instructor_photo"
+        app:layout_constraintEnd_toStartOf="@+id/image_view_instructor_photo"
         app:layout_constraintStart_toEndOf="@id/course_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@sample/courses.json/data/name" />
@@ -43,7 +43,7 @@
         android:layout_height="14dp"
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="@id/course_steps"
-        app:layout_constraintStart_toStartOf="@id/course_name"
+        app:layout_constraintStart_toStartOf="@id/text_view_course_name"
         app:layout_constraintTop_toTopOf="@id/course_steps"
         app:srcCompat="@drawable/ic_course"
         app:tint="?attr/colorPrimary" />
@@ -58,12 +58,12 @@
         android:textColor="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/course_icon"
-        app:layout_constraintTop_toBottomOf="@id/course_name"
+        app:layout_constraintTop_toBottomOf="@id/text_view_course_name"
         tools:ignore="RtlSymmetry"
         tools:text="@sample/courses.json/data/step" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/course_instructor_photo"
+        android:id="@+id/image_view_instructor_photo"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_margin="@dimen/grid_2"

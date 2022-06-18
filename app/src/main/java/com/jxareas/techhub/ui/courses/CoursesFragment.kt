@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jxareas.techhub.adapter.CourseCardAdapter
 import com.jxareas.techhub.databinding.FragmentCoursesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,7 +41,10 @@ class CoursesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {
-        adapter = CourseCardAdapter()
+        adapter = CourseCardAdapter { course ->
+            val direction = CoursesFragmentDirections.coursesToDetailFragment(course.courseId)
+            findNavController().navigate(direction)
+        }
     }
 
     override fun onDestroyView() {

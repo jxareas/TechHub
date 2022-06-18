@@ -12,7 +12,7 @@ abstract class TechHubDatabase : RoomDatabase() {
     abstract val courseDao: CourseDao
 
     companion object {
-        internal const val DATABASE_VERSION : Int = 1
+        internal const val DATABASE_VERSION : Int = 2
         internal const val DATABASE_NAME : String = "TechHub.db"
     }
 

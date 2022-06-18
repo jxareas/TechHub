@@ -29,4 +29,9 @@ class CourseRepository @Inject constructor(
 
     }.onCompletion { onLoadingFinished() }.flowOn(Dispatchers.IO)
 
+    suspend fun loadCourseById(id : Int) : Flow<CachedCourse> = flow {
+        val course = courseDao.getById(id)
+        emit(course)
+    }.flowOn(Dispatchers.IO)
+
 }

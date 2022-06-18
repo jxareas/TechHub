@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemCourseCardBinding
-import com.jxareas.techhub.extensions.load
+import com.jxareas.techhub.extensions.loadImage
 
 
-class CourseCardAdapter :
+class CourseCardAdapter(private val onCourseClickedListener: (CachedCourse) -> Unit) :
     ListAdapter<CachedCourse, CourseCardAdapter.CourseCardViewHolder>(DiffCallback) {
 
     private companion object DiffCallback : DiffUtil.ItemCallback<CachedCourse>() {
@@ -18,18 +18,25 @@ class CourseCardAdapter :
             oldItem.courseId == newItem.courseId
 
         override fun areContentsTheSame(oldItem: CachedCourse, newItem: CachedCourse): Boolean =
-            oldItem.imageUrl == newItem.imageUrl
+            oldItem.coursePhoto == newItem.coursePhoto
 
     }
 
     inner class CourseCardViewHolder(private val binding: ListItemCourseCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            itemView.setOnClickListener {
+                onCourseClickedListener.invoke(currentList[adapterPosition])
+            }
+        }
+
         fun bind(course: CachedCourse) = with(binding) {
             textViewCourseName.text = course.name
             textViewCourseTopic.text = course.topicName
             textViewCourseSteps.text = course.steps.toString()
-            imageViewCoursePhoto.load(course.imageUrl)
-            imageViewInstructorPhoto.load(course.instructorPhoto)
+            imageViewCoursePhoto.loadImage(course.coursePhoto)
+            imageViewInstructorPhoto.loadImage(course.instructorPhoto)
         }
     }
 
@@ -39,7 +46,7 @@ class CourseCardAdapter :
                 .inflate(LayoutInflater.from(parent.context), parent, false)
         )
 
-    override fun onBindViewHolder(holder: CourseCardViewHolder, position: Int) : Unit =
+    override fun onBindViewHolder(holder: CourseCardViewHolder, position: Int): Unit =
         holder.bind(currentList[position])
 
 

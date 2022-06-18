@@ -10,7 +10,20 @@
         android:id="@+id/coursesFragment"
         android:name="com.jxareas.techhub.ui.courses.CoursesFragment"
         android:label="fragment_courses"
-        tools:layout="@layout/fragment_courses" />
+        tools:layout="@layout/fragment_courses" >
+        <action
+            android:id="@+id/courses_to_detail_fragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="com.jxareas.techhub.ui.details.CourseDetailFragment"
+        android:label="fragment_course_detail"
+        tools:layout="@layout/fragment_course_detail" >
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
+    </fragment>
 
 
 </navigation>

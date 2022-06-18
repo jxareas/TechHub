@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/image_view_course_photo"
                 android:layout_width="0dp"
                 android:layout_height="350dp"
                 android:foreground="@drawable/learn_image_scrim"
@@ -42,20 +42,21 @@
                 app:menu="@menu/learn_menu"
                 app:navigationIcon="@drawable/ic_back" />
 
-            <ImageView
-                android:id="@+id/course_instructor_photo"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_view_instructor_photo"
                 android:layout_width="@dimen/image_view_instructor_width_detail"
                 android:layout_height="@dimen/image_view_instructor_height_detail"
                 android:background="@drawable/ic_avatar_placeholder"
                 android:foreground="@drawable/avatar_outline"
                 android:importantForAccessibility="no"
-                app:layout_constraintBottom_toBottomOf="@id/image"
+                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image" />
+                app:layout_constraintTop_toBottomOf="@id/image_view_course_photo"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.TechHub.CornerSize50Percent" />
 
             <TextView
-                android:id="@+id/course_instructor_name"
+                android:id="@+id/text_view_instructor_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -66,11 +67,11 @@
                 android:textColor="?attr/colorSecondaryVariant"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/course_instructor_photo"
+                app:layout_constraintTop_toBottomOf="@id/image_view_instructor_photo"
                 tools:text="John Doe" />
 
             <TextView
-                android:id="@+id/course_subject"
+                android:id="@+id/text_view_topic"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -81,11 +82,11 @@
                 android:textColor="?attr/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/course_instructor_name"
+                app:layout_constraintTop_toBottomOf="@id/text_view_instructor_name"
                 tools:text="Software Development" />
 
             <TextView
-                android:id="@+id/course_name"
+                android:id="@+id/text_view_course_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -93,11 +94,11 @@
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/course_subject"
+                app:layout_constraintTop_toBottomOf="@id/text_view_topic"
                 tools:text="@sample/courses.json/data/name" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/text_view_course_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/grid_2"
@@ -106,7 +107,7 @@
                 android:textAppearance="?attr/textAppearanceBody1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/course_name"
+                app:layout_constraintTop_toBottomOf="@id/text_view_course_name"
                 tools:text="@string/course_desc" />
 
             <View
@@ -116,7 +117,7 @@
                 android:background="@drawable/inset_divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/description" />
+                app:layout_constraintTop_toBottomOf="@id/text_view_course_description" />
 
             <TextView
                 android:id="@+id/need"
@@ -183,7 +184,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/also_like"
-                tools:listitem="@layout/list_item_course_card" />
+                tools:listitem="@layout/list_item_course" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

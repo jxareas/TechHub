@@ -9,8 +9,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.jxareas.techhub.R
 import com.jxareas.techhub.databinding.ActivityMainBinding
-import com.jxareas.techhub.extensions.gone
-import com.jxareas.techhub.extensions.visible
+import com.jxareas.techhub.utils.extensions.gone
+import com.jxareas.techhub.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

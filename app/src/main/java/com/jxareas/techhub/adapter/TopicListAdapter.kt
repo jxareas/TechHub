@@ -7,7 +7,7 @@ import com.jxareas.techhub.adapter.TopicListAdapter.TopicViewHolder
 import com.jxareas.techhub.adapter.util.TopicDiffCallback
 import com.jxareas.techhub.data.cache.model.CachedTopic
 import com.jxareas.techhub.databinding.ListItemTopicBinding
-import com.jxareas.techhub.extensions.bind
+import com.jxareas.techhub.utils.extensions.bind
 
 class TopicListAdapter : ListAdapter<CachedTopic, TopicViewHolder>(TopicDiffCallback) {
 

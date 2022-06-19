@@ -23,8 +23,8 @@ import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.RelatedCourseAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
-import com.jxareas.techhub.extensions.getLong
-import com.jxareas.techhub.extensions.loadImage
+import com.jxareas.techhub.utils.extensions.getLong
+import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

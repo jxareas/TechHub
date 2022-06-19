@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.MaterialFadeThrough
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.CourseAdapterListener
 import com.jxareas.techhub.adapter.CourseCardAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCoursesBinding
+import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,6 +53,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     }
 
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {
+        itemAnimator = SpringAddItemAnimator()
         adapter = CourseCardAdapter(this@CoursesFragment)
     }
 

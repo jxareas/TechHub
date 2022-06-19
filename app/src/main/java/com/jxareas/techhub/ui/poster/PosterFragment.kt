@@ -17,7 +17,7 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
 import com.jxareas.techhub.databinding.FragmentPosterBinding
-import com.jxareas.techhub.extensions.getLong
+import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
 
 

@@ -1,4 +1,4 @@
-package com.jxareas.techhub.extensions
+package com.jxareas.techhub.utils.extensions
 
 import android.content.res.Resources
 import androidx.annotation.IntegerRes

@@ -10,7 +10,7 @@ import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.util.CourseDiffCallback
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemCourseBinding
-import com.jxareas.techhub.extensions.loadImage
+import com.jxareas.techhub.utils.extensions.loadImage
 
 class CourseListAdapter(private val listener: CourseAdapterListener) :
     ListAdapter<CachedCourse, CourseListAdapter.CourseListViewHolder>(

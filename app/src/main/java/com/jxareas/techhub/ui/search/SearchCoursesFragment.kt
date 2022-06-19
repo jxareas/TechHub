@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jxareas.techhub.adapter.TopicListAdapter
 import com.jxareas.techhub.databinding.FragmentSearchCoursesBinding
+import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,6 +41,7 @@ class SearchCoursesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() = binding.recyclerViewTopics.run {
+        itemAnimator = SpringAddItemAnimator()
         adapter = TopicListAdapter()
 
     }

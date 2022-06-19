@@ -14,6 +14,7 @@ import com.jxareas.techhub.adapter.CourseAdapterListener
 import com.jxareas.techhub.adapter.CourseListAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteCoursesBinding
+import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,6 +45,7 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
 
 
     private fun setupRecyclerView() = binding.recyclerViewFavoriteCourses.run {
+        itemAnimator = SpringAddItemAnimator()
         adapter = CourseListAdapter(this@FavoriteCoursesFragment)
     }
 

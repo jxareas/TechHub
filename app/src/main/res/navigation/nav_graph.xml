@@ -23,6 +23,18 @@
         <argument
             android:name="courseId"
             app:argType="integer" />
+        <action
+            android:id="@+id/detail_to_poster"
+            app:destination="@id/posterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/posterFragment"
+        android:name="com.jxareas.techhub.ui.poster.PosterFragment"
+        android:label="fragment_poster"
+        tools:layout="@layout/fragment_poster" >
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
     </fragment>
 
 

@@ -24,6 +24,7 @@
                 android:layout_height="350dp"
                 android:foreground="@drawable/learn_image_scrim"
                 android:scaleType="centerCrop"
+                android:transitionName="@string/poster_transition"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +42,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:menu="@menu/learn_menu"
                 app:navigationIcon="@drawable/ic_back" />
+
+            <ImageView
+                android:id="@+id/icon_expand_course_photo"
+                android:layout_width="@dimen/icon_default_width"
+                android:layout_height="@dimen/icon_default_height"
+                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/margin_standard"
+                android:layout_marginBottom="@dimen/margin_standard"
+                android:src="@drawable/arrow_expand_vertical"
+                />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_view_instructor_photo"

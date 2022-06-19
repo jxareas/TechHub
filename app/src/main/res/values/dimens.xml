@@ -23,6 +23,8 @@
 
     <dimen name="image_view_instructor_height_detail">75dp</dimen>
     <dimen name="image_view_instructor_width_detail">75dp</dimen>
+    <dimen name="icon_default_width">24dp</dimen>
+    <dimen name="icon_default_height">24dp</dimen>
 
 
 </resources>

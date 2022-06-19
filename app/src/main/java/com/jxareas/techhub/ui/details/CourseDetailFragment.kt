@@ -10,13 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialFade
 import com.jxareas.techhub.R
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
@@ -32,6 +35,7 @@ class CourseDetailFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel : CourseDetailViewModel by viewModels()
+    private val args : CourseDetailFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +53,7 @@ class CourseDetailFragment : Fragment() {
             drawingViewId = R.id.nav_host_fragment_main
             duration = resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
         }
+        exitTransition = MaterialFade()
         postponeEnterTransition()
     }
 
@@ -69,6 +74,14 @@ class CourseDetailFragment : Fragment() {
     private fun setupListeners() = binding.run {
         toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
+        }
+        iconExpandCoursePhoto.setOnClickListener {
+            val transitionName = getString(R.string.poster_transition)
+            val extras = FragmentNavigatorExtras(
+                 imageViewCoursePhoto to transitionName
+            )
+            val direction = CourseDetailFragmentDirections.detailToPoster(args.courseId)
+            findNavController().navigate(direction, extras)
         }
     }
 

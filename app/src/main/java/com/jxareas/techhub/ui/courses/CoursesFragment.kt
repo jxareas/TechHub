@@ -32,7 +32,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialElevationScale(true).apply {
-            duration = resources.getLong(com.google.android.material.R.integer.material_motion_duration_long_1)
+            duration = resources.getLong(R.integer.material_motion_duration_long_1)
             interpolator = FastOutSlowInInterpolator()
         }
     }

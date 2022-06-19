@@ -6,6 +6,7 @@
     <string name="course_steps">%1$s / %2$s</string>
     <string name="card_item_transition">Card Transition</string>
     <string name="course_detail_course_image_transition">Course Detail</string>
+    <string name="poster_transition">Poster Transition</string>
     <string name="my_courses">My Courses</string>
     <string name="featured">Featured</string>
     <string name="search">Search</string>

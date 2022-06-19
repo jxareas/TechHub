@@ -12,5 +12,6 @@ fun GetOneCourseResponse.toCachedCourse(): CachedCourse =
         steps = this.steps,
         instructorName = this.instructor.fullName,
         instructorPhoto = this.instructor.photoPath,
-        topicName = this.topic.name
+        topicName = this.topic.name,
+        courseId = this.id,
     )

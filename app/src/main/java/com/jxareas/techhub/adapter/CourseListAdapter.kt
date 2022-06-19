@@ -26,9 +26,8 @@ class CourseListAdapter(private val listener: CourseAdapterListener) :
             val steps = root.context.getString(R.string.course_steps, course.step.toString(), course.steps.toString())
             textViewCourseName.text = course.name
             textViewCourseSteps.text = steps
-            imageViewCourseImage.loadImage(course.coursePhoto)
+            imageViewCourseImage.loadImage(course.coursePhoto, true)
             imageViewInstructorPhoto.loadImage(course.instructorPhoto)
-
             root.setOnClickListener { listener.onArtworkClicked(root, course) }
         }
     }

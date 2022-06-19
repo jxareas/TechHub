@@ -48,8 +48,8 @@
                 android:layout_width="@dimen/icon_default_width"
                 android:layout_height="@dimen/icon_default_height"
                 app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="@dimen/margin_standard"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
                 android:src="@drawable/arrow_expand_vertical"
                 />

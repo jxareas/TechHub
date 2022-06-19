@@ -27,7 +27,7 @@ class CourseCardAdapter(private val listener: CourseAdapterListener) :
             textViewCourseName.text = course.name
             textViewCourseTopic.text = course.topicName
             textViewCourseSteps.text = course.steps.toString()
-            imageViewCoursePhoto.loadImage(course.coursePhoto)
+            imageViewCoursePhoto.loadImage(course.coursePhoto, true)
             imageViewInstructorPhoto.loadImage(course.instructorPhoto)
 
             root.setOnClickListener {

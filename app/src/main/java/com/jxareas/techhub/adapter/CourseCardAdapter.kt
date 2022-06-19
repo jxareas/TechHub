@@ -3,7 +3,7 @@ package com.jxareas.techhub.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
@@ -12,17 +12,10 @@ import com.jxareas.techhub.databinding.ListItemCourseCardBinding
 import com.jxareas.techhub.extensions.loadImage
 
 
-class CourseCardAdapter(private val listener : CourseAdapterListener) :
-    ListAdapter<CachedCourse, CourseCardAdapter.CourseCardViewHolder>(DiffCallback) {
-
-    private companion object DiffCallback : DiffUtil.ItemCallback<CachedCourse>() {
-        override fun areItemsTheSame(oldItem: CachedCourse, newItem: CachedCourse): Boolean =
-            oldItem.courseId == newItem.courseId
-
-        override fun areContentsTheSame(oldItem: CachedCourse, newItem: CachedCourse): Boolean =
-            oldItem.coursePhoto == newItem.coursePhoto
-
-    }
+class CourseCardAdapter(private val listener: CourseAdapterListener) :
+    ListAdapter<CachedCourse, CourseCardAdapter.CourseCardViewHolder>(
+        AsyncDifferConfig.Builder(CourseDiffCallback).build()
+    ) {
 
     inner class CourseCardViewHolder(private val binding: ListItemCourseCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -37,7 +30,7 @@ class CourseCardAdapter(private val listener : CourseAdapterListener) :
             imageViewInstructorPhoto.loadImage(course.instructorPhoto)
 
             root.setOnClickListener {
-                listener.onArtworkClicked(binding.root, course)
+                listener.onArtworkClicked(root, course)
             }
         }
     }

@@ -5,12 +5,14 @@
     android:layout_width="288dp"
     android:layout_height="80dp"
     android:layout_marginEnd="@dimen/grid_1"
+    android:background="?attr/colorPrimary"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    android:theme="@style/TechHub.Blue">
 
     <ImageView
-        android:id="@+id/course_image"
+        android:id="@+id/image_view_course"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:scaleType="centerCrop"
@@ -31,9 +33,10 @@
         android:paddingTop="@dimen/grid_2"
         android:paddingBottom="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toStartOf="@+id/image_view_instructor_photo"
-        app:layout_constraintStart_toEndOf="@id/course_image"
+        app:layout_constraintStart_toEndOf="@id/image_view_course"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@sample/courses.json/data/name" />
 
@@ -42,20 +45,20 @@
         android:layout_width="14dp"
         android:layout_height="14dp"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="@id/course_steps"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_course_steps"
         app:layout_constraintStart_toStartOf="@id/text_view_course_name"
-        app:layout_constraintTop_toTopOf="@id/course_steps"
+        app:layout_constraintTop_toTopOf="@id/text_view_course_steps"
         app:srcCompat="@drawable/ic_course"
-        app:tint="?attr/colorPrimary" />
+        app:tint="?attr/colorOnPrimary" />
 
     <TextView
-        android:id="@+id/course_steps"
+        android:id="@+id/text_view_course_steps"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/grid_2"
         android:paddingStart="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceCaption"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/course_icon"
         app:layout_constraintTop_toBottomOf="@id/text_view_course_name"

@@ -183,30 +183,23 @@
                 app:layout_constraintTop_toBottomOf="@id/needs" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/also_like_list"
+                android:id="@+id/recycler_view_related_courses"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_marginBottom="@dimen/grid_4"
                 android:clipToPadding="false"
                 android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/grid_2"
-                android:theme="@style/TechHub.Blue"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/also_like"
-                tools:listitem="@layout/list_item_course" />
+                tools:listitem="@layout/list_item_related_course" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-    <!--        <fragment-->
-    <!--            android:id="@+id/lessons_sheet"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:name="com.materialstudies.owl.ui.lessons.LessonsSheetFragment"-->
-    <!--            tools:layout="@layout/fragment_lessons_sheet" />-->
 
 </FrameLayout>

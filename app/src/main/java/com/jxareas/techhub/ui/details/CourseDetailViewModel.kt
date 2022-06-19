@@ -22,10 +22,23 @@ class CourseDetailViewModel @Inject constructor(
     private val _course = MutableLiveData<CachedCourse>()
     internal var course: LiveData<CachedCourse> = _course
 
+    private val _relatedCourses = MutableLiveData<List<CachedCourse>>()
+    internal var relatedCourses : LiveData<List<CachedCourse>> = _relatedCourses
+
     init {
         savedStateHandle.get<Int>("courseId")?.let { courseId ->
             loadCourse(courseId)
+            getRelatedCourses(courseId)
         }
+
+    }
+
+    private fun getRelatedCourses(courseId : Int) {
+         viewModelScope.launch {
+             courseRepository.getRelatedCourses(courseId).collectLatest { cachedCourses ->
+                 _relatedCourses.postValue(cachedCourses)
+             }
+         }
     }
 
     private fun loadCourse(courseId: Int) {

@@ -14,7 +14,7 @@ import javax.inject.Inject
 class CourseRepository @Inject constructor(
     private val courseDao: CourseDao,
     private val courseService: CourseService,
-    private val dispatcher : DispatcherProvider,
+    private val dispatchers: DispatcherProvider,
 ) {
 
     suspend fun loadCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> = flow {
@@ -28,11 +28,15 @@ class CourseRepository @Inject constructor(
             emit(courses)
         } else emit(courses)
 
-    }.onCompletion { onLoadingFinished() }.flowOn(dispatcher.io)
+    }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
 
-    suspend fun loadCourseById(id : Int) : Flow<CachedCourse> = flow {
+    suspend fun getRelatedCourses(courseId: Int): Flow<List<CachedCourse>> = flow {
+        emit(courseDao.getRelatedCourses(courseId))
+    }.flowOn(dispatchers.io)
+
+    suspend fun loadCourseById(id: Int): Flow<CachedCourse> = flow {
         val course = courseDao.getById(id)
         emit(course)
-    }.flowOn(dispatcher.io)
+    }.flowOn(dispatchers.io)
 
 }

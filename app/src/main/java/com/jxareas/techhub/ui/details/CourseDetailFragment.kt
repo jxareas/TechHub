@@ -21,6 +21,7 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialFade
 import com.jxareas.techhub.R
+import com.jxareas.techhub.adapter.RelatedCourseAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
 import com.jxareas.techhub.extensions.getLong
@@ -34,14 +35,15 @@ class CourseDetailFragment : Fragment() {
     private val binding: FragmentCourseDetailBinding
         get() = _binding!!
 
-    private val viewModel : CourseDetailViewModel by viewModels()
-    private val args : CourseDetailFragmentArgs by navArgs()
+    private val viewModel: CourseDetailViewModel by viewModels()
+    private val args: CourseDetailFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
             drawingViewId = R.id.nav_host_fragment_main
-            duration = resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_2)
+            duration =
+                resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_2)
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
             interpolator = FastOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
@@ -51,7 +53,8 @@ class CourseDetailFragment : Fragment() {
             interpolator = LinearOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
-            duration = resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
+            duration =
+                resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
         }
         exitTransition = MaterialFade()
         postponeEnterTransition()
@@ -67,8 +70,15 @@ class CourseDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
         setupObservers()
         setupListeners()
+    }
+
+    private fun setupRecyclerView() = binding.recyclerViewRelatedCourses.run {
+        adapter = RelatedCourseAdapter { course ->
+            findNavController().navigate(CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(course.courseId))
+        }
     }
 
     private fun setupListeners() = binding.run {
@@ -78,7 +88,7 @@ class CourseDetailFragment : Fragment() {
         iconExpandCoursePhoto.setOnClickListener {
             val transitionName = getString(R.string.poster_transition)
             val extras = FragmentNavigatorExtras(
-                 imageViewCoursePhoto to transitionName
+                imageViewCoursePhoto to transitionName
             )
             val direction = CourseDetailFragmentDirections.detailToPoster(args.courseId)
             findNavController().navigate(direction, extras)
@@ -90,8 +100,15 @@ class CourseDetailFragment : Fragment() {
             cachedCourse?.let { course ->
                 bindToView(course)
             }
+        }
+
+        viewModel.relatedCourses.observe(viewLifecycleOwner) { cachedCourses ->
+            cachedCourses?.let { courses ->
+                (binding.recyclerViewRelatedCourses.adapter as RelatedCourseAdapter).submitList(courses)
+            }
 
         }
+
     }
 
     private fun bindToView(course: CachedCourse) = binding.run {
@@ -101,7 +118,7 @@ class CourseDetailFragment : Fragment() {
         textViewInstructorName.text = course.instructorName
         Glide.with(imageViewCoursePhoto)
             .load(course.coursePhoto)
-            .listener(object : RequestListener<Drawable>  {
+            .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,

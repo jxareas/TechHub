@@ -1,9 +1,9 @@
 package com.jxareas.techhub.adapter
 
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.view.ViewGroup
 import com.jxareas.techhub.data.cache.model.CachedCourse
 
 @FunctionalInterface
 fun interface CourseAdapterListener {
-    fun onArtworkClicked(layout: ConstraintLayout, course: CachedCourse)
+    fun onArtworkClicked(layout: ViewGroup, course: CachedCourse)
 }

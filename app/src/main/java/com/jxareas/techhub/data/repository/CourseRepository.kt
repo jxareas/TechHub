@@ -17,7 +17,7 @@ class CourseRepository @Inject constructor(
     private val dispatchers: DispatcherProvider,
 ) {
 
-    suspend fun loadCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> = flow {
+    suspend fun getAllCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> = flow {
         var courses = courseDao.getAll()
         if (courses.isEmpty()) {
             val response = courseService.getCourses()
@@ -29,6 +29,10 @@ class CourseRepository @Inject constructor(
         } else emit(courses)
 
     }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
+
+    suspend fun getFavoriteCourses() : Flow<List<CachedCourse>> = flow {
+        emit(courseDao.getFavorites())
+    }.flowOn(dispatchers.io)
 
     suspend fun getRelatedCourses(courseId: Int): Flow<List<CachedCourse>> = flow {
         emit(courseDao.getRelatedCourses(courseId))

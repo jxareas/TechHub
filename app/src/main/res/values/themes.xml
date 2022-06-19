@@ -2,24 +2,24 @@
     <!-- Base application theme. -->
     <style name="Base.TechHub"  parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!--Material shape attributes-->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Owl.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Owl.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Owl.LargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.TechHub.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.TechHub.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.TechHub.LargeComponent</item>
 
         <!--Material type attributes-->
-        <item name="textAppearanceHeadline1">@style/TextAppearance.Owl.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.Owl.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.Owl.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.Owl.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.Owl.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.Owl.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.Owl.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.Owl.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.Owl.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.Owl.Body2</item>
-        <item name="textAppearanceButton">@style/TextAppearance.Owl.Button</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.Owl.Caption</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.Owl.Overline</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.TechHub.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.TechHub.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.TechHub.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.TechHub.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.TechHub.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.TechHub.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.TechHub.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.TechHub.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.TechHub.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.TechHub.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.TechHub.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.TechHub.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.TechHub.Overline</item>
 
         <!--Platform attributes-->
         <item name="android:navigationBarColor">@color/nav_bar</item>
@@ -38,6 +38,14 @@
         <item name="colorSecondary">@color/tech_yellow_500</item>
         <item name="colorSecondaryVariant">@color/tech_pink_600</item>
         <item name="colorOnSurface">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.TechHub.Orange.Dark" parent="@style/ThemeOverlay.MaterialComponents.Dark">
+        <item name="colorPrimary">@color/tech_deep_orange</item>
+        <item name="colorPrimaryVariant">@color/tech_blue_800</item>
+        <item name="colorSecondary">@color/tech_yellow_500</item>
+        <item name="colorSecondaryVariant">@color/tech_yellow_400</item>
+        <item name="colorOnPrimary">#fff</item>
     </style>
 
     <style name="TechHub.Orange.Alternate">
@@ -62,7 +70,11 @@
         <item name="colorOnPrimary">@color/tech_matte_black</item>
         <item name="colorSecondary">@color/tech_deep_orange</item>
         <item name="colorSecondaryVariant">@color/tech_matte_black</item>
+        <item name="transitionShapeAppearance">@style/ShapeAppearance.TechHub.SmallComponent</item>
     </style>
 
+    <style name="ThemeOverlay.TechHub.TransitionShapeAppearance.Small" parent="">
+        <item name="transitionShapeAppearance">@style/ShapeAppearance.TechHub.SmallComponent</item>
+    </style>
 
 </resources>

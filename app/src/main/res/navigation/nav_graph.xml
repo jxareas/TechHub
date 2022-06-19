@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/coursesFragment">
+    app:startDestination="@id/searchCoursesFragment">
 
 
     <fragment
@@ -45,6 +45,20 @@
             android:name="courseId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteCoursesFragment"
+        android:name="com.jxareas.techhub.ui.favorites.FavoriteCoursesFragment"
+        android:label="fragment_favorite_courses"
+        tools:layout="@layout/fragment_favorite_courses" >
+        <action
+            android:id="@+id/action_favorite_to_details"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchCoursesFragment"
+        android:name="com.jxareas.techhub.ui.search.SearchCoursesFragment"
+        android:label="fragment_search_courses"
+        tools:layout="@layout/fragment_search_courses" />
 
 
 </navigation>

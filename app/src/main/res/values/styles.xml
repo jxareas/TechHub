@@ -8,7 +8,7 @@
     <item name="labelVisibilityMode">selected</item>
     <item name="itemIconTint">@color/bottom_nav_item</item>
     <item name="itemTextColor">@color/bottom_nav_item</item>
-    <item name="itemTextAppearanceActive">@style/TextAppearance.Owl.BottomNavigation</item>
+    <item name="itemTextAppearanceActive">@style/TextAppearance.TechHub.BottomNavigation</item>
   </style>
 
   <style name="ShapeAppearanceOverlay.TechHub.CornerSize50Percent" parent="">

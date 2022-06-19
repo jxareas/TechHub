@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextAppearance.Owl.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+    <style name="TextAppearance.TechHub.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.Owl.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+    <style name="TextAppearance.TechHub.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.Owl.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+    <style name="TextAppearance.TechHub.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.Owl.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+    <style name="TextAppearance.TechHub.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="lineHeight">40sp</item>
     </style>
 
-    <style name="TextAppearance.Owl.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+    <style name="TextAppearance.TechHub.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.Owl.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+    <style name="TextAppearance.TechHub.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="lineHeight">25sp</item>
     </style>
 
 
-    <style name="TextAppearance.Owl.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+    <style name="TextAppearance.TechHub.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="fontFamily">@font/lato</item>
         <item name="lineHeight">22sp</item>
     </style>
 
-    <style name="TextAppearance.Owl.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+    <style name="TextAppearance.TechHub.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/lato</item>
     </style>
 
-    <style name="TextAppearance.Owl.Body1" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.TechHub.Body1" parent="TextAppearance.MaterialComponents.Body1">
         <item name="fontFamily">@font/lato</item>
         <item name="lineHeight">28sp</item>
     </style>
 
-    <style name="TextAppearance.Owl.Body2" parent="TextAppearance.MaterialComponents.Body2">
+    <style name="TextAppearance.TechHub.Body2" parent="TextAppearance.MaterialComponents.Body2">
         <item name="fontFamily">@font/lato</item>
         <item name="lineHeight">16sp</item>
     </style>
 
-    <style name="TextAppearance.Owl.Button" parent="TextAppearance.MaterialComponents.Button">
+    <style name="TextAppearance.TechHub.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="fontFamily">@font/lato_bold</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.Owl.Caption" parent="TextAppearance.MaterialComponents.Caption">
+    <style name="TextAppearance.TechHub.Caption" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">@font/lato</item>
     </style>
 
-    <style name="TextAppearance.Owl.Overline" parent="TextAppearance.MaterialComponents.Overline">
+    <style name="TextAppearance.TechHub.Overline" parent="TextAppearance.MaterialComponents.Overline">
         <item name="fontFamily">@font/lato</item>
     </style>
 
-    <style name="TextAppearance.Owl.BottomNavigation" parent="TextAppearance.Owl.Caption">
+    <style name="TextAppearance.TechHub.BottomNavigation" parent="TextAppearance.TechHub.Caption">
         <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.08</item>
     </style>

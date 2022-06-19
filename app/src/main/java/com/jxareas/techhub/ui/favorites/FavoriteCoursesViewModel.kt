@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.courses
+package com.jxareas.techhub.ui.favorites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,30 +7,29 @@ import androidx.lifecycle.viewModelScope
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.data.repository.CourseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CoursesViewModel @Inject constructor(
-    private val courseRepository: CourseRepository
+class FavoriteCoursesViewModel @Inject constructor(
+    private val coursesRepository: CourseRepository
 ) : ViewModel() {
 
     private val _courses = MutableLiveData<List<CachedCourse>>()
     internal val courses: LiveData<List<CachedCourse>> = _courses
 
+
     init {
-        getAllCourses()
+        getAllFavoriteCourses()
     }
 
-    private fun getAllCourses() {
-            viewModelScope.launch {
-                courseRepository.getAllCourses{}.collect { listOfCourses ->
-                    _courses.postValue(listOfCourses)
-                }
+    private fun getAllFavoriteCourses() {
+        viewModelScope.launch {
+            coursesRepository.getAllCourses {  }.collectLatest { favoriteCourses ->
+                _courses.postValue(favoriteCourses)
             }
+        }
     }
-
-
-
 
 }

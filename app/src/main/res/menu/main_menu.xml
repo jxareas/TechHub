@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/myCoursesFragment"
+        android:id="@+id/favoriteCoursesFragment"
         android:title="@string/my_courses"
         android:icon="@drawable/asl_my_courses"/>
 

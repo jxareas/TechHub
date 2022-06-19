@@ -34,6 +34,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="polished_white">#F0F8FF</color>
+    <color name="dark_blue_grey">#313333</color>
 
     <!--background protection for nav-bar, varied on Q+-->
     <color name="immersive_sys_ui">#33000000</color>

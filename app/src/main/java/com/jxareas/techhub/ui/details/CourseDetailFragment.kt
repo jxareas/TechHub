@@ -19,7 +19,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialContainerTransform
-import com.google.android.material.transition.platform.MaterialFade
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.RelatedCourseAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
@@ -53,10 +52,8 @@ class CourseDetailFragment : Fragment() {
             interpolator = LinearOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
-            duration =
-                resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
+            duration = resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
         }
-        exitTransition = MaterialFade()
         postponeEnterTransition()
     }
 
@@ -77,7 +74,11 @@ class CourseDetailFragment : Fragment() {
 
     private fun setupRecyclerView() = binding.recyclerViewRelatedCourses.run {
         adapter = RelatedCourseAdapter { course ->
-            findNavController().navigate(CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(course.courseId))
+            findNavController().navigate(
+                CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(
+                    course.courseId
+                )
+            )
         }
     }
 
@@ -104,7 +105,9 @@ class CourseDetailFragment : Fragment() {
 
         viewModel.relatedCourses.observe(viewLifecycleOwner) { cachedCourses ->
             cachedCourses?.let { courses ->
-                (binding.recyclerViewRelatedCourses.adapter as RelatedCourseAdapter).submitList(courses)
+                (binding.recyclerViewRelatedCourses.adapter as RelatedCourseAdapter).submitList(
+                    courses
+                )
             }
 
         }

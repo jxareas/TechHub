@@ -30,6 +30,10 @@
             android:id="@+id/action_courseDetailFragment_self"
             app:destination="@id/courseDetailFragment"
             app:popUpTo="@id/courseDetailFragment"
+            app:enterAnim="@anim/slide_in_up_linear"
+            app:exitAnim="@anim/slide_out_down"
+            app:popEnterAnim="@anim/slide_in_up_linear"
+            app:popExitAnim="@anim/shrink_fade_out_center"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment

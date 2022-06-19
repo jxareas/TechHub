@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    android:theme="@style/TechHub.Blue">
+    android:theme="@style/TechHub.Light">
 
     <ImageView
         android:id="@+id/image_view_course"
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="@id/text_view_course_name"
         app:layout_constraintTop_toTopOf="@id/text_view_course_steps"
         app:srcCompat="@drawable/ic_course"
-        app:tint="?attr/colorOnPrimary" />
+        app:tint="?attr/colorSecondary" />
 
     <TextView
         android:id="@+id/text_view_course_steps"
@@ -58,7 +58,7 @@
         android:layout_marginBottom="@dimen/grid_2"
         android:paddingStart="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceCaption"
-        android:textColor="?attr/colorOnPrimary"
+        android:textColor="?attr/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/course_icon"
         app:layout_constraintTop_toBottomOf="@id/text_view_course_name"

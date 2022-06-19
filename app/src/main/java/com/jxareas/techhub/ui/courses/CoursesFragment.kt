@@ -26,10 +26,6 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
 
     private val viewModel : CoursesViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

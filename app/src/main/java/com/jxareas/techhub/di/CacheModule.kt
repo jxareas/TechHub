@@ -19,12 +19,20 @@ object CacheModule {
     fun provideDatabase(@ApplicationContext context: Context): TechHubDatabase =
         Room
             .databaseBuilder(context, TechHubDatabase::class.java, TechHubDatabase.DATABASE_NAME)
+            .fallbackToDestructiveMigration()
             .build()
 
     @Provides
     @Singleton
     fun provideCourseDao(database: TechHubDatabase) =
         database.courseDao
+
+    @Provides
+    @Singleton
+    fun provideTopicDao(database: TechHubDatabase) =
+        database.topicDao
+
+
 
 
 }

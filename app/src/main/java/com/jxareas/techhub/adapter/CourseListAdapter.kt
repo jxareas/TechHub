@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
+import com.jxareas.techhub.adapter.util.CourseDiffCallback
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemCourseBinding
 import com.jxareas.techhub.extensions.loadImage

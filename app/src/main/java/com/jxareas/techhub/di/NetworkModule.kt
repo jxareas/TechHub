@@ -3,6 +3,7 @@ package com.jxareas.techhub.di
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.jxareas.techhub.data.api.constants.ApiConstants
 import com.jxareas.techhub.data.api.service.CourseService
+import com.jxareas.techhub.data.api.service.TopicService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,6 +50,11 @@ object NetworkModule {
     @Singleton
     fun provideCourseService(retrofit : Retrofit) : CourseService =
         retrofit.create(CourseService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideTopicService(retrofit : Retrofit) : TopicService =
+        retrofit.create(TopicService::class.java)
 
 
 }

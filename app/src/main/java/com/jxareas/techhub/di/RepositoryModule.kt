@@ -1,21 +1,26 @@
 package com.jxareas.techhub.di
 
-import com.jxareas.techhub.data.api.service.CourseService
-import com.jxareas.techhub.data.cache.dao.CourseDao
 import com.jxareas.techhub.data.repository.CourseRepository
-import com.jxareas.techhub.utils.DispatcherProvider
+import com.jxareas.techhub.data.repository.TopicRepository
+import com.jxareas.techhub.data.repository.impl.CourseRepositoryImpl
+import com.jxareas.techhub.data.repository.impl.TopicRepositoryImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
 @InstallIn(ViewModelComponent::class)
-class RepositoryModule {
+interface RepositoryModule {
 
-    @Provides
+    @Binds
     @ViewModelScoped
-    fun provideCourseRepository(dao : CourseDao, service : CourseService, dispatcher : DispatcherProvider) =
-        CourseRepository(dao, service, dispatcher)
+    fun bindCourseRepository(repository: CourseRepositoryImpl): CourseRepository
+
+    @Binds
+    @ViewModelScoped
+    fun bindTopicRepository(repository: TopicRepositoryImpl): TopicRepository
+
+
 }

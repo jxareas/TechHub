@@ -5,28 +5,49 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.jxareas.techhub.R
+import androidx.fragment.app.viewModels
+import com.jxareas.techhub.adapter.TopicListAdapter
+import com.jxareas.techhub.databinding.FragmentSearchCoursesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchCoursesFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchCoursesFragment()
-    }
+    private var _binding: FragmentSearchCoursesBinding? = null
+    private val binding: FragmentSearchCoursesBinding
+        get() = _binding!!
 
-    private lateinit var viewModel: SearchCoursesViewModel
+    private val viewModel: SearchCoursesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_search_courses, container, false)
+    ): View {
+        _binding = FragmentSearchCoursesBinding.inflate(inflater, container, false)
+        setupRecyclerView()
+        setupObservers()
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchCoursesViewModel::class.java)
-        // TODO: Use the ViewModel
+
+
+    private fun setupObservers() {
+        viewModel.topics.observe(viewLifecycleOwner) { cachedTopics ->
+            cachedTopics?.let { topics ->
+                (binding.recyclerViewTopics.adapter as TopicListAdapter).submitList(topics)
+            }
+        }
+    }
+
+    private fun setupRecyclerView() = binding.recyclerViewTopics.run {
+        adapter = TopicListAdapter()
+
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

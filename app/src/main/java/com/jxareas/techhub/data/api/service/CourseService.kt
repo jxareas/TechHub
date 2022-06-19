@@ -9,4 +9,5 @@ interface CourseService {
     @GET(ApiConstants.COURSES_ENDPOINT)
     suspend fun getCourses() : List<GetOneCourseResponse>
 
+
 }

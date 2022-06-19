@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.MaterialFadeThrough
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.CourseAdapterListener
 import com.jxareas.techhub.adapter.CourseListAdapter
@@ -26,10 +25,6 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
 
     private val viewModel: FavoriteCoursesViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

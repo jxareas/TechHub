@@ -29,11 +29,11 @@
         <action
             android:id="@+id/action_courseDetailFragment_self"
             app:destination="@id/courseDetailFragment"
-            app:popUpTo="@id/courseDetailFragment"
             app:enterAnim="@anim/slide_in_up_linear"
             app:exitAnim="@anim/slide_out_down"
             app:popEnterAnim="@anim/slide_in_up_linear"
             app:popExitAnim="@anim/shrink_fade_out_center"
+            app:popUpTo="@id/courseDetailFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -49,7 +49,7 @@
         android:id="@+id/favoriteCoursesFragment"
         android:name="com.jxareas.techhub.ui.favorites.FavoriteCoursesFragment"
         android:label="fragment_favorite_courses"
-        tools:layout="@layout/fragment_favorite_courses" >
+        tools:layout="@layout/fragment_favorite_courses">
         <action
             android:id="@+id/action_favorite_to_details"
             app:destination="@id/courseDetailFragment" />
@@ -58,7 +58,23 @@
         android:id="@+id/searchCoursesFragment"
         android:name="com.jxareas.techhub.ui.search.SearchCoursesFragment"
         android:label="fragment_search_courses"
-        tools:layout="@layout/fragment_search_courses" />
+        tools:layout="@layout/fragment_search_courses">
+        <action
+            android:id="@+id/search_to_course_by_topic"
+            app:destination="@id/coursesByTopicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursesByTopicFragment"
+        android:name="com.jxareas.techhub.ui.search.CoursesByTopicFragment"
+        android:label="CoursesByTopicFragment"
+        tools:layout="@layout/fragment_courses_by_topic" >
+        <argument
+            android:name="topic"
+            app:argType="string" />
+        <action
+            android:id="@+id/courses_by_topic_to_detail"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
 
 
 </navigation>

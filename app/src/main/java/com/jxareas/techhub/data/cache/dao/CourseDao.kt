@@ -22,6 +22,9 @@ interface CourseDao : BaseDao<CachedCourse> {
     @Query("SELECT * FROM courses WHERE name LIKE '%' || :courseName || '%'")
     fun getAllCoursesByName(courseName : String) : List<CachedCourse>
 
+    @Query("SELECT * FROM courses WHERE topicName LIKE :topic")
+    fun getCoursesByTopic(topic : String) : List<CachedCourse>
+
     @Query("SELECT * FROM courses where courseId = :id")
     fun getById(id : Int) : CachedCourse
 

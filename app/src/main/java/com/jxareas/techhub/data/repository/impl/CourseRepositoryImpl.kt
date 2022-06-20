@@ -30,6 +30,10 @@ class CourseRepositoryImpl @Inject constructor(
 
     }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
 
+    override suspend fun getCoursesByTopicName(topic: String): Flow<List<CachedCourse>> = flow {
+        emit(courseDao.getCoursesByTopic(topic))
+    }.flowOn(dispatchers.io)
+
     override suspend fun updateCourse(course: CachedCourse) {
         courseDao.update(course)
     }

@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.util.CourseDiffCallback
+import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
+import com.jxareas.techhub.adapter.diffutil.CourseDiffCallback
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemCourseCardBinding
 import com.jxareas.techhub.utils.extensions.loadImage
@@ -31,7 +32,7 @@ class CourseCardAdapter(private val listener: CourseAdapterListener) :
             imageViewInstructorPhoto.loadImage(course.instructorPhoto)
 
             root.setOnClickListener {
-                listener.onArtworkClicked(root, course)
+                listener.onCourseClicked(root, course)
             }
         }
     }

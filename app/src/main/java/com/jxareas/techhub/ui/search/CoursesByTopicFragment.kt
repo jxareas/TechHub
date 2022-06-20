@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.favorites
+package com.jxareas.techhub.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,35 +9,29 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.adapter.CourseListAdapter
+import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
-import com.jxareas.techhub.databinding.FragmentFavoriteCoursesBinding
-import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
+import com.jxareas.techhub.databinding.FragmentCoursesByTopicBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
+class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
 
-    private var _binding: FragmentFavoriteCoursesBinding? = null
-    private val binding: FragmentFavoriteCoursesBinding
+    private var _binding: FragmentCoursesByTopicBinding? = null
+    private val binding: FragmentCoursesByTopicBinding
         get() = _binding!!
 
-    private val viewModel: FavoriteCoursesViewModel by viewModels()
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.getAllFavoriteCourses()
-    }
+    private val args: CoursesByTopicFragmentArgs by navArgs()
+    private val viewModel : CoursesByTopicViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFavoriteCoursesBinding.inflate(inflater, container, false)
-        setupRecyclerView()
-        setupObservers()
+        _binding = FragmentCoursesByTopicBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,21 +39,29 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
         super.onViewCreated(view, savedInstanceState)
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
+        binding.toolbar.title = args.topic
+        setupListeners()
+        setupRecyclerView()
+        setupObservers()
     }
 
-
-    private fun setupRecyclerView() = binding.recyclerViewFavoriteCourses.run {
-        itemAnimator = SpringAddItemAnimator()
-        adapter = CourseListAdapter(this@FavoriteCoursesFragment)
+    private fun setupRecyclerView() = binding.recyclerViewCourses.run {
+        adapter = CourseListAdapter(this@CoursesByTopicFragment)
     }
 
     private fun setupObservers() {
-        viewModel.favorites.observe(viewLifecycleOwner) { cachedCourses ->
-            cachedCourses?.let { favoriteCourses ->
-                (binding.recyclerViewFavoriteCourses.adapter as CourseListAdapter).submitList(favoriteCourses)
+        viewModel.courses.observe(viewLifecycleOwner) { listOfCourses ->
+            listOfCourses?.let {
+                (binding.recyclerViewCourses.adapter as CourseListAdapter).submitList(it)
             }
 
         }
+    }
+
+    private fun setupListeners() {
+       binding.toolbar.setNavigationOnClickListener {
+           findNavController().navigateUp()
+       }
     }
 
     override fun onDestroyView() {
@@ -71,7 +73,7 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
         val extras = FragmentNavigatorExtras(
             layout to getString(R.string.course_detail_course_image_transition)
         )
-        val direction = FavoriteCoursesFragmentDirections.actionFavoriteToDetails(course.courseId)
+        val direction = CoursesByTopicFragmentDirections.coursesByTopicToDetail(course.courseId)
         findNavController().navigate(direction, extras)
     }
 

@@ -1,9 +1,9 @@
-package com.jxareas.techhub.adapter
+package com.jxareas.techhub.adapter.listeners
 
 import android.view.ViewGroup
 import com.jxareas.techhub.data.cache.model.CachedCourse
 
 @FunctionalInterface
 fun interface CourseAdapterListener {
-    fun onArtworkClicked(layout: ViewGroup, course: CachedCourse)
+    fun onCourseClicked(layout: ViewGroup, course: CachedCourse)
 }

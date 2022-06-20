@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
         android:paddingHorizontal="@dimen/grid_2"
         android:paddingVertical="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceHeadline5"

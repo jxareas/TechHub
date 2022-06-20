@@ -25,6 +25,8 @@
             app:titleTextColor="?attr/colorOnPrimary"
             android:paddingStart="@dimen/grid_2"
             app:title="@string/app_name"
+            tools:title="Data Science"
+            app:navigationIcon="@drawable/ic_back"
             app:titleTextAppearance="@style/Widget.TechHub.TextAppearance.Toolbar"
             />
 
@@ -38,6 +40,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:scrollbars="vertical"
         tools:itemCount="10"
-        tools:listitem="@layout/list_item_topic"/>
+        tools:listitem="@layout/list_item_course"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

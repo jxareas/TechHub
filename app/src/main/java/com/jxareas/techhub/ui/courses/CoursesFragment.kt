@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.CourseAdapterListener
 import com.jxareas.techhub.adapter.CourseCardAdapter
+import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCoursesBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
@@ -62,7 +62,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onArtworkClicked(layout: ViewGroup, course: CachedCourse) {
+    override fun onCourseClicked(layout: ViewGroup, course: CachedCourse) {
         val extras = FragmentNavigatorExtras(
             layout to getString(R.string.course_detail_course_image_transition)
         )

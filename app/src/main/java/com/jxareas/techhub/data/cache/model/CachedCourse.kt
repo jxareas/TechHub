@@ -2,6 +2,9 @@ package com.jxareas.techhub.data.cache.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.jxareas.techhub.data.cache.converters.DateConverter
+import java.util.*
 
 @Entity(
     tableName = "courses"
@@ -18,4 +21,6 @@ data class CachedCourse(
     val instructorPhoto : String,
     val instructorName : String,
     val topicName : String,
+    @TypeConverters(DateConverter::class)
+    var lastAccessed : Date? = null
 ) : CachedEntity

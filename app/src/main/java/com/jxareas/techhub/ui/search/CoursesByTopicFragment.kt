@@ -18,6 +18,7 @@ import com.jxareas.techhub.adapter.CourseListAdapter
 import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCoursesByTopicBinding
+import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,13 +55,17 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
         super.onViewCreated(view, savedInstanceState)
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
-        binding.textViewTopicName.text = args.topic
-        setupListeners()
+        setupViews()
         setupRecyclerView()
         setupObservers()
     }
 
+    private fun setupViews() {
+        binding.textViewTopicName.text = args.topic
+    }
+
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {
+        itemAnimator = SpringAddItemAnimator()
         adapter = CourseListAdapter(this@CoursesByTopicFragment)
     }
 
@@ -73,11 +78,6 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
         }
     }
 
-    private fun setupListeners() {
-//        binding.toolbar.setNavigationOnClickListener {
-//            findNavController().navigateUp()
-//        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

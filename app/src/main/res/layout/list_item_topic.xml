@@ -2,9 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:theme="@style/TechHub.Blue"
+    android:layout_height="wrap_content"
     android:background="?attr/colorPrimary"
-    android:layout_height="wrap_content">
+    android:theme="@style/TechHub.Blue">
 
     <TextView
         android:id="@+id/text_view_topic_name"
@@ -14,9 +14,8 @@
         android:paddingHorizontal="@dimen/grid_2"
         android:paddingVertical="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceHeadline5"
-        tools:text="@sample/topics.json/data/name"
         android:textColor="?attr/colorOnPrimarySurface"
-        tools:textSize="32sp"
-        />
+        tools:text="@sample/topics.json/data/name"
+        tools:textSize="32sp" />
 
 </FrameLayout>

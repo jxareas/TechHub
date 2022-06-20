@@ -1,4 +1,4 @@
-package com.jxareas.techhub.adapter.diffutil
+package com.jxareas.techhub.adapter.callbacks
 
 import androidx.recyclerview.widget.DiffUtil
 import com.jxareas.techhub.data.cache.model.CachedCourse

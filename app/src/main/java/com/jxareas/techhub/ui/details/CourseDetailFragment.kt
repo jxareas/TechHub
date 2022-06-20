@@ -3,6 +3,7 @@ package com.jxareas.techhub.ui.details
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.RelatedCourseAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
+import com.jxareas.techhub.utils.extensions.getCurrentDateTime
 import com.jxareas.techhub.utils.extensions.getLong
 import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,7 +54,8 @@ class CourseDetailFragment : Fragment() {
             interpolator = LinearOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
-            duration = resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
+            duration =
+                resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
         }
         postponeEnterTransition()
     }
@@ -107,16 +110,16 @@ class CourseDetailFragment : Fragment() {
 
         viewModel.relatedCourses.observe(viewLifecycleOwner) { cachedCourses ->
             cachedCourses?.let { courses ->
-                (binding.recyclerViewRelatedCourses.adapter as RelatedCourseAdapter).submitList(
-                    courses
-                )
+                (binding.recyclerViewRelatedCourses.adapter as RelatedCourseAdapter).submitList(courses)
             }
-
         }
 
     }
 
     private fun bindToView(course: CachedCourse) = binding.run {
+        course.lastAccessed = getCurrentDateTime()
+        Log.d("SOMETHING", course.lastAccessed.toString())
+        viewModel.onUpdate(course)
         textViewCourseName.text = course.name
         textViewCourseDescription.text = course.description
         textViewTopic.text = course.topicName

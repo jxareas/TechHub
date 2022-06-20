@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.TopicListAdapter.TopicViewHolder
-import com.jxareas.techhub.adapter.diffutil.TopicDiffCallback
+import com.jxareas.techhub.adapter.callbacks.TopicDiffCallback
 import com.jxareas.techhub.adapter.listeners.TopicAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedTopic
 import com.jxareas.techhub.databinding.ListItemTopicBinding

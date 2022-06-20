@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimarySurface"
-    android:theme="@style/TechHub.Orange"
-    >
+    android:theme="@style/TechHub.Orange">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -33,6 +32,7 @@
         android:id="@+id/recycler_view_favorite_courses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"

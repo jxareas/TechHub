@@ -24,7 +24,7 @@
             android:minHeight="80dp"
             app:titleTextColor="?attr/colorOnPrimary"
             android:paddingStart="@dimen/grid_2"
-            app:title="@string/app_name"
+            app:title="Welcome to TechHub"
             app:titleTextAppearance="@style/Widget.TechHub.TextAppearance.Toolbar"
             />
 

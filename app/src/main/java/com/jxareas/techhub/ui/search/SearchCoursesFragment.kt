@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.TopicListAdapter
 import com.jxareas.techhub.adapter.listeners.TopicAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedTopic
@@ -33,6 +36,11 @@ class SearchCoursesFragment : Fragment(), TopicAdapterListener {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
+    }
 
 
     private fun setupObservers() {
@@ -56,8 +64,12 @@ class SearchCoursesFragment : Fragment(), TopicAdapterListener {
     }
 
     override fun onTopicClicked(view: ViewGroup, topic: CachedTopic) {
+        val transitionName = getString(R.string.topic_transition)
+        val extras = FragmentNavigatorExtras(
+            view to transitionName
+        )
         val direction = SearchCoursesFragmentDirections.searchToCourseByTopic(topic.name)
-        findNavController().navigate(direction)
+        findNavController().navigate(direction, extras)
     }
 
 }

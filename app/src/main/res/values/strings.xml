@@ -7,6 +7,7 @@
     <string name="card_item_transition">Card Transition</string>
     <string name="course_detail_course_image_transition">Course Detail</string>
     <string name="poster_transition">Poster Transition</string>
+    <string name="topic_transition">Topic Transition</string>
     <string name="my_courses">My Courses</string>
     <string name="featured">Featured</string>
     <string name="search">Search</string>

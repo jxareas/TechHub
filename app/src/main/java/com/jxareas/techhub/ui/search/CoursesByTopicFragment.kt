@@ -1,5 +1,6 @@
 package com.jxareas.techhub.ui.search
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +8,17 @@ import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.CourseListAdapter
 import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCoursesByTopicBinding
+import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +29,18 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
         get() = _binding!!
 
     private val args: CoursesByTopicFragmentArgs by navArgs()
-    private val viewModel : CoursesByTopicViewModel by viewModels()
+    private val viewModel: CoursesByTopicViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = MaterialContainerTransform().apply {
+            duration = resources.getLong(R.integer.material_motion_duration_medium_2)
+            scrimColor = Color.TRANSPARENT
+            drawingViewId = R.id.nav_host_fragment_main
+            interpolator = FastOutSlowInInterpolator()
+            fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +54,7 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
         super.onViewCreated(view, savedInstanceState)
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
-        binding.toolbar.title = args.topic
+        binding.textViewTopicName.text = args.topic
         setupListeners()
         setupRecyclerView()
         setupObservers()
@@ -59,9 +74,9 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
     }
 
     private fun setupListeners() {
-       binding.toolbar.setNavigationOnClickListener {
-           findNavController().navigateUp()
-       }
+//        binding.toolbar.setNavigationOnClickListener {
+//            findNavController().navigateUp()
+//        }
     }
 
     override fun onDestroyView() {

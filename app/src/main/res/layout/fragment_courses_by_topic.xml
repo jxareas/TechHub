@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,38 +7,32 @@
     android:background="?attr/colorPrimarySurface"
     android:theme="@style/TechHub.Blue">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <TextView
+        android:id="@+id/text_view_topic_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimarySurface"
-        app:liftOnScroll="true"
-        android:theme="@style/TechHub.Blue">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            android:minHeight="80dp"
-            app:titleTextColor="?attr/colorOnPrimary"
-            android:paddingStart="@dimen/grid_2"
-            app:title="@string/app_name"
-            tools:title="Data Science"
-            app:navigationIcon="@drawable/ic_back"
-            app:titleTextAppearance="@style/Widget.TechHub.TextAppearance.Toolbar"
-            />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingVertical="@dimen/grid_1"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textColor="?attr/colorOnPrimarySurface"
+        android:transitionName="@string/topic_transition"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@sample/topics.json/data/name"
+        tools:textSize="32sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_courses"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_standard"
         android:scrollbars="vertical"
+        android:paddingBottom="?attr/actionBarSize"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_topic_name"
         tools:itemCount="10"
-        tools:listitem="@layout/list_item_course"/>
+        tools:listitem="@layout/list_item_course" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

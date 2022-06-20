@@ -1,9 +1,11 @@
 package com.jxareas.techhub.adapter
 
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.TopicListAdapter.TopicViewHolder
 import com.jxareas.techhub.adapter.diffutil.TopicDiffCallback
 import com.jxareas.techhub.adapter.listeners.TopicAdapterListener
@@ -20,6 +22,10 @@ class TopicListAdapter(private val listener : TopicAdapterListener) :
         RecyclerView.ViewHolder(binding.root) {
 
             fun bind(topic : CachedTopic) = binding.run {
+
+                val transition = itemView.context.getString(R.string.topic_transition)
+                ViewCompat.setTransitionName(root, "$transition${topic.topicId}")
+
                 textViewTopicName.text = topic.name
 
                 root.setOnClickListener {

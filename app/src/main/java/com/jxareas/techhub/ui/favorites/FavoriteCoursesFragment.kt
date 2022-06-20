@@ -26,6 +26,10 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
 
     private val viewModel: FavoriteCoursesViewModel by viewModels()
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllFavoriteCourses()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +54,7 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
     }
 
     private fun setupObservers() {
-        viewModel.courses.observe(viewLifecycleOwner) { cachedCourses ->
+        viewModel.favorites.observe(viewLifecycleOwner) { cachedCourses ->
             cachedCourses?.let { favoriteCourses ->
                 (binding.recyclerViewFavoriteCourses.adapter as CourseListAdapter).submitList(favoriteCourses)
             }

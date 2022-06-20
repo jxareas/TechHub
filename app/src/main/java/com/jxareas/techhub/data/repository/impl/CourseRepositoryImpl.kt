@@ -30,6 +30,10 @@ class CourseRepositoryImpl @Inject constructor(
 
     }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
 
+    override suspend fun updateCourse(course: CachedCourse) {
+        courseDao.update(course)
+    }
+
     override suspend fun getFavoriteCourses() : Flow<List<CachedCourse>> = flow {
         emit(courseDao.getFavorites())
     }.flowOn(dispatchers.io)

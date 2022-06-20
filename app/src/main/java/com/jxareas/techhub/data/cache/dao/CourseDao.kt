@@ -10,7 +10,7 @@ interface CourseDao : BaseDao<CachedCourse> {
     @Query("SELECT * FROM courses")
     fun getAll() : List<CachedCourse>
 
-    @Query("SELECT * FROM courses WHERE favorite")
+    @Query("SELECT * FROM courses WHERE favorite = 1")
     fun getFavorites() : List<CachedCourse>
 
     @Query("UPDATE courses SET favorite = 1 WHERE courseId = :id")

@@ -47,12 +47,23 @@
                 android:id="@+id/icon_expand_course_photo"
                 android:layout_width="@dimen/icon_default_width"
                 android:layout_height="@dimen/icon_default_height"
-                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
                 android:src="@drawable/arrow_expand_vertical"
-                />
+                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/icon_favorites"
+                android:layout_width="@dimen/icon_default_width"
+                android:layout_height="@dimen/icon_default_height"
+                android:layout_marginEnd="@dimen/margin_standard"
+                android:layout_marginBottom="@dimen/margin_standard"
+                app:tint="@color/tech_pink_600"
+                android:src="@drawable/ic_favorite_selector"
+                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
+                app:layout_constraintEnd_toEndOf="parent" />
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_view_instructor_photo"

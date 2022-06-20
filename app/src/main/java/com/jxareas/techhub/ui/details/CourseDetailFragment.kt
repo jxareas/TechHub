@@ -86,6 +86,8 @@ class CourseDetailFragment : Fragment() {
         toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+
+
         iconExpandCoursePhoto.setOnClickListener {
             val transitionName = getString(R.string.poster_transition)
             val extras = FragmentNavigatorExtras(
@@ -119,6 +121,7 @@ class CourseDetailFragment : Fragment() {
         textViewCourseDescription.text = course.description
         textViewTopic.text = course.topicName
         textViewInstructorName.text = course.instructorName
+        iconFavorites.isActivated = course.favorite
         Glide.with(imageViewCoursePhoto)
             .load(course.coursePhoto)
             .listener(object : RequestListener<Drawable> {
@@ -139,6 +142,13 @@ class CourseDetailFragment : Fragment() {
 
             }).into(imageViewCoursePhoto)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
+
+        iconFavorites.setOnClickListener {
+            course.favorite = !course.favorite
+            viewModel.onUpdate(course)
+            it.isActivated = course.favorite
+        }
+
     }
 
 

@@ -12,16 +12,21 @@
         android:id="@+id/search_view_explore_courses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:iconifiedByDefault="true"
-        android:imeOptions="actionSearch"
-        android:inputType="textCapWords"
+        android:layout_marginHorizontal="@dimen/margin_high"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:background="@color/tech_anti_flash_white"
+        app:iconifiedByDefault="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:transitionName="@string/search_view_transition"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="@string/search_courses" />
+        app:queryBackground="@null" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout_explore_courses"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_standard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view_explore_courses">
 
@@ -29,12 +34,13 @@
             android:id="@+id/recycler_view_courses"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:clipToPadding="false"
             android:paddingHorizontal="@dimen/margin_standard"
+            android:paddingBottom="?attr/actionBarSize"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:itemCount="10"
-            android:paddingBottom="?attr/actionBarSize"
             tools:listitem="@layout/list_item_course_card" />
 
 

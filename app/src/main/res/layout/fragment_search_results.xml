@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimarySurface"
+    android:paddingHorizontal="@dimen/margin_high"
+    android:theme="@style/TechHub.Orange.Alternate"
+    android:transitionName="@string/search_results_transition"
+    tools:context=".ui.courses.CoursesFragment">
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_explore_courses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:transitionName="@string/search_results_transition"
+        android:background="@color/tech_anti_flash_white"
+        android:imeOptions="actionSearch"
+        android:inputType="textCapWords"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryBackground="@null" />
+
+    <TextView
+        android:id="@+id/text_view_recently_viewed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:background="?attr/selectableItemBackground"
+        android:text="Search Results"
+        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view_explore_courses" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_recent_courses"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_low"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_recently_viewed"
+        app:layout_goneMarginTop="@dimen/margin_low"
+        tools:itemCount="10"
+        tools:listitem="@layout/list_item_course" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

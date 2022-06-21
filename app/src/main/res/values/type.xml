@@ -33,6 +33,11 @@
         <item name="lineHeight">25sp</item>
     </style>
 
+    <style name="TextAppearance.TechHub.HeadlineSmall" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/lato_bold</item>
+        <item name="lineHeight">12sp</item>
+    </style>
+
 
     <style name="TextAppearance.TechHub.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="fontFamily">@font/lato</item>

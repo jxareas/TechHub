@@ -13,6 +13,7 @@
         <item name="textAppearanceHeadline4">@style/TextAppearance.TechHub.Headline4</item>
         <item name="textAppearanceHeadline5">@style/TextAppearance.TechHub.Headline5</item>
         <item name="textAppearanceHeadline6">@style/TextAppearance.TechHub.Headline6</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.TechHub.HeadlineSmall</item>
         <item name="textAppearanceSubtitle1">@style/TextAppearance.TechHub.Subtitle1</item>
         <item name="textAppearanceSubtitle2">@style/TextAppearance.TechHub.Subtitle2</item>
         <item name="textAppearanceBody1">@style/TextAppearance.TechHub.Body1</item>
@@ -51,7 +52,7 @@
     <style name="TechHub.Orange.Alternate">
         <item name="colorPrimary">@color/tech_deep_orange</item>
         <item name="colorPrimaryVariant">@color/tech_blue_800</item>
-        <item name="colorSecondary">@color/tech_yellow_500</item>
+        <item name="colorSecondary">@color/black</item>
         <item name="colorSecondaryVariant">@color/tech_pink_600</item>
     </style>
 

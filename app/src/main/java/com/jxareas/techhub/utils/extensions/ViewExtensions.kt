@@ -3,25 +3,29 @@ package com.jxareas.techhub.utils.extensions
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.viewbinding.ViewBinding
 import com.jxareas.techhub.utils.animation.getKey
 
-fun<T : View> T.visible() {
+fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
-fun<T : View> T.gone() {
+fun View.gone() {
     this.visibility = View.GONE
 }
 
-inline infix fun<VB : ViewBinding> ViewGroup.bind(
-    crossinline bindingInflater : LayoutInflater.(parent : ViewGroup, attachToParent : Boolean) -> VB
-) : VB = LayoutInflater.from(context).let {
+inline infix fun <VB : ViewBinding> ViewGroup.bind(
+    crossinline bindingInflater: LayoutInflater.(parent: ViewGroup, attachToParent: Boolean) -> VB
+): VB = LayoutInflater.from(context).let {
     bindingInflater.invoke(it, this, false)
 }
+
+fun View.toast(message: String, length: Int = Toast.LENGTH_SHORT): Unit =
+    Toast.makeText(context, message, length).show()
 
 fun View.spring(
     property: DynamicAnimation.ViewProperty,

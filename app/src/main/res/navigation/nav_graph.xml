@@ -14,6 +14,9 @@
         <action
             android:id="@+id/courses_to_detail_fragment"
             app:destination="@id/courseDetailFragment" />
+        <action
+            android:id="@+id/action_courses_to_expanded_search"
+            app:destination="@id/expandedCourseSearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseDetailFragment"
@@ -67,12 +70,40 @@
         android:id="@+id/coursesByTopicFragment"
         android:name="com.jxareas.techhub.ui.search.CoursesByTopicFragment"
         android:label="CoursesByTopicFragment"
-        tools:layout="@layout/fragment_courses_by_topic" >
+        tools:layout="@layout/fragment_courses_by_topic">
         <argument
             android:name="topic"
             app:argType="string" />
         <action
             android:id="@+id/courses_by_topic_to_detail"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expandedCourseSearchFragment"
+        android:name="com.jxareas.techhub.ui.courses.ExpandedCourseSearchFragment"
+        android:label="ExpandedCourseSearchFragment"
+        tools:layout="@layout/fragment_expanded_course_search">
+        <action
+            android:id="@+id/action_expanded_to_detail"
+            app:destination="@id/courseDetailFragment" />
+        <action
+            android:id="@+id/action_expanded_search_to_results"
+            app:destination="@id/searchResultsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/expandedCourseSearchFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.jxareas.techhub.ui.courses.SearchResultsFragment"
+        android:label="fragment_search_results"
+        tools:layout="@layout/fragment_search_results" >
+        <argument
+            android:name="query"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_search_results_to_details"
             app:destination="@id/courseDetailFragment" />
     </fragment>
 

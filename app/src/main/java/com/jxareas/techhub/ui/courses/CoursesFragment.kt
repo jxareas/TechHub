@@ -24,7 +24,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     private val binding: FragmentCoursesBinding
         get() = _binding!!
 
-    private val viewModel : CoursesViewModel by viewModels()
+    private val viewModel: CoursesViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -34,7 +34,27 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
         _binding = FragmentCoursesBinding.inflate(inflater, container, false)
         setupRecyclerView()
         setupObservers()
+        setupListeners()
         return binding.root
+    }
+
+    private fun setupListeners() = binding.searchViewExploreCourses.run {
+            setOnQueryTextFocusChangeListener { searchView, hasFocus ->
+                if(hasFocus)
+                    searchView.clearFocus().also { navigateToExpandedSearch(searchView) }
+            }
+
+            setOnClickListener { searchView -> navigateToExpandedSearch(searchView) }
+
+    }
+
+    private fun navigateToExpandedSearch(searchView : View) {
+        val transitionName = getString(R.string.search_view_transition)
+        val extras = FragmentNavigatorExtras(
+            searchView to transitionName
+        )
+        val direction = CoursesFragmentDirections.actionCoursesToExpandedSearch()
+        findNavController().navigate(direction, extras)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

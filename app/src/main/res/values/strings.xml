@@ -8,6 +8,7 @@
     <string name="course_detail_course_image_transition">Course Detail</string>
     <string name="poster_transition">Poster Transition</string>
     <string name="topic_transition">Topic Transition</string>
+    <string name="search_view_transition">Expanded Search Transition</string>
     <string name="my_courses">My Courses</string>
     <string name="featured">Featured</string>
     <string name="search">Search</string>
@@ -21,5 +22,6 @@
     <string name="step_2">Find the time of the day with the best light conditions for your scene. Balance the light sources in your composition so that both light and shadows are present, adding depth, texture, and scale to your landscape.</string>
     <string name="add_course">Add course</string>
     <string name="explore">Explore</string>
+    <string name="search_results_transition">Search Results Transition</string>
 
 </resources>

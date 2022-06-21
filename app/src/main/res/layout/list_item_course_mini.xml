@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/course_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_mini"
+    android:layout_marginHorizontal="@dimen/margin_low"
+    android:layout_marginBottom="@dimen/margin_low"
+    android:background="?attr/colorPrimary"
+    android:theme="@style/TechHub.Light"
+    tools:ignore="RtlSymmetry"
+    tools:targetApi="o">
+
+    <View
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_view_course_name"
+        app:layout_constraintTop_toTopOf="@id/text_view_course_name" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/image_view_course_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_view_course_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/course_image_placeholder"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/text_view_course_name"
+        app:layout_constraintStart_toEndOf="@id/space"
+        app:layout_constraintTop_toTopOf="@id/text_view_course_name" />
+
+    <TextView
+        android:id="@+id/text_view_course_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/lato_bold"
+        android:lines="2"
+        android:paddingStart="@dimen/margin_low"
+        android:paddingTop="@dimen/grid_2"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        app:layout_constraintEnd_toStartOf="@id/image_view_instructor_photo"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/image_view_course_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@sample/courses.json/data/name" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_view_instructor_photo"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="@dimen/margin_low"
+        android:background="@drawable/ic_avatar_placeholder"
+        android:foreground="@drawable/avatar_outline"
+        android:importantForAccessibility="no"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/highlight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:foreground="@drawable/small_component_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/image_view_course_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

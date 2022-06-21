@@ -13,8 +13,8 @@ interface CourseDao : BaseDao<CachedCourse> {
     @Query("SELECT * FROM courses WHERE favorite = 1")
     fun getFavorites() : List<CachedCourse>
 
-    @Query("UPDATE courses SET favorite = 1 WHERE courseId = :id")
-    fun setAsFavorite(id : Int)
+    @Query("SELECT * FROM courses WHERE lastAccessed <> 0 ORDER BY lastAccessed DESC LIMIT 10")
+    fun getRecentCourses() : List<CachedCourse>
 
     @Query("DELETE FROM courses")
     fun deleteAll()

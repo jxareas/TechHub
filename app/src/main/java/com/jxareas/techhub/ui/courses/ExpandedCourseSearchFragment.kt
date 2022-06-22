@@ -79,8 +79,7 @@ class ExpandedCourseSearchFragment : Fragment(), CourseAdapterListener {
                 val extras =
                     FragmentNavigatorExtras(binding.searchViewExploreCourses to transitionName)
                 val direction =
-                    ExpandedCourseSearchFragmentDirections.actionExpandedSearchToResults(
-                        currentQuery)
+                    ExpandedCourseSearchFragmentDirections.actionExpandedSearchToResults(currentQuery)
                 findNavController().navigate(direction, extras)
                 return true
             }

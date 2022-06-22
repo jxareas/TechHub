@@ -89,9 +89,11 @@
         <action
             android:id="@+id/action_expanded_search_to_results"
             app:destination="@id/searchResultsFragment"
-            app:launchSingleTop="true"
             app:popUpTo="@id/expandedCourseSearchFragment"
             app:popUpToInclusive="true"
+            app:launchSingleTop="true"
+            app:exitAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_in"
             />
     </fragment>
     <fragment

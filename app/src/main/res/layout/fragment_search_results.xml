@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
     android:background="?attr/colorPrimarySurface"
-    android:paddingHorizontal="@dimen/margin_high"
-    android:theme="@style/TechHub.Orange.Alternate"
+    android:paddingHorizontal="@dimen/margin_standard"
+    android:theme="@style/TechHub.Light"
     android:transitionName="@string/search_results_transition"
     tools:context=".ui.courses.CoursesFragment">
 
@@ -16,7 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_standard"
-        android:transitionName="@string/search_results_transition"
         android:background="@color/tech_anti_flash_white"
         android:imeOptions="actionSearch"
         android:inputType="textCapWords"

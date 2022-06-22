@@ -10,10 +10,10 @@
       android:toYScale="0.9"
       android:pivotX="50%"
       android:pivotY="50%"
-      android:duration="@integer/material_motion_duration_short_1"/>
+      android:duration="@integer/material_motion_duration_short_2"/>
   <alpha
       android:interpolator="@android:interpolator/decelerate_cubic"
       android:fromAlpha="1.0"
       android:toAlpha="0.9"
-      android:duration="@integer/material_motion_duration_short_1"/>
+      android:duration="@integer/material_motion_duration_short_2"/>
 </set>

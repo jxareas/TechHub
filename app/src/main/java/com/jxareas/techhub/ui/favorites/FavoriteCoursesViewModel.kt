@@ -23,6 +23,13 @@ class FavoriteCoursesViewModel @Inject constructor(
         getAllFavoriteCourses()
     }
 
+    fun onFavoriteRemoved(id : Int) {
+        viewModelScope.launch {
+            coursesRepository.removeFromFavorites(id)
+            getAllFavoriteCourses()
+        }
+    }
+
      fun getAllFavoriteCourses() {
         viewModelScope.launch {
             coursesRepository.getFavoriteCourses().collectLatest { favoriteCourses ->

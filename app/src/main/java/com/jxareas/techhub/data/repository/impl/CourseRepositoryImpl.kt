@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class CourseRepositoryImpl @Inject constructor(
@@ -19,18 +20,19 @@ class CourseRepositoryImpl @Inject constructor(
     private val dispatchers: DispatcherProvider,
 ) : CourseRepository {
 
-    override suspend fun getAllCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> = flow {
-        var courses = courseDao.getAll()
-        if (courses.isEmpty()) {
-            val response = courseService.getCourses()
-            courses = response.map(GetOneCourseResponse::toCachedCourse)
-            courseDao.insertAll(courses)
-            emit(courses)
-        } else emit(courses)
+    override suspend fun getAllCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> =
+        flow {
+            var courses = courseDao.getAll()
+            if (courses.isEmpty()) {
+                val response = courseService.getCourses()
+                courses = response.map(GetOneCourseResponse::toCachedCourse)
+                courseDao.insertAll(courses)
+                emit(courses)
+            } else emit(courses)
 
-    }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
+        }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
 
-    override suspend fun getCoursesByName(course : String): Flow<List<CachedCourse>> = flow {
+    override suspend fun getCoursesByName(course: String): Flow<List<CachedCourse>> = flow {
         emit(courseDao.getAllCoursesByName(course))
     }.flowOn(dispatchers.io)
 
@@ -46,7 +48,11 @@ class CourseRepositoryImpl @Inject constructor(
         courseDao.update(course)
     }
 
-    override suspend fun getFavoriteCourses() : Flow<List<CachedCourse>> = flow {
+    override suspend fun removeFromFavorites(courseId: Int) {
+        withContext(dispatchers.io) { courseDao.removeFromFavorites(courseId) }
+    }
+
+    override suspend fun getFavoriteCourses(): Flow<List<CachedCourse>> = flow {
         emit(courseDao.getFavorites())
     }.flowOn(dispatchers.io)
 

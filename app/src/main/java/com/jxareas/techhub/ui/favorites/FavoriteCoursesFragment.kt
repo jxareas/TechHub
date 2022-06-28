@@ -11,22 +11,22 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.CourseListAdapter
+import com.jxareas.techhub.adapter.FavoriteListAdapter
 import com.jxareas.techhub.adapter.callbacks.ItemTouchHelperCallback
-import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
+import com.jxareas.techhub.adapter.listeners.FavoriteAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteCoursesBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
+class FavoriteCoursesFragment : Fragment(), FavoriteAdapterListener {
 
     private var _binding: FragmentFavoriteCoursesBinding? = null
     private val binding: FragmentFavoriteCoursesBinding
         get() = _binding!!
 
-    private val favoritesAdapter = CourseListAdapter(this)
+    private val favoritesAdapter = FavoriteListAdapter(this)
     private val viewModel: FavoriteCoursesViewModel by viewModels()
 
     override fun onResume() {
@@ -68,6 +68,11 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onFavoriteCourseSwiped(courseId: Int) {
+        viewModel.onFavoriteRemoved(courseId)
+    }
+
 
     override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
         val extras =

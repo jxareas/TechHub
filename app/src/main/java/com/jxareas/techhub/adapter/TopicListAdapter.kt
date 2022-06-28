@@ -13,7 +13,7 @@ import com.jxareas.techhub.data.cache.model.CachedTopic
 import com.jxareas.techhub.databinding.ListItemTopicBinding
 import com.jxareas.techhub.utils.extensions.bind
 
-class TopicListAdapter(private val listener : TopicAdapterListener) :
+class TopicListAdapter(private val listener: TopicAdapterListener) :
     ListAdapter<CachedTopic, TopicViewHolder>(
         AsyncDifferConfig.Builder(TopicDiffCallback).build()
     ) {
@@ -21,18 +21,18 @@ class TopicListAdapter(private val listener : TopicAdapterListener) :
     inner class TopicViewHolder(private val binding: ListItemTopicBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(topic : CachedTopic) = binding.run {
+        fun bind(topic: CachedTopic) = binding.run {
 
-                val transition = itemView.context.getString(R.string.topic_transition)
-                ViewCompat.setTransitionName(root, "$transition${topic.topicId}")
+            val transition = itemView.context.getString(R.string.topic_transition)
+            ViewCompat.setTransitionName(root, "$transition${topic.topicId}")
 
-                textViewTopicName.text = topic.name
+            textViewTopicName.text = topic.name
 
-                root.setOnClickListener {
-                    listener.onTopicClicked(root, topic)
-                }
-
+            root.setOnClickListener {
+                listener.onTopicClicked(root, topic)
             }
+
+        }
 
     }
 

@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.courses
+package com.jxareas.techhub.ui.search
 
 import android.content.Context
 import android.graphics.Color
@@ -27,13 +27,15 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class ExpandedCourseSearchFragment : Fragment(), CourseAdapterListener {
+class ExpandedSearchFragment : Fragment(), CourseAdapterListener {
 
     private var _binding: FragmentExpandedCourseSearchBinding? = null
     private val binding: FragmentExpandedCourseSearchBinding
         get() = _binding!!
 
-    private val viewModel: ExpandedCourseSearchViewModel by viewModels()
+    private val recentCoursesAdapter = RecentCoursesListAdapter(this@ExpandedSearchFragment)
+
+    private val viewModel: ExpandedSearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,9 +80,9 @@ class ExpandedCourseSearchFragment : Fragment(), CourseAdapterListener {
                 val transitionName = getString(R.string.search_results_transition)
                 val extras =
                     FragmentNavigatorExtras(binding.searchViewExploreCourses to transitionName)
-                val direction =
-                    ExpandedCourseSearchFragmentDirections.actionExpandedSearchToResults(currentQuery)
-                findNavController().navigate(direction, extras)
+                val directions =
+                    ExpandedSearchFragmentDirections.actionExpandedSearchToResults(currentQuery)
+                findNavController().navigate(directions, extras)
                 return true
             }
 
@@ -105,16 +107,14 @@ class ExpandedCourseSearchFragment : Fragment(), CourseAdapterListener {
 
     private fun setupObservers() {
         viewModel.courses.observe(viewLifecycleOwner) { recentCourses ->
-            (binding.recyclerViewRecentCourses.adapter as RecentCoursesListAdapter).submitList(
-                recentCourses)
-
+            recentCoursesAdapter.submitList(recentCourses)
         }
     }
 
     private fun setupRecyclerView() = binding.recyclerViewRecentCourses.run {
         itemAnimator = SpringAddItemAnimator()
+        adapter = recentCoursesAdapter
         setHasFixedSize(true)
-        adapter = RecentCoursesListAdapter(this@ExpandedCourseSearchFragment)
     }
 
     override fun onDestroyView() {
@@ -122,12 +122,11 @@ class ExpandedCourseSearchFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(layout: ViewGroup, course: CachedCourse) {
-        val extras = FragmentNavigatorExtras(
-            layout to getString(R.string.course_detail_course_image_transition)
-        )
+    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+        val extras =
+            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_course_image_transition))
         val direction =
-            ExpandedCourseSearchFragmentDirections.actionExpandedToDetail(course.courseId)
+            ExpandedSearchFragmentDirections.actionExpandedToDetail(course.courseId)
         findNavController().navigate(direction, extras)
     }
 

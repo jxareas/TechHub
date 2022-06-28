@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.search
+package com.jxareas.techhub.ui.topics
 
 import android.graphics.Color
 import android.os.Bundle
@@ -29,6 +29,7 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
     private val binding: FragmentCoursesByTopicBinding
         get() = _binding!!
 
+    private val coursesAdapter = CourseListAdapter(this)
     private val args: CoursesByTopicFragmentArgs by navArgs()
     private val viewModel: CoursesByTopicViewModel by viewModels()
 
@@ -66,15 +67,12 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
 
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {
         itemAnimator = SpringAddItemAnimator()
-        adapter = CourseListAdapter(this@CoursesByTopicFragment)
+        adapter = coursesAdapter
     }
 
     private fun setupObservers() {
         viewModel.courses.observe(viewLifecycleOwner) { listOfCourses ->
-            listOfCourses?.let {
-                (binding.recyclerViewCourses.adapter as CourseListAdapter).submitList(it)
-            }
-
+            listOfCourses?.let { newCourses -> coursesAdapter.submitList(newCourses) }
         }
     }
 
@@ -84,12 +82,12 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(layout: ViewGroup, course: CachedCourse) {
-        val extras = FragmentNavigatorExtras(
-            layout to getString(R.string.course_detail_course_image_transition)
-        )
-        val direction = CoursesByTopicFragmentDirections.coursesByTopicToDetail(course.courseId)
-        findNavController().navigate(direction, extras)
+    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+        val extras =
+            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_course_image_transition))
+        val directions =
+            CoursesByTopicFragmentDirections.coursesByTopicToDetail(course.courseId)
+        findNavController().navigate(directions, extras)
     }
 
 }

@@ -12,13 +12,13 @@ import com.jxareas.techhub.adapter.callbacks.CourseDiffCallback
 import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemCourseMiniBinding
+import com.jxareas.techhub.utils.extensions.bind
 import com.jxareas.techhub.utils.extensions.loadImage
 
 class RecentCoursesListAdapter(private val listener: CourseAdapterListener) :
     ListAdapter<CachedCourse, CourseViewHolder>(
         AsyncDifferConfig.Builder(CourseDiffCallback).build()
     ) {
-
 
     inner class CourseViewHolder(private val binding: ListItemCourseMiniBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -33,9 +33,7 @@ class RecentCoursesListAdapter(private val listener: CourseAdapterListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder =
-        CourseViewHolder(
-            ListItemCourseMiniBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        CourseViewHolder(parent bind ListItemCourseMiniBinding::inflate)
 
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) =
         holder.bind(currentList[position])

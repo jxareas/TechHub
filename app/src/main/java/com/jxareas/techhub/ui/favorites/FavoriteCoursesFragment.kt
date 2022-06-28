@@ -24,6 +24,7 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
     private val binding: FragmentFavoriteCoursesBinding
         get() = _binding!!
 
+    private val favoritesAdapter = CourseListAdapter(this)
     private val viewModel: FavoriteCoursesViewModel by viewModels()
 
     override fun onResume() {
@@ -50,15 +51,12 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
 
     private fun setupRecyclerView() = binding.recyclerViewFavoriteCourses.run {
         itemAnimator = SpringAddItemAnimator()
-        adapter = CourseListAdapter(this@FavoriteCoursesFragment)
+        adapter = favoritesAdapter
     }
 
     private fun setupObservers() {
-        viewModel.favorites.observe(viewLifecycleOwner) { cachedCourses ->
-            cachedCourses?.let { favoriteCourses ->
-                (binding.recyclerViewFavoriteCourses.adapter as CourseListAdapter).submitList(favoriteCourses)
-            }
-
+        viewModel.favorites.observe(viewLifecycleOwner) { listOfCourses ->
+            listOfCourses?.let { favoriteCourses -> favoritesAdapter.submitList(favoriteCourses) }
         }
     }
 
@@ -67,12 +65,12 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(layout: ViewGroup, course: CachedCourse) {
-        val extras = FragmentNavigatorExtras(
-            layout to getString(R.string.course_detail_course_image_transition)
-        )
-        val direction = FavoriteCoursesFragmentDirections.actionFavoriteToDetails(course.courseId)
-        findNavController().navigate(direction, extras)
+    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+        val extras =
+            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_course_image_transition))
+        val directions =
+            FavoriteCoursesFragmentDirections.actionFavoriteToDetails(course.courseId)
+        findNavController().navigate(directions, extras)
     }
 
 }

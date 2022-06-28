@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.search
+package com.jxareas.techhub.ui.topics
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchCoursesViewModel @Inject constructor(
-    private val topicRepository: TopicRepository  
+class TopicsViewModel @Inject constructor(
+    private val topicRepository: TopicRepository
 ) : ViewModel() {
 
     private val _topics = MutableLiveData<List<CachedTopic>>()
@@ -24,7 +24,7 @@ class SearchCoursesViewModel @Inject constructor(
 
     private fun getAllTopics() {
         viewModelScope.launch {
-            topicRepository.getAllTopics{}.collect { listOfTopics ->
+            topicRepository.getAllTopics {}.collect { listOfTopics ->
                 _topics.postValue(listOfTopics)
             }
         }

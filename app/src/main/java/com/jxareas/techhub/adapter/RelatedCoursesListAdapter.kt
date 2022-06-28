@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
+import com.jxareas.techhub.adapter.RelatedCoursesListAdapter.CourseViewHolder
 import com.jxareas.techhub.adapter.callbacks.CourseDiffCallback
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemRelatedCourseBinding
+import com.jxareas.techhub.utils.extensions.bind
 import com.jxareas.techhub.utils.extensions.loadImage
 
-class RelatedCourseAdapter(private val onCoursedClick: (CachedCourse) -> Unit) :
-    ListAdapter<CachedCourse, RelatedCourseAdapter.CourseViewHolder>(
+class RelatedCoursesListAdapter(private val onCoursedClick: (CachedCourse) -> Unit) :
+    ListAdapter<CachedCourse, CourseViewHolder>(
         AsyncDifferConfig.Builder(CourseDiffCallback).build()
     ) {
 
@@ -41,9 +43,7 @@ class RelatedCourseAdapter(private val onCoursedClick: (CachedCourse) -> Unit) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder =
-        CourseViewHolder(
-            ListItemRelatedCourseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        CourseViewHolder(parent bind ListItemRelatedCourseBinding::inflate)
 
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) =
         holder.bind(currentList[position])

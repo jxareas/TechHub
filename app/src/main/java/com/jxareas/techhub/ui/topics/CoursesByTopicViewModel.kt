@@ -1,6 +1,10 @@
-package com.jxareas.techhub.ui.courses
+package com.jxareas.techhub.ui.topics
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.data.repository.CourseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchResultsViewModel @Inject constructor(
+class CoursesByTopicViewModel @Inject constructor(
     private val courseRepository: CourseRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
@@ -19,16 +23,17 @@ class SearchResultsViewModel @Inject constructor(
         get() = _courses
 
     init {
-        savedStateHandle.get<String>("query")?.let { query ->
-            getSearchedResults(query)
+        savedStateHandle.get<String>("topic")?.let { topicName ->
+            getCoursesByTopicName(topicName)
         }
     }
 
-    private fun getSearchedResults(query: String) {
+    private fun getCoursesByTopicName(topic: String) {
         viewModelScope.launch {
-            courseRepository.getCoursesByName(query).collectLatest { listOfCourses ->
+            courseRepository.getCoursesByTopicName(topic).collectLatest { listOfCourses ->
                 _courses.postValue(listOfCourses)
             }
         }
     }
+
 }

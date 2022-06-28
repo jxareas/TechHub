@@ -3,7 +3,6 @@ package com.jxareas.techhub.ui.details
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.RelatedCourseAdapter
+import com.jxareas.techhub.adapter.RelatedCoursesListAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
 import com.jxareas.techhub.utils.extensions.getCurrentDateTime
@@ -36,6 +35,9 @@ class CourseDetailFragment : Fragment() {
     private val binding: FragmentCourseDetailBinding
         get() = _binding!!
 
+    private val relatedCoursesAdapter = RelatedCoursesListAdapter { course ->
+        navigateToDetails(course.courseId)
+    }
     private val viewModel: CourseDetailViewModel by viewModels()
     private val args: CourseDetailFragmentArgs by navArgs()
 
@@ -75,14 +77,13 @@ class CourseDetailFragment : Fragment() {
         setupListeners()
     }
 
+    private fun navigateToDetails(id: Int) {
+        val directions = CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(id)
+        findNavController().navigate(directions)
+    }
+
     private fun setupRecyclerView() = binding.recyclerViewRelatedCourses.run {
-        adapter = RelatedCourseAdapter { course ->
-            findNavController().navigate(
-                CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(
-                    course.courseId
-                )
-            )
-        }
+        adapter = relatedCoursesAdapter
     }
 
     private fun setupListeners() = binding.run {
@@ -90,27 +91,24 @@ class CourseDetailFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-
         iconExpandCoursePhoto.setOnClickListener {
             val transitionName = getString(R.string.poster_transition)
-            val extras = FragmentNavigatorExtras(
-                imageViewCoursePhoto to transitionName
-            )
+            val extras = FragmentNavigatorExtras(imageViewCoursePhoto to transitionName)
             val direction = CourseDetailFragmentDirections.detailToPoster(args.courseId)
             findNavController().navigate(direction, extras)
         }
     }
 
     private fun setupObservers() {
-        viewModel.course.observe(viewLifecycleOwner) { cachedCourse ->
-            cachedCourse?.let { course ->
-                bindToView(course)
+        viewModel.course.observe(viewLifecycleOwner) { currentCourse ->
+            currentCourse?.let { newCourse ->
+                bindToView(newCourse)
             }
         }
 
-        viewModel.relatedCourses.observe(viewLifecycleOwner) { cachedCourses ->
-            cachedCourses?.let { courses ->
-                (binding.recyclerViewRelatedCourses.adapter as RelatedCourseAdapter).submitList(courses)
+        viewModel.relatedCourses.observe(viewLifecycleOwner) { relatedCourses ->
+            relatedCourses?.let { newCourses ->
+                relatedCoursesAdapter.submitList(newCourses)
             }
         }
 
@@ -118,7 +116,6 @@ class CourseDetailFragment : Fragment() {
 
     private fun bindToView(course: CachedCourse) = binding.run {
         course.lastAccessed = getCurrentDateTime()
-        Log.d("SOMETHING", course.lastAccessed.toString())
         viewModel.onUpdate(course)
         textViewCourseName.text = course.name
         textViewCourseDescription.text = course.description

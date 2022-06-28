@@ -24,8 +24,8 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     private val binding: FragmentCoursesBinding
         get() = _binding!!
 
+    private val courseCardAdapter = CourseCardAdapter(this)
     private val viewModel: CoursesViewModel by viewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,16 +39,15 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     }
 
     private fun setupListeners() = binding.searchViewExploreCourses.run {
-            setOnQueryTextFocusChangeListener { searchView, hasFocus ->
-                if(hasFocus)
-                    searchView.clearFocus().also { navigateToExpandedSearch(searchView) }
-            }
+        setOnQueryTextFocusChangeListener { searchView, hasFocus ->
+            if (hasFocus)
+                searchView.clearFocus().also { navigateToExpandedSearch(searchView) }
+        }
 
-            setOnClickListener { searchView -> navigateToExpandedSearch(searchView) }
-
+        setOnClickListener { searchView -> navigateToExpandedSearch(searchView) }
     }
 
-    private fun navigateToExpandedSearch(searchView : View) {
+    private fun navigateToExpandedSearch(searchView: View) {
         val transitionName = getString(R.string.search_view_transition)
         val extras = FragmentNavigatorExtras(
             searchView to transitionName
@@ -64,17 +63,14 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     }
 
     private fun setupObservers() {
-        viewModel.courses.observe(viewLifecycleOwner) { courses ->
-            courses?.let { cachedCourses ->
-                (binding.recyclerViewCourses.adapter as CourseCardAdapter).submitList(cachedCourses)
-            }
-
+        viewModel.courses.observe(viewLifecycleOwner) { listOfCourses ->
+            listOfCourses?.let { newCourses -> courseCardAdapter.submitList(newCourses) }
         }
     }
 
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {
         itemAnimator = SpringAddItemAnimator()
-        adapter = CourseCardAdapter(this@CoursesFragment)
+        adapter = courseCardAdapter
     }
 
     override fun onDestroyView() {
@@ -82,13 +78,12 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(layout: ViewGroup, course: CachedCourse) {
-        val extras = FragmentNavigatorExtras(
-            layout to getString(R.string.course_detail_course_image_transition)
-        )
-        val direction = CoursesFragmentDirections.coursesToDetailFragment(course.courseId)
+    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+        val extras =
+            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_course_image_transition))
+        val direction =
+            CoursesFragmentDirections.coursesToDetailFragment(course.courseId)
         findNavController().navigate(direction, extras)
     }
-
 
 }

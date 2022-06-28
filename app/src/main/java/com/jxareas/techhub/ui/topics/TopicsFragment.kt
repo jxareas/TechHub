@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.search
+package com.jxareas.techhub.ui.topics
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,24 +13,25 @@ import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.TopicListAdapter
 import com.jxareas.techhub.adapter.listeners.TopicAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedTopic
-import com.jxareas.techhub.databinding.FragmentSearchCoursesBinding
+import com.jxareas.techhub.databinding.FragmentTopicsBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchCoursesFragment : Fragment(), TopicAdapterListener {
+class TopicsFragment : Fragment(), TopicAdapterListener {
 
-    private var _binding: FragmentSearchCoursesBinding? = null
-    private val binding: FragmentSearchCoursesBinding
+    private var _binding: FragmentTopicsBinding? = null
+    private val binding: FragmentTopicsBinding
         get() = _binding!!
 
-    private val viewModel: SearchCoursesViewModel by viewModels()
+    private val topicAdapter = TopicListAdapter(this)
+    private val viewModel: TopicsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSearchCoursesBinding.inflate(inflater, container, false)
+        _binding = FragmentTopicsBinding.inflate(inflater, container, false)
         setupRecyclerView()
         setupObservers()
         return binding.root
@@ -44,17 +45,14 @@ class SearchCoursesFragment : Fragment(), TopicAdapterListener {
 
 
     private fun setupObservers() {
-        viewModel.topics.observe(viewLifecycleOwner) { cachedTopics ->
-            cachedTopics?.let { topics ->
-                (binding.recyclerViewCourses.adapter as TopicListAdapter).submitList(topics)
-            }
+        viewModel.topics.observe(viewLifecycleOwner) { listOfTopics ->
+            listOfTopics?.let { newTopics -> topicAdapter.submitList(newTopics) }
         }
     }
 
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {
         itemAnimator = SpringAddItemAnimator()
-        adapter = TopicListAdapter(this@SearchCoursesFragment)
-
+        adapter = topicAdapter
     }
 
 
@@ -63,13 +61,13 @@ class SearchCoursesFragment : Fragment(), TopicAdapterListener {
         _binding = null
     }
 
-    override fun onTopicClicked(view: ViewGroup, topic: CachedTopic) {
+    override fun onTopicClicked(viewGroup: ViewGroup, topic: CachedTopic) {
         val transitionName = getString(R.string.topic_transition)
-        val extras = FragmentNavigatorExtras(
-            view to transitionName
-        )
-        val direction = SearchCoursesFragmentDirections.searchToCourseByTopic(topic.name)
-        findNavController().navigate(direction, extras)
+        val extras =
+            FragmentNavigatorExtras(viewGroup to transitionName)
+        val directions =
+            TopicsFragmentDirections.searchToCourseByTopic(topic.name)
+        findNavController().navigate(directions, extras)
     }
 
 }

@@ -7,14 +7,16 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
+import com.jxareas.techhub.adapter.CourseListAdapter.CourseListViewHolder
 import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.adapter.callbacks.CourseDiffCallback
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.ListItemCourseBinding
+import com.jxareas.techhub.utils.extensions.bind
 import com.jxareas.techhub.utils.extensions.loadImage
 
 class CourseListAdapter(private val listener: CourseAdapterListener) :
-    ListAdapter<CachedCourse, CourseListAdapter.CourseListViewHolder>(
+    ListAdapter<CachedCourse, CourseListViewHolder>(
         AsyncDifferConfig.Builder(CourseDiffCallback).build()
     ) {
 
@@ -24,7 +26,11 @@ class CourseListAdapter(private val listener: CourseAdapterListener) :
         fun bind(course: CachedCourse) = binding.run {
             val transitionName = root.context.getString(R.string.card_item_transition)
             ViewCompat.setTransitionName(root, "$transitionName${course.courseId}")
-            val steps = root.context.getString(R.string.course_steps, course.step.toString(), course.steps.toString())
+            val steps = root.context.getString(
+                R.string.course_steps,
+                course.step.toString(),
+                course.steps.toString()
+            )
             textViewCourseName.text = course.name
             textViewCourseSteps.text = steps
             imageViewCourseImage.loadImage(course.coursePhoto, true)
@@ -34,9 +40,7 @@ class CourseListAdapter(private val listener: CourseAdapterListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseListViewHolder =
-        CourseListViewHolder(
-            ListItemCourseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        CourseListViewHolder(parent bind ListItemCourseBinding::inflate)
 
     override fun onBindViewHolder(holder: CourseListViewHolder, position: Int) =
         holder.bind(currentList[position])

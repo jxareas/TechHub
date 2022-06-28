@@ -5,5 +5,5 @@ import com.jxareas.techhub.data.cache.model.CachedCourse
 
 @FunctionalInterface
 fun interface CourseAdapterListener {
-    fun onCourseClicked(layout: ViewGroup, course: CachedCourse)
+    fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse)
 }

@@ -1,4 +1,4 @@
-package com.jxareas.techhub.ui.courses
+package com.jxareas.techhub.ui.search
 
 import android.graphics.Color
 import android.os.Bundle
@@ -28,6 +28,7 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
     private val binding: FragmentSearchResultsBinding
         get() = _binding!!
 
+    private var coursesAdapter = CourseListAdapter(this@SearchResultsFragment)
     private val viewModel: SearchResultsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +52,6 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         postponeEnterTransition()
@@ -60,15 +60,12 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
 
     private fun setupRecyclerView() = binding.recyclerViewRecentCourses.run {
         itemAnimator = SpringAddItemAnimator()
-        adapter = CourseListAdapter(this@SearchResultsFragment)
+        adapter = coursesAdapter
     }
 
     private fun setupObservers() {
-        viewModel.courses.observe(viewLifecycleOwner) { courses ->
-            courses?.let { cachedCourses ->
-                (binding.recyclerViewRecentCourses.adapter as CourseListAdapter).submitList(cachedCourses)
-            }
-
+        viewModel.courses.observe(viewLifecycleOwner) { listOfCourses ->
+            listOfCourses?.let { newCourses -> coursesAdapter.submitList(newCourses) }
         }
     }
 
@@ -78,14 +75,13 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(layout: ViewGroup, course: CachedCourse) {
-        val transitionName : String = getString(R.string.course_detail_course_image_transition)
-        val extras = FragmentNavigatorExtras(
-            layout to transitionName
-        )
-        val direction = SearchResultsFragmentDirections.actionSearchResultsToDetails(course.courseId)
+    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+        val transitionName = getString(R.string.course_detail_course_image_transition)
+        val extras =
+            FragmentNavigatorExtras(viewGroup to transitionName)
+        val direction =
+            SearchResultsFragmentDirections.actionSearchResultsToDetails(course.courseId)
         findNavController().navigate(direction, extras)
     }
-
 
 }

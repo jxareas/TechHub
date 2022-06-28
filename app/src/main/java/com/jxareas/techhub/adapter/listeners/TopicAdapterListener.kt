@@ -5,5 +5,5 @@ import com.jxareas.techhub.data.cache.model.CachedTopic
 
 @FunctionalInterface
 fun interface TopicAdapterListener {
-    fun onTopicClicked(view : ViewGroup, topic : CachedTopic)
+    fun onTopicClicked(viewGroup : ViewGroup, topic : CachedTopic)
 }

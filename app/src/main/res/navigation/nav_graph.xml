@@ -59,16 +59,16 @@
     </fragment>
     <fragment
         android:id="@+id/searchCoursesFragment"
-        android:name="com.jxareas.techhub.ui.search.SearchCoursesFragment"
+        android:name="com.jxareas.techhub.ui.topics.TopicsFragment"
         android:label="fragment_search_courses"
-        tools:layout="@layout/fragment_search_courses">
+        tools:layout="@layout/fragment_topics">
         <action
             android:id="@+id/search_to_course_by_topic"
             app:destination="@id/coursesByTopicFragment" />
     </fragment>
     <fragment
         android:id="@+id/coursesByTopicFragment"
-        android:name="com.jxareas.techhub.ui.search.CoursesByTopicFragment"
+        android:name="com.jxareas.techhub.ui.topics.CoursesByTopicFragment"
         android:label="CoursesByTopicFragment"
         tools:layout="@layout/fragment_courses_by_topic">
         <argument
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/expandedCourseSearchFragment"
-        android:name="com.jxareas.techhub.ui.courses.ExpandedCourseSearchFragment"
+        android:name="com.jxareas.techhub.ui.search.ExpandedSearchFragment"
         android:label="ExpandedCourseSearchFragment"
         tools:layout="@layout/fragment_expanded_course_search">
         <action
@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchResultsFragment"
-        android:name="com.jxareas.techhub.ui.courses.SearchResultsFragment"
+        android:name="com.jxareas.techhub.ui.search.SearchResultsFragment"
         android:label="fragment_search_results"
         tools:layout="@layout/fragment_search_results" >
         <argument

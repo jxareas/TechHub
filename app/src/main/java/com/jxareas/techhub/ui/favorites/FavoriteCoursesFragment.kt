@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.adapter.CourseListAdapter
+import com.jxareas.techhub.adapter.callbacks.ItemTouchHelperCallback
+import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteCoursesBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
@@ -52,6 +54,8 @@ class FavoriteCoursesFragment : Fragment(), CourseAdapterListener {
     private fun setupRecyclerView() = binding.recyclerViewFavoriteCourses.run {
         itemAnimator = SpringAddItemAnimator()
         adapter = favoritesAdapter
+        val itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(favoritesAdapter))
+        itemTouchHelper.attachToRecyclerView(this)
     }
 
     private fun setupObservers() {

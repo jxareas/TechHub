@@ -89,18 +89,18 @@
         <action
             android:id="@+id/action_expanded_search_to_results"
             app:destination="@id/searchResultsFragment"
-            app:popUpTo="@id/expandedCourseSearchFragment"
-            app:popUpToInclusive="true"
+            app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="true"
-            app:exitAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_in"
-            />
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/expandedCourseSearchFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/searchResultsFragment"
         android:name="com.jxareas.techhub.ui.search.SearchResultsFragment"
         android:label="fragment_search_results"
-        tools:layout="@layout/fragment_search_results" >
+        tools:layout="@layout/fragment_search_results">
         <argument
             android:name="query"
             app:argType="string" />

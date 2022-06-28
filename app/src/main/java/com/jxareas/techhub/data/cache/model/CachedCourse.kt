@@ -22,5 +22,5 @@ data class CachedCourse(
     val instructorName : String,
     val topicName : String,
     @TypeConverters(DateConverter::class)
-    var lastAccessed : Date? = null
+    var lastAccessed : Date? = null,
 ) : CachedEntity

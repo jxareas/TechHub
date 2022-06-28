@@ -8,4 +8,5 @@ fun GetOneTopicResponse.toCachedTopic(): CachedTopic =
         name = this.name,
         totalCourses = this.totalCourses,
         imageUrl = this.imageUrl,
+        topicId = this.id,
     )

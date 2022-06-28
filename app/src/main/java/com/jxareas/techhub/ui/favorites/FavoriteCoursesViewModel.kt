@@ -1,6 +1,5 @@
 package com.jxareas.techhub.ui.favorites
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +26,6 @@ class FavoriteCoursesViewModel @Inject constructor(
      fun getAllFavoriteCourses() {
         viewModelScope.launch {
             coursesRepository.getFavoriteCourses().collectLatest { favoriteCourses ->
-                Log.d("SOMETHING", favoriteCourses.size.toString())
                 _favorites.postValue(favoriteCourses)
             }
         }

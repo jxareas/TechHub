@@ -24,8 +24,7 @@
 
         <!--Platform attributes-->
         <item name="android:navigationBarColor">@color/nav_bar</item>
-        <item name="android:statusBarColor">@color/immersive_sys_ui</item>
-
+        <item name="android:statusBarColor">@color/black</item>
 
         <!--Default styles-->
         <item name="bottomNavigationStyle">@style/Widget.TechHub.BottomNavigationView</item>

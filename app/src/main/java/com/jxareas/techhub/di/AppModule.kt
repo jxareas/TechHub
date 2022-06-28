@@ -17,5 +17,4 @@ object AppModule {
     fun provideDispatchers(): DispatcherProvider =
         DefaultDispatchers
 
-
 }

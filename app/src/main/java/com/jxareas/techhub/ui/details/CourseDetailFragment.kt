@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -18,6 +19,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.RelatedCoursesListAdapter
@@ -44,20 +46,16 @@ class CourseDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
-            drawingViewId = R.id.nav_host_fragment_main
-            duration =
-                resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_2)
+            duration = resources.getLong(R.integer.material_motion_duration_medium_2)
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
-            interpolator = FastOutSlowInInterpolator()
+            interpolator = LinearOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
             fadeMode = MaterialContainerTransform.FADE_MODE_OUT
-            interpolator = LinearOutSlowInInterpolator()
-            scrimColor = Color.TRANSPARENT
-            drawingViewId = R.id.nav_host_fragment_main
-            duration =
-                resources.getLong(com.google.android.material.R.integer.material_motion_duration_medium_1)
+            interpolator = FastOutSlowInInterpolator()
+            pathMotion = MaterialArcMotion()
+            duration = resources.getLong(R.integer.material_motion_duration_medium_2)
         }
         postponeEnterTransition()
     }

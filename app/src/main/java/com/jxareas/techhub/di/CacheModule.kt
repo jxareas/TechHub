@@ -32,7 +32,4 @@ object CacheModule {
     fun provideTopicDao(database: TechHubDatabase) =
         database.topicDao
 
-
-
-
 }

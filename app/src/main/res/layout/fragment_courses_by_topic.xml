@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_standard"
-        android:background="?attr/selectableItemBackground"
+        android:background="@android:color/transparent"
         android:gravity="center"
         android:paddingVertical="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceHeadline5"

@@ -9,8 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.jxareas.techhub.R
 import com.jxareas.techhub.databinding.ActivityMainBinding
-import com.jxareas.techhub.utils.extensions.gone
-import com.jxareas.techhub.utils.extensions.visible
+import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,12 +42,14 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenResumed {
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 when (destination.id) {
-                    in topLevelDestinations -> {
-                        binding.bottomNavigation.visible()
-                    }
-                    else -> {
-                        binding.bottomNavigation.gone()
-                    }
+                    in topLevelDestinations -> binding.bottomNavigation
+                        .animate()
+                        .alpha(1.0f)
+                        .duration = resources.getLong(R.integer.material_motion_duration_long_3)
+                    else -> binding.bottomNavigation
+                        .animate()
+                        .alpha(0.0f)
+                        .duration = resources.getLong(R.integer.material_motion_duration_long_3)
                 }
             }
         }

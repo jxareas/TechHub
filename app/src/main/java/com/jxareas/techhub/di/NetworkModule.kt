@@ -14,6 +14,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -35,7 +36,6 @@ object NetworkModule {
             .build()
 
 
-
     @ExperimentalSerializationApi
     @Provides
     @Singleton
@@ -48,13 +48,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideCourseService(retrofit : Retrofit) : CourseService =
-        retrofit.create(CourseService::class.java)
+    fun provideCourseService(retrofit: Retrofit): CourseService =
+        retrofit.create()
 
     @Provides
     @Singleton
-    fun provideTopicService(retrofit : Retrofit) : TopicService =
-        retrofit.create(TopicService::class.java)
-
+    fun provideTopicService(retrofit: Retrofit): TopicService =
+        retrofit.create()
 
 }

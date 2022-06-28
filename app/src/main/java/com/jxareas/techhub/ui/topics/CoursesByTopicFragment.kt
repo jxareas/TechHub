@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
 import com.jxareas.techhub.adapter.CourseListAdapter
@@ -36,11 +39,18 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
-            duration = resources.getLong(R.integer.material_motion_duration_medium_2)
+            duration = resources.getLong(R.integer.material_motion_duration_long_2)
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
             interpolator = FastOutSlowInInterpolator()
+            pathMotion = MaterialArcMotion()
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
+        }
+        sharedElementReturnTransition = MaterialContainerTransform().apply {
+            duration = resources.getLong(R.integer.material_motion_duration_long_2)
+            interpolator = LinearOutSlowInInterpolator()
+            scrimColor = Color.TRANSPARENT
+            pathMotion = MaterialArcMotion()
         }
     }
 

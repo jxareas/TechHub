@@ -10,7 +10,7 @@
         android:id="@+id/text_view_topic_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
+        android:background="@android:color/transparent"
         android:paddingHorizontal="@dimen/grid_2"
         android:paddingVertical="@dimen/grid_1"
         android:textAppearance="?attr/textAppearanceHeadline5"

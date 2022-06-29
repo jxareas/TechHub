@@ -61,8 +61,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_view_instructor_photo"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="@dimen/image_view_instructor_mini"
+        android:layout_height="@dimen/image_view_instructor_mini"
         android:layout_marginEnd="@dimen/margin_low"
         android:background="@drawable/ic_avatar_placeholder"
         android:foreground="@drawable/avatar_outline"

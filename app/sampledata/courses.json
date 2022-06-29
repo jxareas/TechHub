@@ -1,82 +1,404 @@
 {
   "data": [
     {
-      "name": "Introduction to iOS Development",
-      "step": "1 / 7",
-      "steps": "7",
-      "subject": "Software Development"
+      "name": "ARKit for iOS",
+      "description": "This course is for anyone who wants to take their skills to the next level. ARKit is a new technology and companies will be jumping on it to create their future app experiences. Augmented Reality Using ARKit can also help you to earn higher salary since now you know how to write a complete app which deals with placing virtual objects in the real world. Focus on the fundamentals of ARKit using Swift and Xcode to build beautiful and performant augmented reality scenes. Learn to make your AR experience more dynamic and responsive by integrating proper lighting and physics using the Swift programming language.",
+      "imageUrl": "https://source.unsplash.com/qDG7XKJLKbs",
+      "imageContentDesc": "Augmented Reality Ball",
+      "steps": 30,
+      "step": 11,
+      "instructorId": 29,
+      "topicId": 10
     },
     {
-      "name": "Numerical Methods",
-      "step": "1 / 12",
-      "steps": "12",
-      "subject": "Computational Physics"
+      "name": "Advanced Android",
+      "description": "In this course, you will learn how to make your app production-ready by developing a variety of different sample apps, each designed to showcase advanced capabilities of the Android platform, including fragments, widgets, media playback, and testing. You’ll learn how to create UI tests using the Espresso framework, to leverage third-party libraries and services like ExoPlayer and Firebase Cloud Messaging, and use Google APIs to make your app aware of its location. By the end of the course, you’ll know how to publish your own app to the Google Play Store, where you can reach and engage users across the globe.",
+      "imageUrl": "https://source.unsplash.com/HfWA-Axq6Ek",
+      "imageContentDesc": "Android Logo",
+      "steps": 35,
+      "step": 21,
+      "instructorId": 17,
+      "topicId": 14
     },
     {
-      "name": "Random Forests",
-      "step": "1 / 18",
-      "steps": "18",
-      "subject": "Data Science"
+      "name": "Linear Algebra",
+      "description": "This course is all about matrices, and concisely covers the linear algebra that an engineer should know.   The mathematics in this course is presented at the level of an advanced high school student, but typically students should take this course after completing a university-level single variable calculus course.  There are no derivatives or integrals in this course, but students are expected to have attained a sufficient level of mathematical maturity.  Nevertheless, anyone who wants to learn the basics of matrix algebra is welcome to join.",
+      "imageUrl": "https://source.unsplash.com/05A-kdOH6Hw",
+      "imageContentDesc": "System of Linear Equations",
+      "steps": 40,
+      "step": 32,
+      "instructorId": 21,
+      "topicId": 12
+    },
+    {
+      "name": "CI/CD with Gitlab",
+      "description": "This course explains what Continuous Integration/Continuous Deployment (CI/CD) pipelines are and what value they bring to the software development lifecycle. It also outlines the architecture behind GitLab's CI/CD pipelines and explains how to set up basic CI/CD pipelines in your own projects. Finally, it touches on a handful of specific CI/CD pipeline use cases, including pushing your app to a Docker Container registry and using one of GitLab's security scanners.",
+      "imageUrl": "https://source.unsplash.com/ZV_64LdGoao",
+      "imageContentDesc": "Gitlab",
+      "steps": 20,
+      "step": 11,
+      "instructorId": 36,
+      "topicId": 14
+    },
+    {
+      "name": "R Market Analysis",
+      "description": "In this course you will learn basic financial technical analysis technics using R and some of it's basic financial packages(quantmod, TTR) to better understand your favorites stocks. You'll assess stock trading strategies performance by comparing their annualized return, standard deviation and Sharpe ratio against buy and hold benchmark.",
+      "imageUrl": "https://source.unsplash.com/JpflvzEl5cg",
+      "imageContentDesc": "Stock Trends",
+      "steps": 30,
+      "step": 28,
+      "instructorId": 4,
+      "topicId": 7
+    },
+    {
+      "name": "Algorithms & Data Structures",
+      "description": "Learn how to differentiate between linear data structures like linkedlists, arrays, arraylists, stacks, and queues, and select the correct structure for a given situation. Analyze data structure performance with the course visualization tool. Visualize and study nonlinear/hierarchical data structures such as Binary Trees, BSTs and Heaps. ",
+      "imageUrl": "https://source.unsplash.com/nuz3rK5iiKg",
+      "imageContentDesc": "Graph Algorithm",
+      "steps": 20,
+      "step": 1,
+      "instructorId": 12,
+      "topicId": 3
+    },
+    {
+      "name": "Python Programming",
+      "description": "An introduction to programming using a language called Python. Learn how to read and write code as well as how to test and \"debug\" it. Designed for students with and without prior programming experience who'd like to learn Python specifically. Learn about functions, arguments, and return values (oh my!); variables and types; conditions and Boolean expressions; loops; and objects and methods. Plus exceptions, file I/O, and libraries. Hands-on opportunities for lots of practice. Exercises inspired by real-world programming problems.",
+      "imageUrl": "https://source.unsplash.com/5uU8HSpfwkI",
+      "imageContentDesc": "Python Snake",
+      "steps": 25,
+      "step": 15,
+      "instructorId": 25,
+      "topicId": 3
+    },
+    {
+      "name": "Convolutional Neural Networks",
+      "description": "You will understand how computer vision has evolved and become familiar with its exciting applications such as autonomous driving, face recognition, reading radiology images, and more.\n\nBy the end, you will be able to build a convolutional neural network, including recent variations such as residual networks; apply convolutional networks to visual detection and recognition tasks; and use neural style transfer to generate art and apply these algorithms to a variety of image, video, and other 2D or 3D data. ",
+      "imageUrl": "https://source.unsplash.com/ZiQkhI7417A",
+      "imageContentDesc": "Neural Network",
+      "steps": 50,
+      "step": 7,
+      "instructorId": 33,
+      "topicId": 6
+    },
+    {
+      "name": "Time Series",
+      "description": "The course provides a survey of the theory and application of time series methods in econometrics. Topics covered will include univariate stationary and non-stationary models, vector autoregressions, frequency domain methods, models for estimation and inference in persistent time series, and structural breaks.\n\nWe will cover different methods of estimation and inferences of modern dynamic stochastic general equilibrium models (DSGE): simulated method of moments, Maximum likelihood and Bayesian approach. The empirical applications in the course will be drawn primarily from macroeconomics.",
+      "imageUrl": "https://source.unsplash.com/IrRbSND5EUc",
+      "imageContentDesc": "Trend line",
+      "steps": 35,
+      "step": 18,
+      "instructorId": 26,
+      "topicId": 15
+    },
+    {
+      "name": "Blockchain Basics",
+      "description": "This first course of the Blockchain specialization provides a broad overview of the essential concepts of blockchain technology – by initially exploring the Bitcoin protocol followed by the Ethereum protocol – to lay the foundation necessary for developing applications and programming. You will be equipped with the knowledge needed to create nodes on your personal Ethereum blockchain, create accounts, unlock accounts, mine, transact, transfer Ethers, and check balances.",
+      "imageUrl": "https://source.unsplash.com/JrjhtBJ-pGU",
+      "imageContentDesc": "Bitcoin Logo",
+      "steps": 25,
+      "step": 13,
+      "instructorId": 1,
+      "topicId": 7
+    },
+    {
+      "name": "CART: Classification & Regression Trees",
+      "description": "This course describes tree-based algorithms for regression and classification. These methods are simple, intuitive and, more importantly, highly \"visual\". A deeper understanding of tree-based models provides a successful tool to comprehend advanced machine learning algorithms. By the end of this course, you will learn how to build a decision tree and understand their advantages and limitations.",
+      "imageUrl": "https://source.unsplash.com/5VJLeQ-TrKs",
+      "imageContentDesc": "Regression Trees",
+      "steps": 35,
+      "step": 21,
+      "instructorId": 15,
+      "topicId": 6
     },
     {
       "name": "Basics of Brand Identity",
-      "step": "1 / 22",
-      "steps": "22",
-      "subject": "Digital Marketing"
+      "description": "Brand identity and Strategy is a IE Business School course for those professionals who are ready to adopt a creative approach to empowering brands.\n\nStudents will go through a journey that starts with understanding what a brand is and how they can build successful ones, whilst simultaneously segmenting their consumers appropriately. The course explores positioning and its importance to successful brands looking at perceptual maps and the well-known iceberg model. It culminates in development of real brand houses, which can be applied to the working world, and how picking the right name, colors and logo can be instrumental to a brand’s success.",
+      "imageUrl": "https://source.unsplash.com/G9_Euqxpu4k",
+      "imageContentDesc": "Brands",
+      "steps": 20,
+      "step": 10,
+      "instructorId": 20,
+      "topicId": 5
     },
     {
-      "name": "Wooden Materials and Sculpting Machinery",
-      "step": "1 / 19",
-      "steps": "19",
-      "subject": "Arts & Crafts"
-    },
-    {
-      "name": "Advanced Potter's Wheel",
-      "step": "1 / 14",
-      "steps": "14",
-      "subject": "Arts & Crafts"
-    },
-    {
-      "name": "Advanced Abstract Shapes & 3D Printing",
-      "step": "1 / 17",
-      "steps": "17",
-      "subject": "Arts & Crafts"
-    },
-    {
-      "name": "Beginning Portraiture",
-      "step": "1 / 22",
-      "steps": "22",
-      "subject": "Photography"
-    },
-    {
-      "name": "Intermediate Knife Skills",
-      "step": "1 / 14",
-      "steps": "14",
-      "subject": "Culinary"
-    },
-    {
-      "name": "Pattern Making for Beginners",
-      "step": "1 / 7",
-      "steps": "7",
-      "subject": "Fashion"
-    },
-    {
-      "name": "Location Lighting for Beginners",
-      "step": "1 / 6",
-      "steps": "6",
-      "subject": "Photography"
+      "name": "Location Lightning for Beginners",
+      "description": "A comprehensive online studio lighting course teaching you how to start a photographic studio and how to use professional lighting equipment for portraiture. Through the course, you’ll be taught how to set up your own professional studio with limited space, equipment and budget. Learn various lighting set-ups with a variety of equipment to create beautiful portraits that can be made even in a home studio.",
+      "imageUrl": "https://source.unsplash.com/pPxJTtxfV1A",
+      "imageContentDesc": "Photo Lightning",
+      "steps": 30,
+      "step": 23,
+      "instructorId": 19,
+      "topicId": 13
     },
     {
       "name": "Cinematography & Lighting",
-      "step": "1 / 4",
-      "steps": "4",
-      "subject": "Film"
+      "description": "Lighting is one of the most powerful tools in the cinematographer’s tool kit, and understanding how to light means knowing the qualities of light. In this hand-on lesson, learn the attributes of light and how to control each one to create the desired visual and emotional tone on screen.",
+      "imageUrl": "https://source.unsplash.com/oIf4VCDztZY",
+      "imageContentDesc": "Photo Lightning",
+      "steps": 30,
+      "step": 16,
+      "instructorId": 30,
+      "topicId": 8
     },
     {
-      "name": "Monuments, Buildings & Other Structures",
-      "step": "1 / 4",
-      "steps": "4",
-      "subject": "Photography"
+      "name": "Integral Calculus",
+      "description": "This specialization builds on topics introduced in single and multivariable differentiable calculus to develop the theory and applications of integral calculus.  , The focus on the specialization is to using calculus to address questions in the natural and social sciences. Students will learn to use the techniques presented in this class to process, analyze, and interpret data, and to communicate meaningful results, using scientific computing and mathematical modeling. Topics include functions as models of data, differential and integral calculus of functions of one and several variables, differential equations, and optimization and estimation techniques.",
+      "imageUrl": "https://source.unsplash.com/hecib2an4T4",
+      "imageContentDesc": "Integral Calculus",
+      "steps": 30,
+      "step": 20,
+      "instructorId": 21,
+      "topicId": 12
+    },
+    {
+      "name": "Virtual Reality in Unity",
+      "description": "In this Unity sponsored course, you will learn how to design and develop your own Virtual Reality (VR) applications. You will create prototypes, attempt challenges, and complete quizzes to build and solidify your skill set. At the same time, you will be guided through creating your own unique VR project from start to finish, beginning with a blank design document and ending with a fully functional project.",
+      "imageUrl": "https://source.unsplash.com/npTT9rD8wd4",
+      "imageContentDesc": "Virtual Reality Headset",
+      "steps": 40,
+      "step": 9,
+      "instructorId": 29,
+      "topicId": 10
+    },
+    {
+      "name": "Power BI",
+      "description": "New Power BI users will begin the course by gaining a conceptual understanding of the Power BI desktop application and the Power BI service. Learners will explore the Power BI interface while learning how to manage pages and understand the basics of visualizations. Learners will engage in numerous hands-on experiences to discover how to import, connect, clean, transform, and model their own data in the Power BI desktop application. Learners will investigate reports, learn about workspaces, and practice viewing, creating, and publishing reports to the Power BI service. Finally, learners will become proficient in the creation and utilization dashboards.",
+      "imageUrl": "https://source.unsplash.com/JKUTrJ4vK00",
+      "imageContentDesc": "Dashboard",
+      "steps": 15,
+      "step": 14,
+      "instructorId": 37,
+      "topicId": 2
+    },
+    {
+      "name": "Multivariate Probability",
+      "description": "This courses will cover basic concepts in multivariate probability models, i.e., probability models\ninvolving multiple random variables. We will begin by discussing the important concepts of independence\nand conditional independence and look at the general framework of graphical models. We will then look\nat specific examples of models: for joint distributions we will look at the naive Bayes probability model\nand Markov models, and for joint densities we will look at the multivariate Gaussian model. Note that the\nideas we discuss below are applicable equally well to both discrete-valued and continuous variables (and\ntheir combinations): in our examples we will tend to focus on one or the other and it should be clear how to\ngeneralize.",
+      "imageUrl": "https://source.unsplash.com/yG9pCqSOrAg",
+      "imageContentDesc": "Die",
+      "steps": 30,
+      "step": 21,
+      "instructorId": 3,
+      "topicId": 15
+    },
+    {
+      "name": "Android Basics in Kotlin",
+      "description": "Welcome to Android Basics in Kotlin! In this course, you'll learn the basics of building Android apps with the Kotlin programming language. Along the way, you'll develop a collection of apps to start your journey as an Android developer.",
+      "imageUrl": "https://source.unsplash.com/lqcvMiBABHw",
+      "imageContentDesc": "Kotlin Code",
+      "steps": 15,
+      "step": 1,
+      "instructorId": 18,
+      "topicId": 14
+    },
+    {
+      "name": "Financial Reporting",
+      "description": "The Financial Reporting Specialization focuses on the role of financial accounting principles and processes in creating and reporting an organization’s financial statements. Learners who complete this specialization will be able to (1) use financial accounting principles to create and/or process an organization’s financial statements and (2) analyze financial statements to assess an organization’s financial position. The Financial Reporting Specialization includes multiple projects and practice activities, including analyses of statements and cases, which will be peer-reviewed.  In addition, the specialization includes one capstone course, which is comprised of a full case analysis of an actual company’s financial statements.",
+      "imageUrl": "https://source.unsplash.com/Wb63zqJ5gnE",
+      "imageContentDesc": "Die",
+      "steps": 30,
+      "step": 21,
+      "instructorId": 2,
+      "topicId": 2
+    },
+    {
+      "name": "Machine Learning Fundamentals",
+      "description": "Machine learning is the science of getting computers to act without being explicitly programmed. In the past decade, machine learning has given us self-driving cars, practical speech recognition, effective web search, and a vastly improved understanding of the human genome. Machine learning is so pervasive today that you probably use it dozens of times a day without knowing it. Many researchers also think it is the best way to make progress towards human-level AI. In this class, you will learn about the most effective machine learning techniques, and gain practice implementing them and getting them to work for yourself. More importantly, you'll learn about not only the theoretical underpinnings of learning, but also gain the practical know-how needed to quickly and powerfully apply these techniques to new problems. Finally, you'll learn about some of Silicon Valley's best practices in innovation as it pertains to machine learning and AI.",
+      "imageUrl": "https://source.unsplash.com/zwd435-ewb4",
+      "imageContentDesc": "Robot",
+      "steps": 50,
+      "step": 8,
+      "instructorId": 39,
+      "topicId": 6
+    },
+    {
+      "name": "Adobe Suite",
+      "description": "Graphic design is all around us, in a myriad of forms, both on screen and in print, yet it is always made up of images and words to create a communication goal. This four-course sequence exposes students to the fundamental skills required to make sophisticated graphic design: process, historical context, and communication through image-making and typography. The sequence is completed by a capstone project that applies the skills of each course and peer feedback in a finished branding project suitable for a professional portfolio using the Adobe Suite Software tools.",
+      "imageUrl": "https://source.unsplash.com/v9vII5gV8Lw",
+      "imageContentDesc": "Adobe Software",
+      "steps": 25,
+      "step": 24,
+      "instructorId": 11,
+      "topicId": 11
+    },
+    {
+      "name": "Negotiation Skills",
+      "description": "This specialization is intended for managers - from business, public administration, international organizations or NGOs - who want to go beyond intuition and acquire proven tools to help them achieve greater success in negotiation. At the end of the Specialization, the Capstone project will help learners put everything together: how to analyze situation negotiations, how to run a business negotiation in a tense environment - and, if need be, how to settle such a conflict as a mediator.",
+      "imageUrl": "https://source.unsplash.com/rRWiVQzLm7k",
+      "imageContentDesc": "Adobe Software",
+      "steps": 20,
+      "step": 19,
+      "instructorId": 5,
+      "topicId": 9
+    },
+    {
+      "name": "Publish to the Google Play Store",
+      "description": "Learn how to build a release version of your app and upload it to the Google Play Store for testing and final release to end users. Also learn how to create a new developer account, how to use the new Google Play Console and familiarize yourself with the recent Google Play policies. This course is for Android developers who want to publish their first Android app to the Google Play Store. This course expects you to be familiar with Android Studio and basics of Kotlin programming language. You will also need a Google developer account to upload your app to the play store which currently has a 25 USD fee.",
+      "imageUrl": "https://source.unsplash.com/NHhxAv5zVz4",
+      "imageContentDesc": "Android Logo",
+      "steps": 35,
+      "step": 21,
+      "instructorId": 17,
+      "topicId": 14
+    },
+    {
+      "name": "Developing BLE Applications for iOS",
+      "description": "At the core of developing iOS applications for Bluetooth peripherals is a thorough knowledge of Apple’s Core Bluetooth framework. This framework makes it easy to write these apps without worrying about the low-level details of the Bluetooth protocol stack. In this course, Building iOS BLE Applications with Core Bluetooth, you will create iOS apps that can communicate with a variety of devices using Bluetooth wireless technology. You will begin by covering the most important concepts and terminology you need when developing with Bluetooth, like Bluetooth Low Energy (BLE), central and peripheral roles. Next, you will learn how to discover peripherals and interact with its data. Finally, you will then work on building your own peripheral and share its data. When you’re finished with this course, you will have laid the groundwork for building powerful applications that leverage BLE technology.",
+      "imageUrl": "https://source.unsplash.com/OCfHTaB5THQ",
+      "imageContentDesc": "Core Bluetooth for iOS",
+      "steps": 25,
+      "step": 24,
+      "instructorId": 16,
+      "topicId": 14
+    },
+    {
+      "name": "Introduction to Game Design",
+      "description": "Welcome! This course is an introduction to the primary concepts of gaming, and an exploration of how these basic concepts affect the way gamers interact with our games. In this course you will understand what defines a “game” and the mechanics and rules behind different types of games. Through four linked assignments you'll learn ways to create and describe a game concept, and specifically what makes a compelling game. This course focuses on the conceptual underpinnings of games, and all assignments can be completed with a pencil and paper – no previous programming knowledge is required.",
+      "imageUrl": "https://source.unsplash.com/blYe0BupDuQ",
+      "imageContentDesc": "Pacman",
+      "steps": 20,
+      "step": 4,
+      "instructorId": 6,
+      "topicId": 10
+    },
+    {
+      "name": "Fundamentals of Graphic Design",
+      "description": "Graphic Design is all around us! Words and pictures—the building blocks of graphic design—are the elements that carry the majority of the content in both the digital world and the printed world. As graphic design becomes more visible and prevalent in our lives, graphic design as a practice becomes more important in our culture.\n\nThrough visual examples, this course will teach you the fundamental principles of graphic design: imagemaking, typography, composition, working with color and shape... foundational skills that are common in all areas of graphic design practice. I don't just want you to watch a video of someone talking about design, I want you to MAKE design! If you want to be a designer you have to be a maker and a communicator, so this course will offer you lots of opportunities to get your hands dirty with exercises and with more practical projects.",
+      "imageUrl": "https://source.unsplash.com/RnCPiXixooY",
+      "imageContentDesc": "Hallway",
+      "steps": 20,
+      "step": 7,
+      "instructorId": 8,
+      "topicId": 11
+    },
+    {
+      "name": "Cyber Attacks Countermeasures",
+      "description": "This course provides learners with a baseline understanding of common cyber security threats, vulnerabilities, and risks. An overview of how basic cyber attacks are constructed and applied to real systems is also included. Examples include simple Unix kernel hacks, Internet worms, and Trojan horses in software utilities. Network attacks such as distributed denial of service (DDOS) and botnet- attacks are also described and illustrated using real examples from the past couple of decades. \n\nFamiliar analytic models are outlined such as the confidentiality/integrity/availability (CIA) security threat framework, and examples are used to illustrate how these different types of threats can degrade real assets. The course also includes an introduction to basic cyber security risk analysis, with an overview of how threat-asset matrices can be used to prioritize risk decisions. Threats, vulnerabilities, and attacks are examined and mapped in the context of system security engineering methodologies.",
+      "imageUrl": "https://source.unsplash.com/mT7lXZPjk7U",
+      "imageContentDesc": "Anonymous",
+      "steps": 35,
+      "step": 11,
+      "instructorId": 9,
+      "topicId": 4
+    },
+    {
+      "name": "Computational Biology",
+      "description": "When you complete this Specialization, you will learn how to answer many questions in modern biology that have become inseparable from the computational approaches used to solve them.  You will also obtain a toolkit of existing software resources built on these computational approaches and that are used by thousands of biologists every day in one of the fastest growing fields in science.\n\nAlthough this Specialization centers on computational topics, you do not need to know how to program in order to complete it. If you are interested in programming, we feature an \"Honors Track\" (called \"hacker track\" in previous runs of the course). The Honors Track allows you to implement the bioinformatics algorithms that you will encounter along the way in dozens of automatically graded coding challenges. By completing the Honors Track, you will be a bioinformatics software professional!",
+      "imageUrl": "https://source.unsplash.com/7wWRXewYCH4",
+      "imageContentDesc": "Microscope",
+      "steps": 45,
+      "step": 26,
+      "instructorId": 10,
+      "topicId": 1
+    },
+    {
+      "name": "Front-End Web Development with React",
+      "description": "This course explores Javascript based front-end application development, and in particular the React library (Currently Ver. 16.3). This course will use JavaScript ES6 for developing React application. You will also get an introduction to the use of Reactstrap for Bootstrap 4-based responsive UI design. You will be introduced to various aspects of React components. You will learn about React router and its use in developing single-page applications. You will also learn about designing controlled forms. You will be introduced to the Flux architecture and Redux. You will explore various aspects of Redux and use it to develop React-Redux powered applications. You will then learn to use Fetch for client-server communication and the use of REST API on the server side. A quick tour through React animation support and testing rounds off the course. You must have preferably completed the previous course in the specialization on Bootstrap 4, or have a working knowledge of Bootstrap 4 to be able to navigate this course. Also a good working knowledge of JavaScript, especially ES 5 is strongly recommended.",
+      "imageUrl": "https://source.unsplash.com/xkBaqlcqeb4",
+      "imageContentDesc": "React JS Logo",
+      "steps": 30,
+      "step": 2,
+      "instructorId": 23,
+      "topicId": 14
+    },
+    {
+      "name": "Database Applications in PHP",
+      "description": "In this course, we'll look at the object oriented patterns available in PHP. You'll learn how to connect to a MySQL using the Portable Data Objects (PDO) library and issue SQL commands in the the PHP language. We'll also look at how PHP uses cookies and manages session data. You'll learn how PHP avoids double posting data, how flash messages are implemented, and how to use a session to log in users in web applications. We'll then build the first 'complete' application that has multiple screens to Create, Read, Update and Delete (CRUD) our data. This brings all the previous concepts together and will form the basis for all later web applications.  It is assumed that learners have already taken the Building Web Applications course in this specialization.",
+      "imageUrl": "https://source.unsplash.com/2Rd-hwT2xQ0",
+      "imageContentDesc": "PHP Elephant",
+      "steps": 35,
+      "step": 8,
+      "instructorId": 31,
+      "topicId": 14
+    },
+    {
+      "name": "Project Planning",
+      "description": "Successful projects do not just happen. They are planned. Understanding what success for a specific project means is part of the plan. Take the opportunity to understand how you will measure success. Does your project require assistance or materials from the outside? If it does, will you know what type of contract will support your success?  When you understand these basics and you know how to identify the risks you face and how all of this information shapes your estimates, then you are ready to consider committing to a schedule and a budget. This course will take you through critical project planning basics so that when it is time for your schedule and budget, you are well informed.",
+      "imageUrl": "https://source.unsplash.com/zoCDWPuiRuA",
+      "imageContentDesc": "Notes",
+      "steps": 25,
+      "step": 9,
+      "instructorId": 22,
+      "topicId": 9
+    },
+    {
+      "name": "Social Media Marketing",
+      "description": "In a 2018 survey of businesses, Buffer found that only 29% had effective social media marketing programs. A recent survey of consumers by Tomoson found 92% of consumers trust recommendations from other people over brand content, 70% found consumer reviews to be their second most trusted source, 47% read blogs developed by influencers and experts to discover new trends and new ideas and 35% used blogs to discover new products and services.  Also, 20% of women who used social considered products promoted by bloggers they knew.   Today, businesses and consumers use social media to make their purchase decisions.\n\nCreated in 2014, this Specialization is updated every quarter to ensure you are receiving the most up-to-date training.  The Social Media Marketing Specialization is designed to achieve two objectives.  It gives you the social analytics tools, and training to help you become an influencer on social media.  The course also gives you the knowledge and resources to build a complete social media marketing strategy – from consumer insights to final justification metrics.  In each course, you will also receive special toolkits with timely information & when you pay for the Capstone, you receive a market planning toolkit.",
+      "imageUrl": "https://source.unsplash.com/OXrk8fG2aig",
+      "imageContentDesc": "Iphone",
+      "steps": 15,
+      "step": 9,
+      "instructorId": 24,
+      "topicId": 5
+    },
+    {
+      "name": "Publishing to the App Store",
+      "description": "Coders! If you’ve created an app and want to learn the process of getting the app into the App Store, this course is for you. This course covers both the Human Interface and App Store Review guidelines, then walks you through process of submitting an app from creating an Apple Developer Account all way to app submission. Long story short, this course will walk you step by step through the process of registering for a new developer account and submitting your app to the App Store.",
+      "imageUrl": "https://source.unsplash.com/QT3yOjx32rk",
+      "imageContentDesc": "Iphone",
+      "steps": 20,
+      "step": 1,
+      "instructorId": 32,
+      "topicId": 14
+    },
+    {
+      "name": "Tidyverse Data Wrangling",
+      "description": "This Specialization is intended for data scientists with some familiarity with the R programming language who are seeking to do data science using the Tidyverse family of packages. Through 5 courses, you will cover importing, wrangling, visualizing, and modeling data using the powerful Tidyverse framework. The Tidyverse packages provide a simple but powerful approach to data science which scales from the most basic analyses to massive data deployments. This course covers the entire life cycle of a data science project and presents specific tidy tools for each stage.",
+      "imageUrl": "https://source.unsplash.com/Wpnoqo2plFA",
+      "imageContentDesc": "Numbers",
+      "steps": 25,
+      "step": 12,
+      "instructorId": 35,
+      "topicId": 6
+    },
+    {
+      "name": "Penetration Testing",
+      "description": "You will learn about the different phases of penetration testing, how to gather data for your penetration test and popular penetration testing tools.  Furthermore, you will learn the phases of an incident response, important documentation to collect, and the components of an incident response policy and team.  Finally, you will learn key steps in the forensic process and important data to collect. This course is intended for anyone who wants to gain a basic understanding of Cybersecurity or as the fifth course in a series of courses to acquire the skills to work in the Cybersecurity field as a Cybersecurity Analyst. The completion of this course also makes you eligible to earn the Penetration Testing, Incident Response and Forensics IBM digital badge.",
+      "imageUrl": "https://source.unsplash.com/HAq24cfcdLg",
+      "imageContentDesc": "Output",
+      "steps": 40,
+      "step": 27,
+      "instructorId": 38,
+      "topicId": 4
+    },
+    {
+      "name": "R for Biologists",
+      "description": "In this specialisation, you’ll take a peek at what medical research is and how – and indeed why – you turn a vague notion into a scientifically testable hypothesis. You’ll learn about key statistical concepts like sampling, uncertainty, variation, missing values and distributions. Then you’ll get your hands dirty with analysing data sets covering some big public health challenges – fruit and vegetable consumption and cancer, risk factors for diabetes, and predictors of death following heart failure hospitalisation – using R, one of the most widely used and versatile free software packages around. In each course, you'll be introduced to key concepts and a data set to be used as a worked example throughout that course. Public health data are messy, with missing values and weird distributions all too common. The data you'll use are either real or simulated from real patient-level data sets (all anonymised and with usage permissions in place).",
+      "imageUrl": "https://source.unsplash.com/eTRwPn5QAwA",
+      "imageContentDesc": "Covid-19 Data",
+      "steps": 30,
+      "step": 5,
+      "instructorId": 40,
+      "topicId": 1
+    },
+    {
+      "name": "Numerical Methods",
+      "description": "Numerical Methods for Engineers covers the most important numerical methods that an engineer should know.  We derive  basic algorithms in root finding, matrix algebra, integration and interpolation, ordinary and partial differential equations.  We learn how to use MATLAB to solve numerical problems. Access to MATLAB online and the MATLAB grader is given to all students who enroll. The course targets anyone who aims at developing or using numerical methods applied to partial differential equations and is seeking a practical introduction at a basic level. The methodologies discussed are widely used in natural sciences,  engineering, as well as economics and other fields.",
+      "imageUrl": "https://source.unsplash.com/yQYQJaiypZE",
+      "imageContentDesc": "Pattern",
+      "steps": 40,
+      "step": 15,
+      "instructorId": 41,
+      "topicId": 12
+    },
+    {
+      "name": "Linux Security",
+      "description": "Whether you are accessing a bank website, Netflix or your home router, chances are that your computer is interacting with a Linux system.  The world runs on Linux.  In this course, we will dive into how Linux works from an enterprise perspective.  \n\nIn week 1 we will look at what Linux is used for in the enterprise.  By the end of week 1, you will be able to differentiate between different versions of Linux and understand how they are used in an enterprise environment.  In week 2, we will explore how Linux systems are configured.  By the end of week 2, you will be able to demonstrate different Linux commands and how they are used.  You will also be able to interact with a Linux system.  In week 3, we will explore Linux authentication mechanisms and how to add users and user controls to a Linux system.  By the end of week 3, you should be able to demonstrate how to appropriately add users to a Linux machine and secure them.  In week 4, we will explore how to harden a Linux system.  By the end of week 4, you should be able to classify different technologies to secure Linux and differentiate access control methods for Linux applications.",
+      "imageUrl": "https://source.unsplash.com/M5tzZtFCOfs",
+      "imageContentDesc": "Network Cables",
+      "steps": 40,
+      "step": 10,
+      "instructorId": 38,
+      "topicId": 4
+    },
+    {
+      "name": "The Oculus SDK",
+      "description": "If there’s one thing that will change the face gaming, it’s virtual reality. In the past couple of years, VR has exploded into mainstream with new headsets being announced on almost a weekly basis. In this video series, you’ll learn how to create a virtual reality enabled world by utilizing both Unity engine and the Oculus Rift SDK. Finally, you will put your skills into practice by building your very first virtual reality game, a shooting range featuring interactive targets, laser sights and a head tracking weapon. Course resources including 3D models, textures and audio files have also been provided for you.",
+      "imageUrl": "https://source.unsplash.com/Zf0mPf4lG-U",
+      "imageContentDesc": "Oculus VR Headset",
+      "steps": 30,
+      "step": 23,
+      "instructorId": 29,
+      "topicId": 10
     }
   ]
 }

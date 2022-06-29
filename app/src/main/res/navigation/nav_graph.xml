@@ -56,6 +56,12 @@
         <action
             android:id="@+id/action_favorite_to_details"
             app:destination="@id/courseDetailFragment" />
+        <action
+            android:id="@+id/action_favoriteCoursesFragment_self"
+            app:destination="@id/favoriteCoursesFragment" />
+        <action
+            android:id="@+id/action_show_bottom_sheet_dialog"
+            app:destination="@id/favoriteBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchCoursesFragment"
@@ -108,6 +114,20 @@
             android:id="@+id/action_search_results_to_details"
             app:destination="@id/courseDetailFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/favoriteBottomSheetFragment"
+        android:name="com.jxareas.techhub.ui.favorites.FavoriteBottomSheetFragment"
+        android:label="fragment_favorite_bottom_sheet"
+        tools:layout="@layout/fragment_favorite_bottom_sheet">
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_bottom_sheet_to_details"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/shrink_fade_out_center"
+            app:destination="@id/courseDetailFragment" />
+    </dialog>
 
 
 </navigation>

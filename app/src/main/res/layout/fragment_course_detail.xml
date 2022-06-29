@@ -59,10 +59,10 @@
                 android:layout_height="@dimen/icon_default_height"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
-                app:tint="@color/tech_pink_600"
                 android:src="@drawable/ic_favorite_selector"
                 app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/tech_pink_600" />
 
 
             <de.hdodenhof.circleimageview.CircleImageView

@@ -7,7 +7,7 @@ import com.jxareas.techhub.adapter.listeners.ItemTouchHelperListener
 class ItemTouchHelperCallback(private val listener: ItemTouchHelperListener) :
     ItemTouchHelper.Callback() {
 
-    override fun isLongPressDragEnabled(): Boolean = true
+    override fun isLongPressDragEnabled(): Boolean = false
     override fun isItemViewSwipeEnabled(): Boolean = true
 
     override fun getMovementFlags(

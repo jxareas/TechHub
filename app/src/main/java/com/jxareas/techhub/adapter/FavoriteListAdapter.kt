@@ -36,6 +36,10 @@ class FavoriteListAdapter(private val listener: FavoriteAdapterListener) :
             imageViewCourseImage.loadImage(course.coursePhoto, true)
             imageViewInstructorPhoto.loadImage(course.instructorPhoto)
             root.setOnClickListener { listener.onCourseClicked(root, course) }
+            root.setOnLongClickListener {
+                listener.onFavoriteLongPressed(course.courseId)
+                true
+            }
         }
     }
 

@@ -1,60 +1,79 @@
 {
   "data": [
     {
-      "name": "Architecture",
-      "courses": "58"
-    },
-    {
-      "name": "Arts",
-      "courses": "121"
+      "name": "Biology",
+      "courses": 22,
+      "imageUrl": "https://source.unsplash.com/1PpyUZceg_I"
     },
     {
       "name": "Business",
-      "courses": "78"
+      "courses": 58,
+      "imageUrl": "https://source.unsplash.com/MYbhN8KaaEc"
     },
     {
       "name": "Computer Science",
-      "courses": "118"
+      "courses": 121,
+      "imageUrl": "https://source.unsplash.com/EUsVwEOsblE"
     },
     {
-      "name": "Graphic Design",
-      "courses": "423"
+      "name": "Cybersecurity",
+      "courses": 78,
+      "imageUrl": "https://source.unsplash.com/zAhAUSdRLJ8"
     },
     {
-      "name": "Fashion",
-      "courses": "92"
+      "name": "Digital Marketing",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/I6wCDYW6ij8"
+    },
+    {
+      "name": "Data Science",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/Ype9sdOPdYc"
+    },
+    {
+      "name": "Finance",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/8lnbXtxFGZw"
     },
     {
       "name": "Film",
-      "courses": "165"
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/9lTUAlNB87M"
     },
     {
-      "name": "Information Technology",
-      "courses": "164"
+      "name": "Management",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/yGv-pvgRuiI"
     },
     {
-      "name": "Illustration",
-      "courses": "326"
+      "name": "Game Development",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/ot-HSrLNTP0"
     },
     {
-      "name": "Languages",
-      "courses": "305"
+      "name": "Graphic Design",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/g-YiX8ynmnY"
     },
     {
-      "name": "Logic",
-      "courses": "212"
-    },
-    {
-      "name": "Painting",
-      "courses": "172"
+      "name": "Applied Physics",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/gYrYa37fAKI"
     },
     {
       "name": "Photography",
-      "courses": "321"
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/IVaKksEZmZA"
     },
     {
-      "name": "Technology",
-      "courses": "118"
+      "name": "Software Development",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/mZnx9429i94"
+    },
+    {
+      "name": "Statistics",
+      "courses": 305,
+      "imageUrl": "https://source.unsplash.com/IrRbSND5EUc"
     }
   ]
 }

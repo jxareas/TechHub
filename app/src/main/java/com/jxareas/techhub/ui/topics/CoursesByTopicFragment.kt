@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.LinearInterpolator
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,8 +16,8 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.CourseListAdapter
-import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
+import com.jxareas.techhub.ui.common.adapters.CourseListAdapter
+import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCoursesByTopicBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator

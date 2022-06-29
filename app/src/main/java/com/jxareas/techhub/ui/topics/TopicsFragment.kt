@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.TopicListAdapter
-import com.jxareas.techhub.adapter.listeners.TopicAdapterListener
+import com.jxareas.techhub.ui.common.adapters.TopicListAdapter
+import com.jxareas.techhub.ui.common.listeners.TopicAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedTopic
 import com.jxareas.techhub.databinding.FragmentTopicsBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator

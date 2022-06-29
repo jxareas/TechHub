@@ -1,0 +1,24 @@
+package com.jxareas.techhub.ui.common.adapters
+
+import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncDifferConfig
+import androidx.recyclerview.widget.ListAdapter
+import com.jxareas.techhub.ui.common.callbacks.CourseDiffCallback
+import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
+import com.jxareas.techhub.ui.common.viewholder.RecentCourseViewHolder
+import com.jxareas.techhub.data.cache.model.CachedCourse
+import com.jxareas.techhub.databinding.ListItemCourseMiniBinding
+import com.jxareas.techhub.utils.extensions.bind
+
+class RecentCoursesListAdapter(private val listener: CourseAdapterListener) :
+    ListAdapter<CachedCourse, RecentCourseViewHolder>(
+        AsyncDifferConfig.Builder(CourseDiffCallback).build()
+    ) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentCourseViewHolder =
+        RecentCourseViewHolder(parent bind ListItemCourseMiniBinding::inflate, listener)
+
+    override fun onBindViewHolder(holder: RecentCourseViewHolder, position: Int) =
+        holder.bind(currentList[position])
+
+}

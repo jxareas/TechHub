@@ -46,6 +46,7 @@
 
     <style name="TextAppearance.TechHub.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/lato</item>
+        <item name="lineHeight">18sp</item>
     </style>
 
     <style name="TextAppearance.TechHub.Body1" parent="TextAppearance.MaterialComponents.Body1">

@@ -17,8 +17,8 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.MaterialContainerTransform
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.RecentCoursesListAdapter
-import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
+import com.jxareas.techhub.ui.common.adapters.RecentCoursesListAdapter
+import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentExpandedCourseSearchBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator

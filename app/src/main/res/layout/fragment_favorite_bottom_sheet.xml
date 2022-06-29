@@ -14,10 +14,11 @@
         android:id="@+id/card_view"
         android:layout_width="@dimen/image_view_instructor_height_detail"
         android:layout_height="@dimen/image_view_instructor_width_detail"
+        android:background="@drawable/course_image_placeholder"
         android:elevation="@dimen/cardview_default_elevation"
         app:cardCornerRadius="@dimen/cardview_default_radius"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/icon_favorites">
 
 
         <ImageView
@@ -35,24 +36,37 @@
         android:id="@+id/image_view_instructor"
         android:layout_width="@dimen/image_view_instructor_mini"
         android:layout_height="@dimen/image_view_instructor_mini"
+        android:background="@drawable/ic_avatar_placeholder"
         android:elevation="@dimen/elevation_small"
+        android:foreground="@drawable/avatar_outline"
         app:layout_constraintBottom_toBottomOf="@id/card_view"
         app:layout_constraintEnd_toEndOf="@id/card_view"
         app:layout_constraintTop_toBottomOf="@id/card_view"
         tools:src="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/icon_favorites"
+        android:layout_width="@dimen/icon_default_width"
+        android:layout_height="@dimen/icon_default_height"
+        android:layout_marginTop="@dimen/margin_low"
+        android:src="@drawable/ic_favorite_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/tech_pink_600" />
+
     <TextView
         android:id="@+id/text_view_course_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_high"
         android:fontFamily="@font/lato_bold"
-        app:layout_constraintEnd_toEndOf="parent"
         android:maxLines="2"
         android:textAppearance="?attr/textAppearanceSubtitle2"
-        android:textColor="?attr/colorOnPrimary"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintBottom_toBottomOf="@id/icon_favorites"
+        app:layout_constraintEnd_toStartOf="@id/icon_favorites"
         app:layout_constraintStart_toEndOf="@id/card_view"
-        app:layout_constraintTop_toTopOf="@id/card_view"
+        app:layout_constraintTop_toTopOf="@id/icon_favorites"
         tools:text="@sample/courses.json/data/name" />
 
     <TextView
@@ -60,14 +74,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_high"
-        android:layout_marginTop="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_low"
+        android:ellipsize="end"
+        android:maxLines="10"
         android:textAppearance="?attr/textAppearanceBody2"
         android:textColor="?attr/colorOnPrimary"
-        android:ellipsize="end"
-        android:maxLines="15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/card_view"
-        app:layout_constraintTop_toBottomOf="@id/text_view_course_title"
+        app:layout_constraintTop_toBottomOf="@id/icon_favorites"
         tools:text="@sample/courses.json/data/description" />
 
 

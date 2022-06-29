@@ -1,4 +1,4 @@
-package com.jxareas.techhub.adapter.listeners
+package com.jxareas.techhub.ui.common.listeners
 
 import android.view.ViewGroup
 import com.jxareas.techhub.data.cache.model.CachedTopic

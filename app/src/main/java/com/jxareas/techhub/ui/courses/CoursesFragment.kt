@@ -9,11 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.MaterialFadeThrough
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.CourseCardAdapter
-import com.jxareas.techhub.adapter.listeners.CourseAdapterListener
+import com.jxareas.techhub.ui.common.adapters.CourseCardAdapter
+import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCoursesBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator

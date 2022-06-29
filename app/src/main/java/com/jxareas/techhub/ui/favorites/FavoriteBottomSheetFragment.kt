@@ -1,19 +1,16 @@
 package com.jxareas.techhub.ui.favorites
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.transition.MaterialElevationScale
-import com.jxareas.techhub.R
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteBottomSheetBinding
-import com.jxareas.techhub.utils.extensions.getLong
 import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,16 +20,14 @@ class FavoriteBottomSheetFragment : BottomSheetDialogFragment() {
     private val binding: FragmentFavoriteBottomSheetBinding
         get() = _binding!!
 
+
     private val args: FavoriteBottomSheetFragmentArgs by navArgs()
     private val viewModel: FavoriteBottomSheetViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enterTransition = MaterialElevationScale(true).apply {
-            duration = resources.getLong(R.integer.material_motion_duration_medium_2)
-            interpolator = FastOutSlowInInterpolator()
-        }
+    companion object {
+        internal const val ON_DISMISS_KEY = "ON_DISMISS"
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,10 +44,7 @@ class FavoriteBottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupListeners() = binding.run {
-        root.setOnClickListener { view ->
-            /*val transitionName = getString(R.string.course_detail_course_image_transition)
-            val extras =
-                FragmentNavigatorExtras(view to transitionName)*/
+        imageViewCourse.setOnClickListener { view ->
             val directions =
                 FavoriteBottomSheetFragmentDirections.actionBottomSheetToDetails(args.courseId)
             findNavController().navigate(directions)
@@ -70,6 +62,19 @@ class FavoriteBottomSheetFragment : BottomSheetDialogFragment() {
         imageViewInstructor.loadImage(course.instructorPhoto)
         textViewCourseTitle.text = course.name
         textViewCourseDescription.text = course.description
+        iconFavorites.isActivated = course.favorite
+
+        iconFavorites.setOnClickListener {
+            course.favorite = !course.favorite
+            viewModel.onUpdate(course)
+            it.isActivated = course.favorite
+        }
+
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(ON_DISMISS_KEY, true)
     }
 
     override fun onDestroyView() {

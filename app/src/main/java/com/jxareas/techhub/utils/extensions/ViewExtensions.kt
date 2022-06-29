@@ -7,8 +7,12 @@ import android.widget.Toast
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.jxareas.techhub.utils.animation.getKey
+
+fun Fragment.toast(message : String, length : Int = Toast.LENGTH_SHORT) =
+    Toast.makeText(context, message, length).show()
 
 fun View.visible() {
     this.visibility = View.VISIBLE

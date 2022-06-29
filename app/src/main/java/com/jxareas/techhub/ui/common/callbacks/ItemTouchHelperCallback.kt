@@ -1,8 +1,8 @@
-package com.jxareas.techhub.adapter.callbacks
+package com.jxareas.techhub.ui.common.callbacks
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.jxareas.techhub.adapter.listeners.ItemTouchHelperListener
+import com.jxareas.techhub.ui.common.listeners.ItemTouchHelperListener
 
 class ItemTouchHelperCallback(private val listener: ItemTouchHelperListener) :
     ItemTouchHelper.Callback() {

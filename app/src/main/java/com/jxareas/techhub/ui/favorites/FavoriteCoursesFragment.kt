@@ -11,11 +11,11 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.FavoriteListAdapter
-import com.jxareas.techhub.adapter.callbacks.ItemTouchHelperCallback
-import com.jxareas.techhub.adapter.listeners.FavoriteAdapterListener
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteCoursesBinding
+import com.jxareas.techhub.ui.common.adapters.FavoriteListAdapter
+import com.jxareas.techhub.ui.common.callbacks.ItemTouchHelperCallback
+import com.jxareas.techhub.ui.common.listeners.FavoriteAdapterListener
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,6 +33,7 @@ class FavoriteCoursesFragment : Fragment(), FavoriteAdapterListener {
         super.onResume()
         viewModel.getAllFavoriteCourses()
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,6 +62,15 @@ class FavoriteCoursesFragment : Fragment(), FavoriteAdapterListener {
     private fun setupObservers() {
         viewModel.favorites.observe(viewLifecycleOwner) { listOfCourses ->
             listOfCourses?.let { favoriteCourses -> favoritesAdapter.submitList(favoriteCourses) }
+        }
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(
+            FavoriteBottomSheetFragment.ON_DISMISS_KEY
+        )?.observe(viewLifecycleOwner) { boolean ->
+            boolean?.let { returnFromBottomSheet ->
+                if (returnFromBottomSheet)
+                    viewModel.getAllFavoriteCourses()
+            }
         }
     }
 

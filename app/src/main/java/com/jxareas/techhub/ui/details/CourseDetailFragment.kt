@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -22,24 +21,23 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
-import com.jxareas.techhub.adapter.RelatedCoursesListAdapter
 import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
+import com.jxareas.techhub.ui.common.adapters.RelatedCoursesListAdapter
+import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.utils.extensions.getCurrentDateTime
 import com.jxareas.techhub.utils.extensions.getLong
 import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CourseDetailFragment : Fragment() {
+class CourseDetailFragment : Fragment(), CourseAdapterListener {
 
     private var _binding: FragmentCourseDetailBinding? = null
     private val binding: FragmentCourseDetailBinding
         get() = _binding!!
 
-    private val relatedCoursesAdapter = RelatedCoursesListAdapter { course ->
-        navigateToDetails(course.courseId)
-    }
+    private val relatedCoursesAdapter = RelatedCoursesListAdapter(this)
     private val viewModel: CourseDetailViewModel by viewModels()
     private val args: CourseDetailFragmentArgs by navArgs()
 
@@ -153,6 +151,12 @@ class CourseDetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+        val directions =
+            CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(course.courseId)
+        findNavController().navigate(directions)
     }
 
 }

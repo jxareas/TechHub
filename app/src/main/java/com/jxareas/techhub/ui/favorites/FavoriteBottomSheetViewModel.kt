@@ -35,4 +35,10 @@ class FavoriteBottomSheetViewModel @Inject constructor(
         }
     }
 
+    fun onUpdate(course: CachedCourse) {
+        viewModelScope.launch {
+            courseRepository.updateCourse(course)
+        }
+    }
+
 }

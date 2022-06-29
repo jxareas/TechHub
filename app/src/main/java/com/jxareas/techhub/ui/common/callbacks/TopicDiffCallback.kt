@@ -1,4 +1,4 @@
-package com.jxareas.techhub.adapter.callbacks
+package com.jxareas.techhub.ui.common.callbacks
 
 import androidx.recyclerview.widget.DiffUtil
 import com.jxareas.techhub.data.cache.model.CachedTopic

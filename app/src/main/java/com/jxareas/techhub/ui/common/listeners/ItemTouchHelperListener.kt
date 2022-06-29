@@ -1,4 +1,4 @@
-package com.jxareas.techhub.adapter.listeners
+package com.jxareas.techhub.ui.common.listeners
 
 import androidx.recyclerview.widget.RecyclerView
 

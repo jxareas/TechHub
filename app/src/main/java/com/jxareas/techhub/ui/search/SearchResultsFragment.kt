@@ -75,7 +75,7 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, course: Course) {
         val transitionName = getString(R.string.course_detail_transition)
         val extras =
             FragmentNavigatorExtras(viewGroup to transitionName)

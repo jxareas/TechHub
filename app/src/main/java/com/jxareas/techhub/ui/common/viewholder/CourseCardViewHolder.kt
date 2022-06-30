@@ -22,7 +22,7 @@ class CourseCardViewHolder(
         textViewCourseSteps.text = course.steps.toString()
         imageViewCoursePhoto.loadImage(course.coursePhoto, true)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
-        root.setOnClickListener { listener.onCourseClicked(root, course) }
+        root.setOnClickListener { listener.onClicked(root, course) }
 
     }
 

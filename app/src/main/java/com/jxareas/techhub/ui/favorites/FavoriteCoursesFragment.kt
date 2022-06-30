@@ -79,18 +79,18 @@ class FavoriteCoursesFragment : Fragment(), FavoriteAdapterListener {
         _binding = null
     }
 
-    override fun onFavoriteCourseSwiped(courseId: Int) {
+    override fun onSwiped(courseId: Int) {
         viewModel.onFavoriteRemoved(courseId)
     }
 
-    override fun onFavoriteLongPressed(courseId: Int) {
+    override fun onLongPressed(courseId: Int) {
         val directions =
             FavoriteCoursesFragmentDirections.actionShowBottomSheetDialog(courseId)
         findNavController().navigate(directions)
     }
 
 
-    override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, course: Course) {
         val extras =
             FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_transition))
         val directions =

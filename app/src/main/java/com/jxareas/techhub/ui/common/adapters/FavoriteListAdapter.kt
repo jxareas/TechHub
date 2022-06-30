@@ -27,7 +27,7 @@ class FavoriteListAdapter(private val listener: FavoriteAdapterListener) :
         holder.bind(currentList[position])
 
     override fun onItemDismissed(viewHolder: RecyclerView.ViewHolder, position: Int) {
-        listener.onFavoriteCourseSwiped(currentList[position].courseId)
+        listener.onSwiped(currentList[position].courseId)
     }
 
 }

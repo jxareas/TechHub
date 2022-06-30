@@ -20,7 +20,7 @@ class RecentCourseViewHolder(
         textViewCourseName.text = course.name
         imageViewCourseImage.loadImage(course.coursePhoto, true)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
-        root.setOnClickListener { listener.onCourseClicked(root, course) }
+        root.setOnClickListener { listener.onClicked(root, course) }
     }
 
 }

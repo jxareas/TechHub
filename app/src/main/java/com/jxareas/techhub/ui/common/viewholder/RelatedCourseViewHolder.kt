@@ -22,7 +22,7 @@ class RelatedCourseViewHolder(
         textViewCourseSteps.text = steps
         imageViewCourse.loadImage(course.coursePhoto)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
-        root.setOnClickListener { listener.onCourseClicked(root, course) }
+        root.setOnClickListener { listener.onClicked(root, course) }
 
     }
 

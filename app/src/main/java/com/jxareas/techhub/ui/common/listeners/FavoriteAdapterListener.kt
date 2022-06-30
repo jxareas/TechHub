@@ -1,6 +1,6 @@
 package com.jxareas.techhub.ui.common.listeners
 
-interface FavoriteAdapterListener : CourseAdapterListener {
-    fun onFavoriteCourseSwiped(courseId : Int)
-    fun onFavoriteLongPressed(courseId: Int)
-}
+import com.jxareas.techhub.domain.model.Course
+import com.jxareas.techhub.ui.common.events.OnInteraction
+
+interface FavoriteAdapterListener : OnInteraction<Course, Int>

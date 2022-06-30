@@ -152,7 +152,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, course: Course) {
         val directions =
             CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(course.courseId)
         findNavController().navigate(directions)

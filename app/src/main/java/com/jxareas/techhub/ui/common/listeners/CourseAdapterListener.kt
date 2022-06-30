@@ -1,10 +1,8 @@
 package com.jxareas.techhub.ui.common.listeners
 
-import android.view.ViewGroup
 import com.jxareas.techhub.domain.model.Course
+import com.jxareas.techhub.ui.common.events.OnClicked
 
 
 @FunctionalInterface
-interface CourseAdapterListener {
-    fun onCourseClicked(viewGroup: ViewGroup, course: Course)
-}
+interface CourseAdapterListener : OnClicked<Course>

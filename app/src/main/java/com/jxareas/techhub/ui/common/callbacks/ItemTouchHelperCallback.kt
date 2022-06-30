@@ -15,7 +15,7 @@ class ItemTouchHelperCallback(private val listener: ItemTouchHelperListener) :
         viewHolder: RecyclerView.ViewHolder
     ): Int = makeMovementFlags(
         ItemTouchHelper.UP or ItemTouchHelper.DOWN,
-        ItemTouchHelper.START
+        ItemTouchHelper.START or ItemTouchHelper.END
     )
 
     override fun onMove(

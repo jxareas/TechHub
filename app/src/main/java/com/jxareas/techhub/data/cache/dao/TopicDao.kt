@@ -7,8 +7,8 @@ import com.jxareas.techhub.data.cache.model.CachedTopic
 @Dao
 interface TopicDao : BaseDao<CachedTopic> {
 
-    @Query("SELECT * FROM topics")
-    fun getAll() : List<CachedTopic>
+    @Query("SELECT * FROM topics ORDER BY name")
+    fun getAll(): List<CachedTopic>
 
 
 }

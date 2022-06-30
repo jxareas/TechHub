@@ -11,7 +11,6 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.jxareas.techhub.R
-import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteCoursesBinding
 import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.ui.common.adapters.FavoriteListAdapter
@@ -93,7 +92,7 @@ class FavoriteCoursesFragment : Fragment(), FavoriteAdapterListener {
 
     override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
         val extras =
-            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_course_image_transition))
+            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_transition))
         val directions =
             FavoriteCoursesFragmentDirections.actionFavoriteToDetails(course.courseId)
         findNavController().navigate(directions, extras)

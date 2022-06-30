@@ -11,7 +11,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:transitionName="@string/course_detail_course_image_transition">
+        android:transitionName="@string/course_detail_transition">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/learn_content"

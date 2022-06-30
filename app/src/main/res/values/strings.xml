@@ -5,7 +5,7 @@
     <string name="you_ll_also_like">You\'ll Also Like</string>
     <string name="course_steps">%1$s / %2$s</string>
     <string name="card_item_transition">Card Transition</string>
-    <string name="course_detail_course_image_transition">Course Detail</string>
+    <string name="course_detail_transition">Course Detail</string>
     <string name="poster_transition">Poster Transition</string>
     <string name="topic_transition">Topic Transition</string>
     <string name="search_view_transition">Expanded Search Transition</string>
@@ -26,5 +26,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_results">Search Results</string>
+    <string name="course_detail_image_transition">Course Detail Image</string>
 
 </resources>

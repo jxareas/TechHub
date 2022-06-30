@@ -14,13 +14,12 @@ data class CachedCourse(
     val courseId: Int = 0,
     val name: String,
     val description: String,
-    var favorite: Boolean = false,
     val coursePhoto: String,
     val step: Int,
     val steps: Int,
-    val instructorPhoto : String,
-    val instructorName : String,
-    val topicName : String,
+    val instructorPhoto: String,
+    val instructorName: String,
+    val topicName: String,
     @TypeConverters(DateConverter::class)
-    var lastAccessed : Date? = null,
+    var lastAccessed: Date? = null,
 ) : CachedEntity

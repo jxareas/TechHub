@@ -8,6 +8,7 @@
     android:paddingHorizontal="@dimen/margin_standard"
     android:paddingVertical="@dimen/margin_low"
     android:theme="@style/TechHub.Light"
+    android:transitionName="@string/course_detail_transition"
     tools:context=".ui.favorites.FavoriteBottomSheetFragment">
 
     <androidx.cardview.widget.CardView
@@ -62,7 +63,7 @@
         android:fontFamily="@font/lato_bold"
         android:maxLines="2"
         android:textAppearance="?attr/textAppearanceSubtitle2"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="@id/icon_favorites"
         app:layout_constraintEnd_toStartOf="@id/icon_favorites"
         app:layout_constraintStart_toEndOf="@id/card_view"

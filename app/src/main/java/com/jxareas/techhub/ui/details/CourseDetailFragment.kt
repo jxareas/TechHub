@@ -44,12 +44,15 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
+            drawingViewId = R.id.nav_host_fragment_main
             duration = resources.getLong(R.integer.material_motion_duration_medium_2)
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
             interpolator = LinearOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
+            drawingViewId = R.id.nav_host_fragment_main
+            scrimColor = Color.TRANSPARENT
             fadeMode = MaterialContainerTransform.FADE_MODE_OUT
             interpolator = FastOutSlowInInterpolator()
             pathMotion = MaterialArcMotion()
@@ -122,7 +125,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
                     model: Any?,
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
-                ): Boolean = false
+                ): Boolean = false.also { startPostponedEnterTransition() }
 
                 override fun onResourceReady(
                     resource: Drawable?,
@@ -137,7 +140,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
 
         iconFavorites.setOnClickListener {
             course.favorite = !course.favorite
-            viewModel.onUpdate(course)
+            viewModel.addOrRemoveFromFavorites(course)
             it.isActivated = course.favorite
         }
 

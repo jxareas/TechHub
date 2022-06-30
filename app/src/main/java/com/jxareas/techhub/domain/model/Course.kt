@@ -1,7 +1,5 @@
 package com.jxareas.techhub.domain.model
 
-import androidx.room.TypeConverters
-import com.jxareas.techhub.data.cache.converters.DateConverter
 import java.util.*
 
 data class Course(
@@ -15,6 +13,6 @@ data class Course(
     val instructorPhoto: String,
     val instructorName: String,
     val topicName: String,
-    @TypeConverters(DateConverter::class)
-    var lastAccessed: Date? = null
+    var lastAccessed: Date? = null,
+    var order: Int? = null,
 ) : DomainEntity

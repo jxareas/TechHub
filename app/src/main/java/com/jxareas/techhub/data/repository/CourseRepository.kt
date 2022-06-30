@@ -10,8 +10,7 @@ interface CourseRepository {
     suspend fun getRecentCourses(): Flow<List<Course>>
     suspend fun getCoursesByTopicName(topic: String): Flow<List<Course>>
     suspend fun updateCourse(course: Course)
-    suspend fun removeFromFavorites(courseId: Int)
-    suspend fun getFavoriteCourses(): Flow<List<Course>>
+    suspend fun updateAccessedDate(course : Course)
     suspend fun getRelatedCourses(courseId: Int): Flow<List<Course>>
     suspend fun getCourseById(courseId: Int): Flow<Course>
 

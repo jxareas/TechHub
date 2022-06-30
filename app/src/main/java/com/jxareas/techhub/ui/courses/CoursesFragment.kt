@@ -80,7 +80,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
 
     override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
         val extras =
-            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_course_image_transition))
+            FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_transition))
         val direction =
             CoursesFragmentDirections.coursesToDetailFragment(course.courseId)
         findNavController().navigate(direction, extras)

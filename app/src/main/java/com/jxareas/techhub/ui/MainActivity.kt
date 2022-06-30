@@ -51,13 +51,13 @@ class MainActivity : AppCompatActivity() {
                         .animate()
                         .setInterpolator(LinearOutSlowInInterpolator())
                         .alpha(1.0f).withStartAction { visible() }
-                        .duration = resources.getLong(R.integer.material_motion_duration_long_3)
+                        .duration = resources.getLong(R.integer.bottom_navigation_fade_in)
                     else -> this@bottomNav
                         .animate()
                         .setInterpolator(AccelerateDecelerateInterpolator())
                         .alpha(0.0f)
                         .withEndAction { gone() }
-                        .duration = resources.getLong(R.integer.material_motion_duration_long_3)
+                        .duration = resources.getLong(R.integer.bottom_navigation_fade_out)
                 }
             }
         }

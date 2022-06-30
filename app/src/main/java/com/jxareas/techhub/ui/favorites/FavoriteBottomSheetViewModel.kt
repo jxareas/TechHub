@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jxareas.techhub.data.repository.CourseRepository
+import com.jxareas.techhub.data.repository.FavoriteRepository
 import com.jxareas.techhub.domain.model.Course
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -15,6 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FavoriteBottomSheetViewModel @Inject constructor(
     private val courseRepository: CourseRepository,
+    private val favoriteRepository: FavoriteRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -37,7 +39,10 @@ class FavoriteBottomSheetViewModel @Inject constructor(
 
     fun onUpdate(course: Course) {
         viewModelScope.launch {
-            courseRepository.updateCourse(course)
+            favoriteRepository.addOrRemoveFromFavorites(
+                course.courseId,
+                shouldAdd = course.favorite
+            )
         }
     }
 

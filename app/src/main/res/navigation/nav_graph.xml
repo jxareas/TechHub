@@ -125,8 +125,9 @@
         <action
             android:id="@+id/action_bottom_sheet_to_details"
             app:destination="@id/courseDetailFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/shrink_fade_out_center" />
+            app:enterAnim="@anim/scale_xy"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </dialog>
 
 

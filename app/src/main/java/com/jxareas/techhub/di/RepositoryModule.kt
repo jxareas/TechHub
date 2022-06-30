@@ -1,8 +1,10 @@
 package com.jxareas.techhub.di
 
 import com.jxareas.techhub.data.repository.CourseRepository
+import com.jxareas.techhub.data.repository.FavoriteRepository
 import com.jxareas.techhub.data.repository.TopicRepository
 import com.jxareas.techhub.domain.repository.CourseRepositoryImpl
+import com.jxareas.techhub.domain.repository.FavoriteRepositoryImpl
 import com.jxareas.techhub.domain.repository.TopicRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -21,6 +23,10 @@ interface RepositoryModule {
     @Binds
     @ViewModelScoped
     fun bindTopicRepository(repository: TopicRepositoryImpl): TopicRepository
+
+    @Binds
+    @ViewModelScoped
+    fun bindFavoriteRepository(repository: FavoriteRepositoryImpl): FavoriteRepository
 
 
 }

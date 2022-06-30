@@ -4,7 +4,7 @@ import com.jxareas.techhub.data.api.dto.response.GetOneCourseResponse
 import com.jxareas.techhub.data.api.service.CourseService
 import com.jxareas.techhub.data.cache.dao.CourseDao
 import com.jxareas.techhub.data.mappers.toCached
-import com.jxareas.techhub.data.mappers.toCachedCourse
+import com.jxareas.techhub.data.mappers.toCachedCourseWithFavorite
 import com.jxareas.techhub.data.mappers.toDomain
 import com.jxareas.techhub.data.repository.CourseRepository
 import com.jxareas.techhub.domain.model.Course
@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class CourseRepositoryImpl @Inject constructor(
@@ -27,8 +26,8 @@ class CourseRepositoryImpl @Inject constructor(
             var courses = courseDao.getAll()
             if (courses.isEmpty()) {
                 val response = courseService.getCourses()
-                courses = response.map(GetOneCourseResponse::toCachedCourse)
-                courseDao.insertAll(courses)
+                courses = response.map(GetOneCourseResponse::toCachedCourseWithFavorite)
+                courseDao.insertAll(courses.map { it.course })
                 emit(courses.map { it.toDomain() })
             } else emit(courses.map { it.toDomain() })
 
@@ -50,13 +49,9 @@ class CourseRepositoryImpl @Inject constructor(
         courseDao.update(course.toCached())
     }
 
-    override suspend fun removeFromFavorites(courseId: Int) {
-        withContext(dispatchers.io) { courseDao.removeFromFavorites(courseId) }
+    override suspend fun updateAccessedDate(course: Course) {
+        course.lastAccessed?.let { courseDao.updateAccessedDate(it, course.courseId) }
     }
-
-    override suspend fun getFavoriteCourses(): Flow<List<Course>> = flow {
-        emit(courseDao.getFavorites().map { it.toDomain() })
-    }.flowOn(dispatchers.io)
 
     override suspend fun getRelatedCourses(courseId: Int): Flow<List<Course>> = flow {
         emit(courseDao.getRelatedCourses(courseId).map { it.toDomain() })

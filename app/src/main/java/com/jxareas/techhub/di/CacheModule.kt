@@ -24,6 +24,11 @@ object CacheModule {
 
     @Provides
     @Singleton
+    fun provideFavoriteDao(database: TechHubDatabase) =
+        database.favoriteDao
+
+    @Provides
+    @Singleton
     fun provideCourseDao(database: TechHubDatabase) =
         database.courseDao
 

@@ -44,7 +44,7 @@ class FavoriteBottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupListeners() = binding.run {
-        imageViewCourse.setOnClickListener { view ->
+        imageViewCourse.setOnClickListener {
             val directions =
                 FavoriteBottomSheetFragmentDirections.actionBottomSheetToDetails(args.courseId)
             findNavController().navigate(directions)

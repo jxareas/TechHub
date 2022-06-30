@@ -1,4 +1,4 @@
-package com.jxareas.techhub.data.repository.impl
+package com.jxareas.techhub.domain.repository
 
 import com.jxareas.techhub.data.api.dto.response.GetOneTopicResponse
 import com.jxareas.techhub.data.api.service.TopicService

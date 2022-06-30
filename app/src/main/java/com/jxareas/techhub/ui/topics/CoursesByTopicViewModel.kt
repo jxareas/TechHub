@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.data.repository.CourseRepository
+import com.jxareas.techhub.domain.model.Course
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,8 +18,8 @@ class CoursesByTopicViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
-    private var _courses = MutableLiveData<List<CachedCourse>>()
-    internal val courses: LiveData<List<CachedCourse>>
+    private var _courses = MutableLiveData<List<Course>>()
+    internal val courses: LiveData<List<Course>>
         get() = _courses
 
     init {

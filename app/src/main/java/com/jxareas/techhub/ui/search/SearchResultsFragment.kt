@@ -13,10 +13,10 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.MaterialContainerTransform
 import com.jxareas.techhub.R
+import com.jxareas.techhub.databinding.FragmentSearchResultsBinding
+import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.ui.common.adapters.CourseListAdapter
 import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
-import com.jxareas.techhub.data.cache.model.CachedCourse
-import com.jxareas.techhub.databinding.FragmentSearchResultsBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
@@ -75,7 +75,7 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+    override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
         val transitionName = getString(R.string.course_detail_course_image_transition)
         val extras =
             FragmentNavigatorExtras(viewGroup to transitionName)

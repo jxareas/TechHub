@@ -21,8 +21,8 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
-import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentCourseDetailBinding
+import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.ui.common.adapters.RelatedCoursesListAdapter
 import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.utils.extensions.getCurrentDateTime
@@ -73,10 +73,6 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
         setupListeners()
     }
 
-    private fun navigateToDetails(id: Int) {
-        val directions = CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(id)
-        findNavController().navigate(directions)
-    }
 
     private fun setupRecyclerView() = binding.recyclerViewRelatedCourses.run {
         adapter = relatedCoursesAdapter
@@ -110,7 +106,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
 
     }
 
-    private fun bindToView(course: CachedCourse) = binding.run {
+    private fun bindToView(course: Course) = binding.run {
         course.lastAccessed = getCurrentDateTime()
         viewModel.onUpdate(course)
         textViewCourseName.text = course.name
@@ -153,7 +149,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onCourseClicked(viewGroup: ViewGroup, course: CachedCourse) {
+    override fun onCourseClicked(viewGroup: ViewGroup, course: Course) {
         val directions =
             CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(course.courseId)
         findNavController().navigate(directions)

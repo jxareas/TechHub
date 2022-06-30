@@ -9,8 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.databinding.FragmentFavoriteBottomSheetBinding
+import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -57,7 +57,7 @@ class FavoriteBottomSheetFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun bindData(course: CachedCourse) = binding.run {
+    private fun bindData(course: Course) = binding.run {
         imageViewCourse.loadImage(course.coursePhoto)
         imageViewInstructor.loadImage(course.instructorPhoto)
         textViewCourseTitle.text = course.name

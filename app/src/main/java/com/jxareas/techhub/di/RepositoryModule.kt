@@ -2,8 +2,8 @@ package com.jxareas.techhub.di
 
 import com.jxareas.techhub.data.repository.CourseRepository
 import com.jxareas.techhub.data.repository.TopicRepository
-import com.jxareas.techhub.data.repository.impl.CourseRepositoryImpl
-import com.jxareas.techhub.data.repository.impl.TopicRepositoryImpl
+import com.jxareas.techhub.domain.repository.CourseRepositoryImpl
+import com.jxareas.techhub.domain.repository.TopicRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

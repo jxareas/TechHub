@@ -1,11 +1,13 @@
-package com.jxareas.techhub.data.repository.impl
+package com.jxareas.techhub.domain.repository
 
 import com.jxareas.techhub.data.api.dto.response.GetOneCourseResponse
 import com.jxareas.techhub.data.api.service.CourseService
 import com.jxareas.techhub.data.cache.dao.CourseDao
-import com.jxareas.techhub.data.cache.model.CachedCourse
+import com.jxareas.techhub.data.mappers.toCached
 import com.jxareas.techhub.data.mappers.toCachedCourse
+import com.jxareas.techhub.data.mappers.toDomain
 import com.jxareas.techhub.data.repository.CourseRepository
+import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.utils.DispatcherProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -20,48 +22,48 @@ class CourseRepositoryImpl @Inject constructor(
     private val dispatchers: DispatcherProvider,
 ) : CourseRepository {
 
-    override suspend fun getAllCourses(onLoadingFinished: () -> Unit): Flow<List<CachedCourse>> =
+    override suspend fun getAllCourses(onLoadingFinished: () -> Unit): Flow<List<Course>> =
         flow {
             var courses = courseDao.getAll()
             if (courses.isEmpty()) {
                 val response = courseService.getCourses()
                 courses = response.map(GetOneCourseResponse::toCachedCourse)
                 courseDao.insertAll(courses)
-                emit(courses)
-            } else emit(courses)
+                emit(courses.map { it.toDomain() })
+            } else emit(courses.map { it.toDomain() })
 
         }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
 
-    override suspend fun getCoursesByName(course: String): Flow<List<CachedCourse>> = flow {
-        emit(courseDao.getAllCoursesByName(course))
+    override suspend fun getCoursesByName(course: String): Flow<List<Course>> = flow {
+        emit(courseDao.getAllCoursesByName(course).map { it.toDomain() })
     }.flowOn(dispatchers.io)
 
-    override suspend fun getRecentCourses(): Flow<List<CachedCourse>> = flow {
-        emit(courseDao.getRecentCourses())
+    override suspend fun getRecentCourses(): Flow<List<Course>> = flow {
+        emit(courseDao.getRecentCourses().map { it.toDomain() })
     }.flowOn(dispatchers.io)
 
-    override suspend fun getCoursesByTopicName(topic: String): Flow<List<CachedCourse>> = flow {
-        emit(courseDao.getCoursesByTopic(topic))
+    override suspend fun getCoursesByTopicName(topic: String): Flow<List<Course>> = flow {
+        emit(courseDao.getCoursesByTopic(topic).map { it.toDomain() })
     }.flowOn(dispatchers.io)
 
-    override suspend fun updateCourse(course: CachedCourse) {
-        courseDao.update(course)
+    override suspend fun updateCourse(course: Course) {
+        courseDao.update(course.toCached())
     }
 
     override suspend fun removeFromFavorites(courseId: Int) {
         withContext(dispatchers.io) { courseDao.removeFromFavorites(courseId) }
     }
 
-    override suspend fun getFavoriteCourses(): Flow<List<CachedCourse>> = flow {
-        emit(courseDao.getFavorites())
+    override suspend fun getFavoriteCourses(): Flow<List<Course>> = flow {
+        emit(courseDao.getFavorites().map { it.toDomain() })
     }.flowOn(dispatchers.io)
 
-    override suspend fun getRelatedCourses(courseId: Int): Flow<List<CachedCourse>> = flow {
-        emit(courseDao.getRelatedCourses(courseId))
+    override suspend fun getRelatedCourses(courseId: Int): Flow<List<Course>> = flow {
+        emit(courseDao.getRelatedCourses(courseId).map { it.toDomain() })
     }.flowOn(dispatchers.io)
 
-    override suspend fun getCourseById(courseId: Int): Flow<CachedCourse> = flow {
-        val course = courseDao.getById(courseId)
+    override suspend fun getCourseById(courseId: Int): Flow<Course> = flow {
+        val course = courseDao.getById(courseId).toDomain()
         emit(course)
     }.flowOn(dispatchers.io)
 

@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jxareas.techhub.data.cache.model.CachedCourse
 import com.jxareas.techhub.data.repository.CourseRepository
+import com.jxareas.techhub.domain.model.Course
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.FragmentScoped
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,8 +17,8 @@ class FavoriteCoursesViewModel @Inject constructor(
     private val coursesRepository: CourseRepository
 ) : ViewModel() {
 
-    private val _favorites = MutableLiveData<List<CachedCourse>>()
-    val favorites: LiveData<List<CachedCourse>> = _favorites
+    private val _favorites = MutableLiveData<List<Course>>()
+    val favorites: LiveData<List<Course>> = _favorites
 
     init {
         getAllFavoriteCourses()

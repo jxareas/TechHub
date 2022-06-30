@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimarySurface"
-    android:backgroundTint="@color/white"
     android:paddingHorizontal="@dimen/margin_high"
     android:theme="@style/TechHub.Light"
     android:transitionName="@string/search_view_transition"
@@ -17,10 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_standard"
-        android:background="@color/tech_anti_flash_white"
-        android:transitionName="@string/search_results_transition"
+        android:background="?attr/colorPrimaryContainer"
         android:imeOptions="actionSearch"
         android:inputType="textCapWords"
+        android:transitionName="@string/search_results_transition"
         app:iconifiedByDefault="false"
         app:layout_constraintTop_toTopOf="parent"
         app:queryBackground="@null" />
@@ -34,7 +33,7 @@
         android:background="?attr/selectableItemBackground"
         android:text="Recently Viewed"
         android:textAppearance="?attr/textAppearanceHeadlineSmall"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view_explore_courses" />
 

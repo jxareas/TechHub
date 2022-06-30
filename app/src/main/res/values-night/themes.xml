@@ -1,16 +1,45 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.TechHub" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+<resources>
+
+
+    <style name="TechHub.Blue" parent="@style/ThemeOverlay.MaterialComponents.Light">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/tech_blue_700</item>
+        <item name="colorSecondary">@color/tech_deep_orange</item>
+        <item name="colorSecondaryVariant">@color/tech_deep_orange</item>
+        <item name="colorOnPrimary">#fff</item>
+        <item name="colorPrimarySurface">@color/black</item>
+        <item name="colorOnPrimarySurface">@color/white</item>
     </style>
+
+    <style name="TechHub.Orange">
+        <item name="colorPrimary">@color/tech_deep_orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/tech_blue_800</item>
+        <item name="colorSecondary">@color/tech_yellow_500</item>
+        <item name="colorSecondaryVariant">@color/tech_yellow_200</item>
+        <item name="colorSecondaryContainer">@color/tech_prussian_blue_dark</item>
+        <item name="colorOnSurface">@color/dark_blue_grey</item>
+    </style>
+
+    <style name="TechHub.Orange.Alternate">
+        <item name="colorPrimary">@color/tech_deep_orange</item>
+        <item name="colorPrimaryVariant">@color/tech_blue_800</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/tech_pink_600</item>
+        <item name="colorPrimaryContainer">@color/dark_blue_grey</item>
+    </style>
+
+    <style name="TechHub.Light">
+        <item name="colorPrimary">@color/dark_blue_grey</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorPrimarySurface">@color/tech_matte_black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/tech_deep_orange</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorSecondaryVariant">@color/tech_matte_black</item>
+        <item name="colorPrimaryContainer">@color/dark_blue_grey</item>
+        <item name="transitionShapeAppearance">@style/ShapeAppearance.TechHub.SmallComponent</item>
+    </style>
+
+
 </resources>

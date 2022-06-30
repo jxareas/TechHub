@@ -9,6 +9,7 @@
 
     <color name="tech_blue_200">#91a4fc</color>
     <color name="tech_blue_700">#0336ff</color>
+    <color name="tech_blue_700_darker">#2939ff</color>
     <color name="tech_blue_800">#0035c9</color>
     <color name="tech_persian_blue">#4A22F4</color>
     <color name="tech_prussian_blue_dark">#0A102D</color>
@@ -25,7 +26,7 @@
     <color name="tech_anti_flash_white">#F4F6F9</color>
     <color name="tech_pink_white">#F5E5ED</color>
     <color name="tech_matte_black">#171717</color>
-
+    <color name="tech_reventon">#383838</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -34,8 +35,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_orange">#FD7500</color>
     <color name="polished_white">#F0F8FF</color>
     <color name="dark_blue_grey">#313333</color>
+    <color name="grey_400">#E9E9E9</color>
 
     <!--background protection for nav-bar, varied on Q+-->
     <color name="immersive_sys_ui">#33000000</color>

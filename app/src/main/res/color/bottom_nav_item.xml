@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <item
-      android:state_checked="true"
-      android:color="?attr/colorSecondary"/>
-  <item android:color="#fff"/> <!--always white, invariant of theme-->
+    <item android:color="?attr/colorSecondary" android:state_checked="true" />
+    <item android:color="#fff" /> <!--always white, invariant of theme-->
 
 </selector>

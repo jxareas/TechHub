@@ -4,25 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white"
     android:background="?attr/colorPrimarySurface"
     android:paddingHorizontal="@dimen/margin_standard"
     android:theme="@style/TechHub.Light"
     android:transitionName="@string/search_results_transition"
     tools:context=".ui.courses.CoursesFragment">
 
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view_explore_courses"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_standard"
-        android:background="@color/tech_anti_flash_white"
-        android:imeOptions="actionSearch"
-        android:inputType="textCapWords"
-        app:iconifiedByDefault="false"
-        app:layout_constraintTop_toTopOf="parent"
-        app:queryBackground="@null" />
 
     <TextView
         android:id="@+id/text_view_recently_viewed"
@@ -31,11 +18,11 @@
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_standard"
         android:background="?attr/selectableItemBackground"
-        android:text="Search Results"
+        android:text="@string/search_results"
         android:textAppearance="?attr/textAppearanceHeadlineSmall"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_view_explore_courses" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.recyclerview.widget.RecyclerView

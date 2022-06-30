@@ -2,32 +2,38 @@
 
 <resources>
 
-  <style
-      name="Widget.TechHub.BottomNavigationView"
-      parent="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface">
-    <item name="labelVisibilityMode">selected</item>
-    <item name="itemIconTint">@color/bottom_nav_item</item>
-    <item name="itemTextColor">@color/bottom_nav_item</item>
-    <item name="itemTextAppearanceActive">@style/TextAppearance.TechHub.BottomNavigation</item>
-  </style>
+    <style name="Widget.TechHub.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">?attr/colorPrimary</item>
+    </style>
 
-  <style name="ShapeAppearanceOverlay.TechHub.CornerSize50Percent" parent="">
-    <item name="cornerSize">50%</item>
-  </style>
+    <style name="Widget.TechHub.BottomNavigationView" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">
+            @style/Widget.TechHub.BottomNavigationView.ActiveIndicator
+        </item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="colorSecondaryContainer">?attr/colorSecondaryContainer</item>
+        <item name="labelVisibilityMode">selected</item>
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="itemTextColor">@color/bottom_nav_item</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.TechHub.BottomNavigation</item>
+    </style>
 
-  <style name="Widget.TechHub.SeekBar" parent="@style/Widget.AppCompat.SeekBar">
-    <item name="android:progressTint">@color/tech_yellow_500</item>
-    <item name="android:secondaryProgressTint">#99ffffff</item>
-    <item name="android:thumbTint">@color/tech_yellow_500</item>
-    <item name="android:progressDrawable">@drawable/seekbar_track</item>
-    <item name="android:paddingStart">0dp</item>
-    <item name="android:paddingEnd">0dp</item>
-  </style>
+    <style name="ShapeAppearanceOverlay.TechHub.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 
-  <style name="Widget.TechHub.TextAppearance.Toolbar"
-    parent="TextAppearance.Material3.ActionBar.Title">
-    <item name="android:fontFamily">@font/lato</item>
-    <item name="android:textStyle">bold</item>
-  </style>
+    <style name="Widget.TechHub.SeekBar" parent="@style/Widget.AppCompat.SeekBar">
+        <item name="android:progressTint">@color/tech_yellow_500</item>
+        <item name="android:secondaryProgressTint">#99ffffff</item>
+        <item name="android:thumbTint">@color/tech_yellow_500</item>
+        <item name="android:progressDrawable">@drawable/seekbar_track</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <style name="Widget.TechHub.TextAppearance.Toolbar" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

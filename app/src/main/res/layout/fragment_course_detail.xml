@@ -48,19 +48,19 @@
                 android:layout_width="@dimen/icon_default_width"
                 android:layout_height="@dimen/icon_default_height"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginBottom="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:src="@drawable/arrow_expand_vertical"
-                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_view_course_photo" />
 
             <ImageView
                 android:id="@+id/icon_favorites"
                 android:layout_width="@dimen/icon_default_width"
                 android:layout_height="@dimen/icon_default_height"
                 android:layout_marginEnd="@dimen/margin_standard"
-                android:layout_marginBottom="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:src="@drawable/ic_favorite_selector"
-                app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
+                app:layout_constraintTop_toBottomOf="@id/image_view_course_photo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tint="@color/tech_pink_600" />
 

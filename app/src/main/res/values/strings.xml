@@ -3,7 +3,7 @@
     <string name="search_courses">Search courses</string>
     <string name="add">Add</string>
     <string name="you_ll_also_like">You\'ll Also Like</string>
-    <string name="course_steps">%1$s / %2$s</string>
+    <string name="course_steps">%1$d / %2$d</string>
     <string name="card_item_transition">Card Transition</string>
     <string name="course_detail_transition">Course Detail</string>
     <string name="poster_transition">Poster Transition</string>
@@ -15,8 +15,9 @@
 
     <!--sample data-->
     <string name="course_desc">This video course introduces the photography of structures, including urban and rural buildings, monuments, and less traditional structures. Instruction includes the handling of equipment and methods used to capture building interiors and exteriors. The discussion will be about the handling of distortion, varied light sources, and perspective.</string>
-    <string name="what_you_ll_need">What You\'ll Need:</string>
-    <string name="needs">• DSLR or manual camera\n• 24mm wide angle lens\n• Tripod</string>
+    <string name="more_information">More Information</string>
+    <string name="course_steps_information">This course is currently in the session #%1$d of a total of %2$d available sessions.</string>
+    <string name="course_steps_information_tools">This course is currently in the session #11 of a total of 40 available sessions.</string>
     <string name="step_0">Identify the right aperture for your scene\'s depth of field to achieve the best clarity. Use a narrower aperture so that the entire scene remains in focus.</string>
     <string name="step_1">Frame the subject of your landscape by making use of the lines and angles present in your scene. Look out for curves, textures, triangles, thirds, and other shapes that improve your composition.</string>
     <string name="step_2">Find the time of the day with the best light conditions for your scene. Balance the light sources in your composition so that both light and shadows are present, adding depth, texture, and scale to your landscape.</string>
@@ -26,5 +27,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_results">Search Results</string>
     <string name="course_detail_image_transition">Course Detail Image</string>
+    <string name="content_description_course_photo">Course photo</string>
+    <string name="content_description_expand_course_photo">Expand course photo</string>
+    <string name="content_description_add_to_favorites">Add to favorites</string>
+    <string name="recently_viewed">Recently Viewed</string>
+    <string name="content_description_instructor_photo">Instructor photo</string>
+    <string name="content_description_course_name">Course name</string>
+    <string name="content_description_topic_name">Topic</string>
 
 </resources>

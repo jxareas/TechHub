@@ -13,7 +13,6 @@ class RecentCourseViewHolder(
     private val listener: CourseAdapterListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
-
     fun bind(course: Course) = binding.run {
         val transitionName = root.context.getString(R.string.card_item_transition)
         ViewCompat.setTransitionName(root, "$transitionName${course.courseId}")

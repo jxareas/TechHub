@@ -24,7 +24,8 @@
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:title="Welcome to TechHub"
             app:titleTextAppearance="@style/Widget.TechHub.TextAppearance.Toolbar"
-            app:titleTextColor="?attr/colorOnPrimary" />
+            app:titleTextColor="?attr/colorOnPrimary"
+            tools:ignore="RtlSymmetry" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

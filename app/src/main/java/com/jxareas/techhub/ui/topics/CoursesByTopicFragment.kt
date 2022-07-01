@@ -91,11 +91,11 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, item: Course) {
         val extras =
             FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_transition))
         val directions =
-            CoursesByTopicFragmentDirections.coursesByTopicToDetail(course.courseId)
+            CoursesByTopicFragmentDirections.coursesByTopicToDetail(item.courseId)
         findNavController().navigate(directions, extras)
     }
 

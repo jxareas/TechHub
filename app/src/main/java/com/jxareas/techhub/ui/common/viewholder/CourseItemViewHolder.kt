@@ -16,13 +16,10 @@ class CourseItemViewHolder(
     fun bind(course: Course) = binding.run {
         val transitionName = root.context.getString(R.string.card_item_transition)
         ViewCompat.setTransitionName(root, "$transitionName${course.courseId}")
-        val steps = root.context.getString(
-            R.string.course_steps,
-            course.step.toString(),
-            course.steps.toString()
-        )
         textViewCourseName.text = course.name
-        textViewCourseSteps.text = steps
+        textViewCourseSteps.text = itemView.context.getString(
+            R.string.course_steps, course.step, course.steps
+        )
         imageViewCourseImage.loadImage(course.coursePhoto, true)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
         root.setOnClickListener { listener.onClicked(root, course) }

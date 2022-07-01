@@ -11,5 +11,6 @@
     <integer name="material_motion_duration_long_3">400</integer>
     <integer name="bottom_navigation_fade_in">600</integer>
     <integer name="bottom_navigation_fade_out">300</integer>
+    <integer name="transition_postpone_default">1000</integer>
 
 </resources>

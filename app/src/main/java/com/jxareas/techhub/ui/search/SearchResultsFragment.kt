@@ -75,12 +75,12 @@ class SearchResultsFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, item: Course) {
         val transitionName = getString(R.string.course_detail_transition)
         val extras =
             FragmentNavigatorExtras(viewGroup to transitionName)
         val direction =
-            SearchResultsFragmentDirections.actionSearchResultsToDetails(course.courseId)
+            SearchResultsFragmentDirections.actionSearchResultsToDetails(item.courseId)
         findNavController().navigate(direction, extras)
     }
 

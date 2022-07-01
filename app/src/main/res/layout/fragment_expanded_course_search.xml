@@ -31,7 +31,7 @@
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_standard"
         android:background="?attr/selectableItemBackground"
-        android:text="Recently Viewed"
+        android:text="@string/recently_viewed"
         android:textAppearance="?attr/textAppearanceHeadlineSmall"
         android:textColor="?attr/colorOnPrimary"
         app:layout_constraintStart_toStartOf="parent"

@@ -29,6 +29,7 @@ import com.jxareas.techhub.utils.extensions.getCurrentDateTime
 import com.jxareas.techhub.utils.extensions.getLong
 import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class CourseDetailFragment : Fragment(), CourseAdapterListener {
@@ -58,7 +59,8 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
             pathMotion = MaterialArcMotion()
             duration = resources.getLong(R.integer.material_motion_duration_medium_1)
         }
-        postponeEnterTransition()
+        val postponeTransitionDuration = resources.getLong(R.integer.transition_postpone_default)
+        postponeEnterTransition(postponeTransitionDuration, TimeUnit.MILLISECONDS)
     }
 
     override fun onCreateView(
@@ -116,7 +118,10 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
         textViewCourseDescription.text = course.description
         textViewTopic.text = course.topicName
         textViewInstructorName.text = course.instructorName
+        textViewCourseStepsInfo.text =
+            getString(R.string.course_steps_information, course.step, course.steps)
         iconFavorites.isActivated = course.favorite
+
         Glide.with(imageViewCoursePhoto)
             .load(course.coursePhoto)
             .listener(object : RequestListener<Drawable> {
@@ -152,9 +157,9 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, item: Course) {
         val directions =
-            CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(course.courseId)
+            CourseDetailFragmentDirections.actionCourseDetailFragmentSelf(item.courseId)
         findNavController().navigate(directions)
     }
 

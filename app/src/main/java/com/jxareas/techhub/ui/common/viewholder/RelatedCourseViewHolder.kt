@@ -14,12 +14,9 @@ class RelatedCourseViewHolder(
 
     fun bind(course: Course) = binding.run {
         textViewCourseName.text = course.name
-        val steps = root.context.getString(
-            R.string.course_steps,
-            course.step.toString(),
-            course.steps.toString()
+        textViewCourseSteps.text = itemView.context.getString(
+            R.string.course_steps, course.step, course.steps
         )
-        textViewCourseSteps.text = steps
         imageViewCourse.loadImage(course.coursePhoto)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
         root.setOnClickListener { listener.onClicked(root, course) }

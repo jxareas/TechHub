@@ -122,11 +122,11 @@ class ExpandedSearchFragment : Fragment(), CourseAdapterListener {
         _binding = null
     }
 
-    override fun onClicked(viewGroup: ViewGroup, course: Course) {
+    override fun onClicked(viewGroup: ViewGroup, item: Course) {
         val extras =
             FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_transition))
         val direction =
-            ExpandedSearchFragmentDirections.actionExpandedToDetail(course.courseId)
+            ExpandedSearchFragmentDirections.actionExpandedToDetail(item.courseId)
         findNavController().navigate(direction, extras)
     }
 

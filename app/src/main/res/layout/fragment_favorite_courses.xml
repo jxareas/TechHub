@@ -24,7 +24,8 @@
             android:paddingStart="@dimen/grid_2"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:title="@string/app_name"
-            app:titleTextAppearance="@style/Widget.TechHub.TextAppearance.Toolbar" />
+            app:titleTextAppearance="@style/Widget.TechHub.TextAppearance.Toolbar"
+            tools:ignore="RtlSymmetry" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

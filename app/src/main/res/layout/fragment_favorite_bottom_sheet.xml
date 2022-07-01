@@ -26,7 +26,7 @@
             android:id="@+id/image_view_course"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:importantForAccessibility="no"
+            android:contentDescription="@string/content_description_course_photo"
             android:scaleType="centerCrop"
             tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -38,6 +38,7 @@
         android:layout_width="@dimen/image_view_instructor_mini"
         android:layout_height="@dimen/image_view_instructor_mini"
         android:background="@drawable/ic_avatar_placeholder"
+        android:contentDescription="@string/content_description_instructor_photo"
         android:elevation="@dimen/elevation_small"
         android:foreground="@drawable/avatar_outline"
         app:layout_constraintBottom_toBottomOf="@id/card_view"
@@ -50,6 +51,7 @@
         android:layout_width="@dimen/icon_default_width"
         android:layout_height="@dimen/icon_default_height"
         android:layout_marginTop="@dimen/margin_low"
+        android:contentDescription="@string/content_description_add_to_favorites"
         android:src="@drawable/ic_favorite_selector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

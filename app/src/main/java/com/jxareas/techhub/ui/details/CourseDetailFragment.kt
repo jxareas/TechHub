@@ -29,7 +29,6 @@ import com.jxareas.techhub.utils.extensions.getCurrentDateTime
 import com.jxareas.techhub.utils.extensions.getLong
 import com.jxareas.techhub.utils.extensions.loadImage
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class CourseDetailFragment : Fragment(), CourseAdapterListener {
@@ -59,8 +58,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
             pathMotion = MaterialArcMotion()
             duration = resources.getLong(R.integer.material_motion_duration_medium_1)
         }
-        val postponeTransitionDuration = resources.getLong(R.integer.transition_postpone_default)
-        postponeEnterTransition(postponeTransitionDuration, TimeUnit.MILLISECONDS)
+        postponeEnterTransition()
     }
 
     override fun onCreateView(
@@ -130,7 +128,7 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
                     model: Any?,
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
-                ): Boolean = false.also { startPostponedEnterTransition() }
+                ): Boolean = false
 
                 override fun onResourceReady(
                     resource: Drawable?,

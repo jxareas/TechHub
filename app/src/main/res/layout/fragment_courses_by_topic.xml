@@ -7,11 +7,21 @@
     android:background="?attr/colorPrimarySurface"
     android:theme="@style/TechHub.Blue">
 
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_high"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/text_view_topic_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_standard"
+        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
         android:gravity="center"
         android:paddingVertical="@dimen/grid_1"
@@ -21,8 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@sample/topics.json/data/name"
-        tools:textSize="32sp" />
+        tools:text="@sample/topics.json/data/name" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_courses"

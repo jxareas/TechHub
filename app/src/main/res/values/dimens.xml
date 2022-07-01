@@ -15,8 +15,11 @@
     <dimen name="image_view_instructor_height">50dp</dimen>
     <dimen name="image_view_instructor_width">50dp</dimen>
 
+    <dimen name="image_view_instructor_height_land">30dp</dimen>
+    <dimen name="image_view_instructor_width_land">30dp</dimen>
 
 
+    <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_low">8dp</dimen>
     <dimen name="margin_standard">16dp</dimen>
     <dimen name="margin_high">32dp</dimen>
@@ -28,6 +31,7 @@
     <dimen name="icon_default_height">32dp</dimen>
     <dimen name="list_item_mini">60dp</dimen>
     <dimen name="elevation_small">4dp</dimen>
+    <dimen name="landscape_searchview_height">35dp</dimen>
 
 
 </resources>

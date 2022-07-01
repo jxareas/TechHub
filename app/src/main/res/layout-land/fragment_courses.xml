@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimarySurface"
+    android:theme="@style/TechHub.Orange.Alternate"
+    tools:context=".ui.courses.CoursesFragment">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_explore_courses"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/landscape_searchview_height"
+        android:layout_marginHorizontal="@dimen/margin_high"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:background="?attr/colorPrimaryContainer"
+        android:clickable="false"
+        android:focusable="false"
+        android:transitionName="@string/search_view_transition"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:queryBackground="@null" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout_explore_courses"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_low"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view_explore_courses">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_courses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/margin_standard"
+            android:paddingBottom="?attr/actionBarSize"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:itemCount="10"
+            tools:listitem="@layout/list_item_course_card" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/grid_0_5"
     android:background="?attr/colorOnSurface"
+    android:foreground="?attr/selectableItemBackground"
     android:theme="@style/TechHub.Orange">
 
     <ImageView
@@ -29,6 +30,7 @@
         android:layout_height="@dimen/image_view_instructor_height"
         android:background="@drawable/ic_avatar_placeholder"
         android:contentDescription="@string/content_description_instructor_photo"
+        android:foreground="@drawable/avatar_outline"
         android:src="@drawable/avatar_outline"
         app:layout_constraintBottom_toBottomOf="@id/image_view_course_photo"
         app:layout_constraintEnd_toEndOf="parent"

@@ -34,5 +34,6 @@
     <string name="content_description_instructor_photo">Instructor photo</string>
     <string name="content_description_course_name">Course name</string>
     <string name="content_description_topic_name">Topic</string>
+    <string name="content_description_session_icon">Session Icon</string>
 
 </resources>

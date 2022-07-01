@@ -21,6 +21,7 @@ import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.ui.common.adapters.CourseListAdapter
 import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
+import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,15 +38,15 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
-            duration = 600L
+            duration = resources.getLong(R.integer.anticipate_or_overshoot)
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
-            interpolator = AnticipateOvershootInterpolator(0.8f)
+            interpolator = AnticipateOvershootInterpolator(.8f)
             pathMotion = MaterialArcMotion()
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
-            duration = 600L
+            duration = resources.getLong(R.integer.anticipate_or_overshoot)
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
             interpolator = OvershootInterpolator(1f)
             scrimColor = Color.TRANSPARENT
@@ -72,6 +73,9 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
 
     private fun setupViews() {
         binding.textViewTopicName.text = args.topic
+        binding.icBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     private fun setupRecyclerView() = binding.recyclerViewCourses.run {

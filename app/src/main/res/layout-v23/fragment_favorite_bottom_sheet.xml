@@ -40,6 +40,7 @@
         android:background="@drawable/ic_avatar_placeholder"
         android:contentDescription="@string/content_description_instructor_photo"
         android:elevation="@dimen/elevation_small"
+        android:foreground="@drawable/avatar_outline"
         app:layout_constraintBottom_toBottomOf="@id/card_view"
         app:layout_constraintEnd_toEndOf="@id/card_view"
         app:layout_constraintTop_toBottomOf="@id/card_view"

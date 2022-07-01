@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.OvershootInterpolator
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
-import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,7 +21,6 @@ import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.ui.common.adapters.CourseListAdapter
 import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
-import com.jxareas.techhub.utils.extensions.getLong
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,16 +37,17 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = MaterialContainerTransform().apply {
-            duration = resources.getLong(R.integer.material_motion_duration_long_2)
+            duration = 600L
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
-            interpolator = FastOutSlowInInterpolator()
+            interpolator = AnticipateOvershootInterpolator(0.8f)
             pathMotion = MaterialArcMotion()
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
-            duration = resources.getLong(R.integer.material_motion_duration_long_2)
-            interpolator = LinearOutSlowInInterpolator()
+            duration = 600L
+            fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
+            interpolator = OvershootInterpolator(1f)
             scrimColor = Color.TRANSPARENT
             pathMotion = MaterialArcMotion()
         }

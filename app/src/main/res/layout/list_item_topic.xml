@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
-    android:theme="@style/TechHub.Blue">
+    android:theme="@style/TechHub.Blue"
+    tools:background="?attr/colorPrimary">
 
     <TextView
         android:id="@+id/text_view_topic_name"

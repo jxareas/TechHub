@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
-import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -47,16 +47,16 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
             drawingViewId = R.id.nav_host_fragment_main
             duration = resources.getLong(R.integer.material_motion_duration_medium_2)
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
-            interpolator = LinearOutSlowInInterpolator()
+            interpolator = FastOutSlowInInterpolator()
             scrimColor = Color.TRANSPARENT
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
             drawingViewId = R.id.nav_host_fragment_main
             scrimColor = Color.TRANSPARENT
-            fadeMode = MaterialContainerTransform.FADE_MODE_OUT
-            interpolator = FastOutSlowInInterpolator()
+            fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
+            interpolator = DecelerateInterpolator()
             pathMotion = MaterialArcMotion()
-            duration = resources.getLong(R.integer.material_motion_duration_medium_2)
+            duration = resources.getLong(R.integer.material_motion_duration_medium_1)
         }
         postponeEnterTransition()
     }

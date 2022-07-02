@@ -1,9 +1,11 @@
 package com.jxareas.techhub.ui.courses
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,7 +16,10 @@ import com.jxareas.techhub.databinding.FragmentCoursesBinding
 import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.ui.common.adapters.CourseCardAdapter
 import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
+import com.jxareas.techhub.utils.RequestStatus
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
+import com.jxareas.techhub.utils.extensions.gone
+import com.jxareas.techhub.utils.extensions.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,13 +43,18 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
         return binding.root
     }
 
-    private fun setupListeners() = binding.searchViewExploreCourses.run {
-        setOnQueryTextFocusChangeListener { searchView, hasFocus ->
+    private fun setupListeners() = binding.run {
+        swipeRefreshLayoutExploreCourses.setOnRefreshListener {
+            viewModel.onRefreshData()
+            swipeRefreshLayoutExploreCourses.isRefreshing = false
+        }
+
+        searchViewExploreCourses.setOnQueryTextFocusChangeListener { searchView, hasFocus ->
             if (hasFocus)
                 searchView.clearFocus().also { navigateToExpandedSearch(searchView) }
         }
 
-        setOnClickListener { searchView -> navigateToExpandedSearch(searchView) }
+        searchViewExploreCourses.setOnClickListener { searchView -> navigateToExpandedSearch(searchView) }
     }
 
     private fun navigateToExpandedSearch(searchView: View) {
@@ -65,6 +75,27 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     private fun setupObservers() {
         viewModel.courses.observe(viewLifecycleOwner) { listOfCourses ->
             listOfCourses?.let { newCourses -> courseCardAdapter.submitList(newCourses) }
+        }
+        viewModel.state.observe(viewLifecycleOwner) { requestStatus ->
+            requestStatus?.let { newStatus ->
+                handleStatus(newStatus) }
+        }
+    }
+
+    private fun handleStatus(newStatus: RequestStatus) = binding.run {
+        when (newStatus) {
+            RequestStatus.LOADING -> {
+                circularProgressIndicator.visible()
+            }
+            RequestStatus.DONE -> {
+                circularProgressIndicator.gone()
+            }
+            RequestStatus.ERROR -> {
+                circularProgressIndicator.gone()
+                Log.d("SOMETHING", "ERROR HANDLED BY THE VIEW")
+                Toast.makeText(requireContext(), "An error ocurred fetching the data.", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 

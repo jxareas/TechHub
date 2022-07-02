@@ -6,7 +6,7 @@ import com.jxareas.techhub.data.cache.relations.CourseWithFavorite
 import com.jxareas.techhub.data.cache.relations.FavoriteCourse
 import com.jxareas.techhub.domain.model.Course
 
-fun GetOneCourseResponse.toCachedCourseWithFavorite(): CourseWithFavorite =
+fun GetOneCourseResponse.toCourseWithFavorite(): CourseWithFavorite =
     CourseWithFavorite(
         course = CachedCourse(
             name = this.name,

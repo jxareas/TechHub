@@ -1,18 +1,21 @@
 package com.jxareas.techhub.domain.repository
 
-import com.jxareas.techhub.data.api.dto.response.GetOneCourseResponse
 import com.jxareas.techhub.data.api.service.CourseService
 import com.jxareas.techhub.data.cache.dao.CourseDao
 import com.jxareas.techhub.data.mappers.toCached
-import com.jxareas.techhub.data.mappers.toCachedCourseWithFavorite
+import com.jxareas.techhub.data.mappers.toCourseWithFavorite
 import com.jxareas.techhub.data.mappers.toDomain
 import com.jxareas.techhub.data.repository.CourseRepository
 import com.jxareas.techhub.domain.model.Course
 import com.jxareas.techhub.utils.DispatcherProvider
+import com.skydoves.sandwich.StatusCode
+import com.skydoves.sandwich.suspendOnError
+import com.skydoves.sandwich.suspendOnException
+import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 class CourseRepositoryImpl @Inject constructor(
@@ -21,17 +24,31 @@ class CourseRepositoryImpl @Inject constructor(
     private val dispatchers: DispatcherProvider,
 ) : CourseRepository {
 
-    override suspend fun getAllCourses(onLoadingFinished: () -> Unit): Flow<List<Course>> =
-        flow {
-            var courses = courseDao.getAll()
-            if (courses.isEmpty()) {
-                val response = courseService.getCourses()
-                courses = response.map(GetOneCourseResponse::toCachedCourseWithFavorite)
-                courseDao.insertAll(courses.map { it.course })
-                emit(courses.map { it.toDomain() })
-            } else emit(courses.map { it.toDomain() })
 
-        }.onCompletion { onLoadingFinished() }.flowOn(dispatchers.io)
+    override suspend fun getAllCourses(
+        onInit: () -> Unit,
+        onError: (StatusCode?) -> Unit,
+        onSuccess: () -> Unit
+    ): Flow<List<Course>> = flow {
+        var courses = courseDao.getAll()
+        if (courses.isEmpty())
+            courseService.fetchCourses()
+                .suspendOnSuccess {
+                    courses = data.map { it.toCourseWithFavorite() }
+                    courseDao.insertAll(courses.map { it.course })
+                    emit(courses.map { it.toDomain() })
+                    onSuccess()
+                }
+                .suspendOnError {
+                    onError(statusCode)
+                }
+                .suspendOnException {
+                    onError(null)
+                }
+        else emit(courses.map { it.toDomain() }).also { onSuccess() }
+    }
+        .onStart { onInit() }
+        .flowOn(dispatchers.io)
 
     override suspend fun getCoursesByName(course: String): Flow<List<Course>> = flow {
         emit(courseDao.getAllCoursesByName(course).map { it.toDomain() })

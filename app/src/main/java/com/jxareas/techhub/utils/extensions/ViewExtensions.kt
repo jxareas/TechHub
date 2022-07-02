@@ -10,9 +10,9 @@ import androidx.dynamicanimation.animation.SpringForce
 import androidx.viewbinding.ViewBinding
 import com.jxareas.techhub.utils.animation.getKey
 
-fun View.visible() = apply { visibility = View.VISIBLE }
+fun View.visible() = run { visibility = View.VISIBLE }
 
-fun View.gone() = apply { visibility = View.GONE }
+fun View.gone() = run { visibility = View.GONE }
 
 inline infix fun <VB : ViewBinding> ViewGroup.bind(
     crossinline bindingInflater: LayoutInflater.(parent: ViewGroup, attachToParent: Boolean) -> VB

@@ -32,6 +32,7 @@
     <dimen name="list_item_mini">60dp</dimen>
     <dimen name="elevation_small">4dp</dimen>
     <dimen name="landscape_searchview_height">35dp</dimen>
+    <dimen name="progress_bar_height">75dp</dimen>
 
 
 </resources>

@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.jxareas.techhub.data.api.constants.ApiConstants
 import com.jxareas.techhub.data.api.service.CourseService
 import com.jxareas.techhub.data.api.service.TopicService
+import com.skydoves.sandwich.adapters.ApiResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,6 +44,7 @@ object NetworkModule {
         Retrofit.Builder()
             .baseUrl(ApiConstants.BASE_ENDPOINT)
             .client(client)
+            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .build()
 

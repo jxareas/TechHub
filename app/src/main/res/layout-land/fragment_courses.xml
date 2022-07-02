@@ -8,6 +8,22 @@
     android:theme="@style/TechHub.Orange.Alternate"
     tools:context=".ui.courses.CoursesFragment">
 
+
+    <ProgressBar
+        android:id="@+id/circular_progress_indicator"
+        android:layout_width="@dimen/progress_bar_height"
+        android:layout_height="@dimen/progress_bar_height"
+        android:indeterminate="true"
+        android:indeterminateTint="?attr/colorSecondaryVariant"
+        android:indeterminateTintMode="src_atop"
+        android:theme="@style/TechHub.Blue"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view_explore_courses"
         android:layout_width="match_parent"

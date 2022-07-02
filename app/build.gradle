@@ -91,11 +91,15 @@ dependencies {
     // Shimmer
     implementation "com.facebook.shimmer:shimmer:$shimmer"
 
+    // Circle Image View
+    implementation "de.hdodenhof:circleimageview:$circle_image_view"
+
+    // Sandwich
+    implementation "com.github.skydoves:sandwich:$sandwich"
+
     // Leak Canary
 /*    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary"*/
 
-    // Circle Image View
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
 }

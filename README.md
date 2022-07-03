@@ -2,7 +2,8 @@
 
 TechHub is a sample educational app that provides courses for people who want to learn new skills in tech-related areas. 
 
-The goal of this project is to demonstrate the use of modern android development practices.
+The goal of this project is to practice & demonstrate the use of some Modern Android Development Practices,
+Material Design Theming & Android Animations.
 
 ## 🕹 Animations 🕹
 

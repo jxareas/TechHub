@@ -5,12 +5,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jxareas.techhub.R
 import com.jxareas.techhub.databinding.ListItemCourseMiniBinding
 import com.jxareas.techhub.domain.model.Course
-import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.utils.extensions.loadImage
 
 class RecentCourseViewHolder(
-    private val binding: ListItemCourseMiniBinding,
-    private val listener: CourseAdapterListener
+    private val binding: ListItemCourseMiniBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(course: Course) = binding.run {
@@ -19,7 +17,6 @@ class RecentCourseViewHolder(
         textViewCourseName.text = course.name
         imageViewCourseImage.loadImage(course.coursePhoto, true)
         imageViewInstructorPhoto.loadImage(course.instructorPhoto)
-        root.setOnClickListener { listener.onClicked(root, course) }
     }
 
 }

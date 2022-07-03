@@ -10,6 +10,8 @@ import androidx.dynamicanimation.animation.SpringForce
 import androidx.viewbinding.ViewBinding
 import com.jxareas.techhub.utils.animation.getKey
 
+fun View.viewGroup(): ViewGroup = this as ViewGroup
+
 fun View.visible() = run { visibility = View.VISIBLE }
 
 fun View.gone() = run { visibility = View.GONE }

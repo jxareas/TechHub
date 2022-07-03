@@ -15,9 +15,13 @@ class TopicListAdapter(private val listener: TopicAdapterListener) :
         AsyncDifferConfig.Builder(TopicDiffCallback).build()
     ) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicViewHolder =
-        TopicViewHolder(parent bind ListItemTopicBinding::inflate, listener)
+        TopicViewHolder(parent bind ListItemTopicBinding::inflate).apply {
+            val topic by lazy { currentList[adapterPosition] }
+            itemView.setOnClickListener { view ->
+                listener.onClicked(view as ViewGroup, topic)
+            }
+        }
 
     override fun onBindViewHolder(holder: TopicViewHolder, position: Int) =
         holder.bind(currentList[position])

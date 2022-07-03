@@ -17,7 +17,12 @@ class CourseCardAdapter(private val listener: CourseAdapterListener) :
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseCardViewHolder =
-        CourseCardViewHolder(parent bind ListItemCourseCardBinding::inflate, listener)
+        CourseCardViewHolder(parent bind ListItemCourseCardBinding::inflate).apply {
+            val course by lazy { currentList[adapterPosition] }
+            itemView.setOnClickListener { view ->
+                listener.onClicked(view as ViewGroup, course)
+            }
+        }
 
     override fun onBindViewHolder(holder: CourseCardViewHolder, position: Int): Unit =
         holder.bind(currentList[position])

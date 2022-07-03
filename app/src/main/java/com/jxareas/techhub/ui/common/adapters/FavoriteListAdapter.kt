@@ -21,7 +21,16 @@ class FavoriteListAdapter(private val listener: FavoriteAdapterListener) :
         parent: ViewGroup,
         viewType: Int
     ): FavoriteViewHolder =
-        FavoriteViewHolder(parent bind ListItemCourseBinding::inflate, listener)
+        FavoriteViewHolder(parent bind ListItemCourseBinding::inflate).apply {
+            val course by lazy { currentList[adapterPosition] }
+            itemView.setOnClickListener { view ->
+                listener.onClicked(view as ViewGroup, course)
+            }
+            itemView.setOnLongClickListener {
+                listener.onLongPressed(course.courseId)
+                true
+            }
+        }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) =
         holder.bind(currentList[position])

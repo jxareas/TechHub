@@ -20,7 +20,12 @@ class RelatedCoursesListAdapter(private val listener: CourseAdapterListener) :
         parent: ViewGroup,
         viewType: Int
     ): RelatedCourseViewHolder =
-        RelatedCourseViewHolder(parent bind ListItemRelatedCourseBinding::inflate, listener)
+        RelatedCourseViewHolder(parent bind ListItemRelatedCourseBinding::inflate).apply {
+            val course by lazy { currentList[adapterPosition] }
+            itemView.setOnClickListener { view ->
+                listener.onClicked(view as ViewGroup, course)
+            }
+        }
 
     override fun onBindViewHolder(holder: RelatedCourseViewHolder, position: Int) =
         holder.bind(currentList[position])

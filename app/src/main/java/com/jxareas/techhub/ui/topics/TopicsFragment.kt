@@ -61,12 +61,12 @@ class TopicsFragment : Fragment(), TopicAdapterListener {
         _binding = null
     }
 
-    override fun onTopicClicked(viewGroup: ViewGroup, topic: Topic) {
+    override fun onClicked(viewGroup: ViewGroup, item: Topic) {
         val transitionName = getString(R.string.topic_transition)
         val extras =
             FragmentNavigatorExtras(viewGroup to transitionName)
         val directions =
-            TopicsFragmentDirections.searchToCourseByTopic(topic.name)
+            TopicsFragmentDirections.searchToCourseByTopic(item.name)
         findNavController().navigate(directions, extras)
     }
 

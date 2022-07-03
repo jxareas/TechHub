@@ -1,9 +1,6 @@
 package com.jxareas.techhub.ui.common.listeners
 
-import android.view.ViewGroup
 import com.jxareas.techhub.domain.model.Topic
+import com.jxareas.techhub.ui.common.events.OnClicked
 
-@FunctionalInterface
-fun interface TopicAdapterListener {
-    fun onTopicClicked(viewGroup : ViewGroup, topic : Topic)
-}
+fun interface TopicAdapterListener : OnClicked<Topic>

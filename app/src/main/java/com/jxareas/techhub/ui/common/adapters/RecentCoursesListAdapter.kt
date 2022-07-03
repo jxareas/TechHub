@@ -16,7 +16,12 @@ class RecentCoursesListAdapter(private val listener: CourseAdapterListener) :
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentCourseViewHolder =
-        RecentCourseViewHolder(parent bind ListItemCourseMiniBinding::inflate, listener)
+        RecentCourseViewHolder(parent bind ListItemCourseMiniBinding::inflate).apply {
+            itemView.setOnClickListener { view ->
+                val course by lazy { currentList[adapterPosition] }
+                listener.onClicked(view as ViewGroup, course)
+            }
+        }
 
     override fun onBindViewHolder(holder: RecentCourseViewHolder, position: Int) =
         holder.bind(currentList[position])

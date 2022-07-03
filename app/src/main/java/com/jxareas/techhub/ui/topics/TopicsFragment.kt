@@ -10,10 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.jxareas.techhub.R
+import com.jxareas.techhub.databinding.FragmentTopicsBinding
+import com.jxareas.techhub.domain.model.Topic
 import com.jxareas.techhub.ui.common.adapters.TopicListAdapter
 import com.jxareas.techhub.ui.common.listeners.TopicAdapterListener
-import com.jxareas.techhub.data.cache.model.CachedTopic
-import com.jxareas.techhub.databinding.FragmentTopicsBinding
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -61,7 +61,7 @@ class TopicsFragment : Fragment(), TopicAdapterListener {
         _binding = null
     }
 
-    override fun onTopicClicked(viewGroup: ViewGroup, topic: CachedTopic) {
+    override fun onTopicClicked(viewGroup: ViewGroup, topic: Topic) {
         val transitionName = getString(R.string.topic_transition)
         val extras =
             FragmentNavigatorExtras(viewGroup to transitionName)

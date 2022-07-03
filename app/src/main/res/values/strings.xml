@@ -12,6 +12,7 @@
     <string name="my_courses">My Courses</string>
     <string name="featured">Featured</string>
     <string name="search">Search</string>
+    <string name="error_ocurred_fetch">An error occurred fetching the data. Please try refreshing again.</string>
 
     <!--sample data-->
     <string name="course_desc">This video course introduces the photography of structures, including urban and rural buildings, monuments, and less traditional structures. Instruction includes the handling of equipment and methods used to capture building interiors and exteriors. The discussion will be about the handling of distortion, varied light sources, and perspective.</string>
@@ -35,5 +36,6 @@
     <string name="content_description_course_name">Course name</string>
     <string name="content_description_topic_name">Topic</string>
     <string name="content_description_session_icon">Session Icon</string>
+    <string name="on_dismiss">DISMISS</string>
 
 </resources>

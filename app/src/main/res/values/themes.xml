@@ -30,8 +30,11 @@
         <item name="android:statusBarColor">@color/black</item>
 
         <!--Default styles-->
+        <item name="colorPrimary">@color/tech_deep_orange</item>
+        <item name="colorOnPrimary">@color/tech_matte_black</item>
         <item name="bottomNavigationStyle">@style/Widget.TechHub.BottomNavigationView</item>
     </style>
+
 
     <style name="TechHub" parent="@style/Base.TechHub" />
 

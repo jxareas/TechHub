@@ -18,6 +18,7 @@
         <item name="colorSecondary">@color/tech_yellow_500</item>
         <item name="colorSecondaryVariant">@color/tech_yellow_200</item>
         <item name="colorSecondaryContainer">@color/tech_prussian_blue_dark</item>
+        <item name="colorOnSecondary">@color/dark_blue_grey</item>
         <item name="colorOnSurface">@color/dark_blue_grey</item>
     </style>
 

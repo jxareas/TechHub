@@ -1,7 +1,9 @@
 package com.jxareas.techhub.ui.topics
 
 import android.graphics.Color
+import android.graphics.Path
 import android.os.Bundle
+import android.transition.PatternPathMotion
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +15,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.jxareas.techhub.R
 import com.jxareas.techhub.databinding.FragmentCoursesByTopicBinding
@@ -42,7 +43,9 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
             scrimColor = Color.TRANSPARENT
             drawingViewId = R.id.nav_host_fragment_main
             interpolator = AnticipateOvershootInterpolator(.8f)
-            pathMotion = MaterialArcMotion()
+            pathMotion = PatternPathMotion(Path().apply {
+                arcTo(0f, 0f, 1000f, 1000f, 270f, -180f, true)
+            })
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
@@ -50,7 +53,7 @@ class CoursesByTopicFragment : Fragment(), CourseAdapterListener {
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
             interpolator = OvershootInterpolator(1f)
             scrimColor = Color.TRANSPARENT
-            pathMotion = MaterialArcMotion()
+            pathMotion = PatternPathMotion()
         }
     }
 

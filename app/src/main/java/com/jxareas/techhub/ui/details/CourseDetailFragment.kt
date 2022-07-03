@@ -3,10 +3,10 @@ package com.jxareas.techhub.ui.details
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.transition.PatternPathMotion
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.DecelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
@@ -48,13 +48,15 @@ class CourseDetailFragment : Fragment(), CourseAdapterListener {
             duration = resources.getLong(R.integer.material_motion_duration_medium_2)
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
             interpolator = FastOutSlowInInterpolator()
+            pathMotion = PatternPathMotion()
             scrimColor = Color.TRANSPARENT
         }
         sharedElementReturnTransition = MaterialContainerTransform().apply {
             drawingViewId = R.id.nav_host_fragment_main
             scrimColor = Color.TRANSPARENT
             fadeMode = MaterialContainerTransform.FADE_MODE_CROSS
-            interpolator = DecelerateInterpolator()
+            fadeProgressThresholds = MaterialContainerTransform.ProgressThresholds(.1f, .2f)
+            interpolator = FastOutSlowInInterpolator()
             pathMotion = MaterialArcMotion()
             duration = resources.getLong(R.integer.material_motion_duration_medium_1)
         }

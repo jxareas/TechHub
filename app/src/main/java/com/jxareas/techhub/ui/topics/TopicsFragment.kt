@@ -15,6 +15,7 @@ import com.jxareas.techhub.domain.model.Topic
 import com.jxareas.techhub.ui.common.adapters.TopicListAdapter
 import com.jxareas.techhub.ui.common.listeners.TopicAdapterListener
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
+import com.jxareas.techhub.utils.extensions.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -67,7 +68,7 @@ class TopicsFragment : Fragment(), TopicAdapterListener {
             FragmentNavigatorExtras(viewGroup to transitionName)
         val directions =
             TopicsFragmentDirections.searchToCourseByTopic(item.name)
-        findNavController().navigate(directions, extras)
+        findNavController().safeNavigate(directions, extras)
     }
 
 }

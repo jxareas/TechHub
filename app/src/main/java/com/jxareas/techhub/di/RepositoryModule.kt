@@ -1,11 +1,11 @@
 package com.jxareas.techhub.di
 
-import com.jxareas.techhub.data.repository.CourseRepository
-import com.jxareas.techhub.data.repository.FavoriteRepository
-import com.jxareas.techhub.data.repository.TopicRepository
-import com.jxareas.techhub.domain.repository.CourseRepositoryImpl
-import com.jxareas.techhub.domain.repository.FavoriteRepositoryImpl
-import com.jxareas.techhub.domain.repository.TopicRepositoryImpl
+import com.jxareas.techhub.domain.repository.CourseRepository
+import com.jxareas.techhub.domain.repository.FavoriteRepository
+import com.jxareas.techhub.domain.repository.TopicRepository
+import com.jxareas.techhub.data.repository.CourseRepositoryImpl
+import com.jxareas.techhub.data.repository.FavoriteRepositoryImpl
+import com.jxareas.techhub.data.repository.TopicRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

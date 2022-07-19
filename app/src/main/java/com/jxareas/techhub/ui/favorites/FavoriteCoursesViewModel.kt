@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jxareas.techhub.data.repository.FavoriteRepository
+import com.jxareas.techhub.domain.repository.FavoriteRepository
 import com.jxareas.techhub.domain.model.Course
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest

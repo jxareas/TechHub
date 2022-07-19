@@ -18,6 +18,7 @@ import com.jxareas.techhub.ui.common.adapters.CourseCardAdapter
 import com.jxareas.techhub.ui.common.listeners.CourseAdapterListener
 import com.jxareas.techhub.utils.RequestStatus
 import com.jxareas.techhub.utils.animation.SpringAddItemAnimator
+import com.jxareas.techhub.utils.extensions.safeNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentCoursesBinding.inflate(inflater, container, false)
         setupRecyclerView()
@@ -63,8 +64,8 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
         val extras = FragmentNavigatorExtras(
             searchView to transitionName
         )
-        val direction = CoursesFragmentDirections.actionCoursesToExpandedSearch()
-        findNavController().navigate(direction, extras)
+        val directions = CoursesFragmentDirections.actionCoursesToExpandedSearch()
+        findNavController().navigate(directions, extras)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -87,7 +88,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
     private fun handleStatus(newStatus: RequestStatus) = binding.run {
         when (newStatus) {
             RequestStatus.LOADING -> {
-                binding.swipeRefreshLayoutExploreCourses.isRefreshing = true
+                swipeRefreshLayoutExploreCourses.isRefreshing = true
             }
             RequestStatus.DONE -> {
                 swipeRefreshLayoutExploreCourses.isRefreshing = false
@@ -135,7 +136,7 @@ class CoursesFragment : Fragment(), CourseAdapterListener {
             FragmentNavigatorExtras(viewGroup to getString(R.string.course_detail_transition))
         val direction =
             CoursesFragmentDirections.coursesToDetailFragment(item.courseId)
-        findNavController().navigate(direction, extras)
+        findNavController().safeNavigate(direction, extras)
     }
 
 }

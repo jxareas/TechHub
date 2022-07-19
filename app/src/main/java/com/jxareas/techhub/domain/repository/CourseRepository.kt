@@ -1,4 +1,4 @@
-package com.jxareas.techhub.data.repository
+package com.jxareas.techhub.domain.repository
 
 import com.jxareas.techhub.domain.model.Course
 import com.skydoves.sandwich.StatusCode

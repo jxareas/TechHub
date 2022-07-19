@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jxareas.techhub.data.repository.TopicRepository
+import com.jxareas.techhub.domain.repository.TopicRepository
 import com.jxareas.techhub.domain.model.Topic
 import com.jxareas.techhub.utils.RequestStatus
 import dagger.hilt.android.lifecycle.HiltViewModel

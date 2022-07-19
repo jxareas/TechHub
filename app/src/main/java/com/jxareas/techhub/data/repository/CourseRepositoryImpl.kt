@@ -1,12 +1,12 @@
-package com.jxareas.techhub.domain.repository
+package com.jxareas.techhub.data.repository
 
 import com.jxareas.techhub.data.api.service.CourseService
 import com.jxareas.techhub.data.cache.dao.CourseDao
 import com.jxareas.techhub.data.mappers.toCached
 import com.jxareas.techhub.data.mappers.toCourseWithFavorite
 import com.jxareas.techhub.data.mappers.toDomain
-import com.jxareas.techhub.data.repository.CourseRepository
 import com.jxareas.techhub.domain.model.Course
+import com.jxareas.techhub.domain.repository.CourseRepository
 import com.jxareas.techhub.utils.DispatcherProvider
 import com.skydoves.sandwich.StatusCode
 import com.skydoves.sandwich.suspendOnError

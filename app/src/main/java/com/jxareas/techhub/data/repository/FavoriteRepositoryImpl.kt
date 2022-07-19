@@ -1,10 +1,10 @@
-package com.jxareas.techhub.domain.repository
+package com.jxareas.techhub.data.repository
 
 import com.jxareas.techhub.data.cache.dao.FavoriteDao
 import com.jxareas.techhub.data.cache.model.CachedFavorite
 import com.jxareas.techhub.data.mappers.toDomain
-import com.jxareas.techhub.data.repository.FavoriteRepository
 import com.jxareas.techhub.domain.model.Course
+import com.jxareas.techhub.domain.repository.FavoriteRepository
 import com.jxareas.techhub.utils.DispatcherProvider
 import com.jxareas.techhub.utils.extensions.getCurrentDateTime
 import kotlinx.coroutines.flow.Flow
